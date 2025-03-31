@@ -6,7 +6,7 @@
 #    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/03/31 14:51:08 by meferraz         ###   ########.fr        #
+#    Updated: 2025/03/31 15:35:38 by meferraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #                              MINISHELL PROJECT                               #
 #==============================================================================#
 
-NAME        = cube3d
+NAME        = cub3d
 
 #------------------------------------------------------------------------------#
 #                                COLORS & STYLES                               #
@@ -44,11 +44,11 @@ BUILD_PATH  = .build
 SRC_PATH    = src
 INC_PATH    = inc
 LIBFT_PATH  = 42_Libft
-LIBFT_ARC   = $(LIBFT_PATH)/libft.a
 
-HEADERS     = $(addprefix $(INC_PATH)/, )
+HEADERS     = $(addprefix $(INC_PATH)/, ansi.h cub3d.h macros.h prototypes.h types.h)
 
-SRCS        = $(SRC_PATH)/000_intro.c
+SRCS        = $(SRC_PATH)/000_intro.c \
+              $(SRC_PATH)/100_main.c
 
 OBJS        = $(SRCS:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
 
@@ -62,13 +62,22 @@ RM          = rm -fr
 MKDIR       = mkdir -p
 INCLUDES    = -I$(INC_PATH)
 LDFLAGS     = -L$(LIBFT_PATH) -lft
-MAKE_LIBFT  = $(MAKE) -C $(LIBFT_PATH)
+
+ifeq ($(shell uname), Darwin)
+	MINILIBX_PATH := lib/minilibx_opengl_20191021
+	MLXFLAGS := -L$(MINILIBX_PATH) -lmlx -framework OpenGL -framework AppKit
+else
+	MINILIBX_PATH := lib/minilibx-linux
+	MLXFLAGS := -L$(MINILIBX_PATH) -lmlx_Linux -lXext -lX11 -lm
+endif
+
+MAKE_LIBFT = $(MAKE) -C $(LIBFT_PATH)
 
 # Valgrind options
-V_ARGS      = --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes --suppressions=readline.supp
+V_ARGS = --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes --suppressions=readline.supp
 
 #------------------------------------------------------------------------------#
-#                                    RULES                                     #
+# RULES #
 #------------------------------------------------------------------------------#
 
 all: deps $(NAME)
@@ -76,7 +85,7 @@ all: deps $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT_ARC) | $(BUILD_PATH)
 	@printf "${CYAN}${DIM}Linking cube3d...${RESET}\n"
-	@$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $@
+	@$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) $(MLXFLAGS) -o $@
 	@printf "${GREEN}${BOLD}${CHECK} Cube3D compiled!${RESET}\n"
 
 $(BUILD_PATH)/%.o: $(SRC_PATH)/%.c $(HEADERS) | $(BUILD_PATH)
@@ -94,8 +103,14 @@ $(LIBFT_ARC):
 	@$(MAKE_LIBFT)
 	@printf "${GREEN}${CHECK} Libft compiled at ${WHITE}$(LIBFT_ARC)${RESET}\n"
 
+$(MLX_ARC):
+	@printf "${CYAN}${BOLD}${BUILD} Building MinilibX...${RESET}\n"
+	@$(MAKE) -C $(MINILIBX_PATH)
+	@printf "${GREEN}${CHECK} MinilibX compiled at ${WHITE}$(MINILIBX)${RESET}\n"
+	@printf "${GREEN}${BOLD}${CHECK} MinilibX ready${RESET}\n"
+
 deps: check_tools
-	@if [ ! -d "$(LIBFT_PATH)" ]; then ($(MAKE) get_libft) ; \
+	 ! -d "$(LIBFT_PATH)" ]; then ($(MAKE) get_libft) ; \
 	else (printf "${GREEN}${BOLD}${ROCKET} ${WHITE}$(LIBFT_ARC) found${RESET}\n"); fi
 
 get_libft:
@@ -104,7 +119,7 @@ get_libft:
 	@printf "${GREEN}${BOLD}${CHECK} Libft downloaded${RESET}\n"
 
 #------------------------------------------------------------------------------#
-#                                TESTING RULES                                 #
+# TESTING RULES #
 #------------------------------------------------------------------------------#
 
 val: deps $(NAME)
@@ -124,7 +139,7 @@ test: all
 	@./$(NAME)
 
 #------------------------------------------------------------------------------#
-#                                CLEANING RULES                                #
+# CLEANING RULES #
 #------------------------------------------------------------------------------#
 
 clean:
@@ -141,7 +156,7 @@ re: fclean all
 	@printf "${GREEN}${BOLD}${ROCKET} Rebuild finished${RESET}\n"
 
 #------------------------------------------------------------------------------#
-#                                NORMINETTE                                    #
+# NORMINETTE #
 #------------------------------------------------------------------------------#
 
 norm:
@@ -152,7 +167,7 @@ norm:
 	else (printf "${YELLOW}${BOLD}⚠️ No files to check${RESET}\n"); fi
 
 #------------------------------------------------------------------------------#
-#                                UTILITY RULES                                 #
+# UTILITY RULES #
 #------------------------------------------------------------------------------#
 
 check_tools:
