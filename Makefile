@@ -6,7 +6,7 @@
 #    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/03/31 16:29:28 by meferraz         ###   ########.fr        #
+#    Updated: 2025/03/31 22:49:26 by meferraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,27 @@
 #                              CUBE3D PROJECT                                  #
 #==============================================================================#
 
-NAME        = cub3D
+NAME        = cub3d
+
+#------------------------------------------------------------------------------#
+#                            CUBE3D PROJECT HEADER                             #
+#------------------------------------------------------------------------------#
+
+define HEADER
+$(BOLD)$(BYEL)
+$(BRED)╔════════════════════════════════════════════════╗
+$(BRED)║  $(BRED)██████╗ $(BYEL)██╗   ██╗ $(BRED)██████╗  $(BYEL)██████╗  $(BRED)██████╗   $(BRED)║
+$(BRED)║  $(BYEL)██╔══   $(BRED)██║   ██║ $(BYEL)██╔══██╗ $(BRED)╚════██╗ $(BYEL)██╔══██╗  $(BRED)║
+$(BRED)║  $(BRED)██║     $(BYEL)██║   ██║ $(BRED)██████╔╝ $(BYEL) █████╔╝ $(BRED)██║  ██║  $(BRED)║
+$(BRED)║  $(BYEL)██║     $(BRED)██║   ██║ $(BYEL)██╔══██╗ $(BRED) ╚═══██╗ $(BYEL)██║  ██║  $(BRED)║
+$(BRED)║  $(BRED)██████╗ $(BYEL)╚██████╔╝ $(BRED)██████╔╝ $(BYEL)██████╔╝ $(BRED)██████╔╝  $(BRED)║
+$(BRED)║  $(BYEL)╚═════╝ $(BRED) ╚═════╝  $(BYEL)╚═════╝  $(BRED)╚═════╝  $(BYEL)╚═════╝   $(BRED)║
+$(BRED)╚════════════════════════════════════════════════╝
+
+     Cub3D - Unleash the 3D Maze Experience!
+$(RESET)
+endef
+export HEADER
 
 #------------------------------------------------------------------------------#
 #                                COLORS & STYLES                               #
@@ -35,6 +55,10 @@ CLEAN       = 🧹
 BUILD       = 🔨
 ROCKET      = 🚀
 BOOK        = 📚
+
+# Fire-inspired colors for the header
+BRED        = \033[1;31m
+BYEL        = \033[1;33m
 
 #------------------------------------------------------------------------------#
 #                             NAMES AND PATHS                                  #
@@ -66,10 +90,10 @@ LDFLAGS     = -L$(LIBFT_PATH) -lft
 UNAME_S := $(shell uname -s)
 
 ifeq ($(UNAME_S),Darwin)
-	MINILIBX_PATH := lib/minilibx_opengl_20191021
+	MINILIBX_PATH := lib/minilibx
 	MLXFLAGS := -L$(MINILIBX_PATH) -lmlx -framework OpenGL -framework AppKit
 else
-	MINILIBX_PATH := lib/minilibx-linux
+	MINILIBX_PATH := lib/minilibx
 	MLXFLAGS := -L$(MINILIBX_PATH) -lmlx_Linux -lXext -lX11 -lm
 endif
 
@@ -88,9 +112,10 @@ V_ARGS      = --leak-check=full --show-leak-kinds=all --track-origins=yes --trac
 #------------------------------------------------------------------------------#
 
 all: deps $(NAME)
-	@printf "\n${GREEN}${BOLD}${CHECK} Build completed successfully!${RESET}\n"
+	@echo "$$HEADER"
+	@printf "${GREEN}${BOLD}${CHECK} Cub3D ready!${RESET}\n"
 
-$(NAME): $(OBJS) $(LIBFT_ARC) $(MLX_ARC)| $(BUILD_PATH)
+$(NAME): $(OBJS) $(LIBFT_ARC) $(MLX_ARC) | $(BUILD_PATH)
 	@printf "${CYAN}${DIM}Linking cub3d...${RESET}\n"
 	@$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) $(MLXFLAGS) -o $@
 	@printf "${GREEN}${BOLD}${CHECK} Cube3D compiled!${RESET}\n"
@@ -104,6 +129,10 @@ $(BUILD_PATH):
 	@printf "${BLUE}${BOLD}${BUILD} Creating build directory...${RESET}\n"
 	@$(MKDIR) $(BUILD_PATH)
 	@printf "${GREEN}${CHECK} Build directory ready${RESET}\n"
+	@if [ ! -f $(BUILD_PATH)/.banner_done ]; then \
+		echo "$$HEADER"; \
+		touch $(BUILD_PATH)/.banner_done; \
+	fi
 
 $(LIBFT_ARC):
 	@printf "${CYAN}${BOLD}${BUILD} Building Libft...${RESET}\n"
@@ -113,20 +142,33 @@ $(LIBFT_ARC):
 $(MLX_ARC):
 	@printf "${CYAN}${BOLD}${BUILD} Building MinilibX...${RESET}\n"
 	@$(MAKE) -C $(MINILIBX_PATH)
-	@printf "${GREEN}${CHECK} MinilibX compiled at ${WHITE}$(MINILIBX)${RESET}\n"
+	@printf "${GREEN}${CHECK} MinilibX compiled at ${WHITE}$(MLX_ARC)${RESET}\n"
 	@printf "${GREEN}${BOLD}${CHECK} MinilibX ready${RESET}\n"
 
 deps: check_tools
 	@if [ ! -d "$(LIBFT_PATH)" ]; then \
 		$(MAKE) get_libft; \
-	else \
-		printf "${GREEN}${BOLD}${ROCKET} ${WHITE}$(LIBFT_ARC) found${RESET}\n"; \
+	fi
+	@if [ ! -d "$(MINILIBX_PATH)" ]; then \
+		$(MAKE) get_minilibx; \
 	fi
 
 get_libft:
 	@printf "${CYAN}${BOLD}${BOOK} Cloning Libft...${RESET}\n"
 	@git clone https://github.com/m3irel3s/42_Libft $(LIBFT_PATH) || (printf "${RED}${BOLD}${CROSS} Failed to clone Libft${RESET}\n" && exit 1)
 	@printf "${GREEN}${BOLD}${CHECK} Libft downloaded${RESET}\n"
+
+get_minilibx:
+	@printf "${CYAN}${BOLD}${BOOK} Cloning MinilibX...${RESET}\n"
+	@if [ "$(UNAME_S)" = "Darwin" ]; then \
+		git clone https://github.com/melaniereis/minilibx_opengl_20191021.git $(MINILIBX_PATH) || (printf "${RED}${BOLD}${CROSS} Failed to clone MinilibX${RESET}\n" && exit 1); \
+		printf "${GREEN}${BOLD}${CHECK} MinilibX downloaded${RESET}\n"; \
+		printf "${GREEN}${BOLD}${CHECK} MinilibX ready${RESET}\n"; \
+	else \
+		git clone https://github.com/melaniereis/minilibx-linux.git $(MINILIBX_PATH) || (printf "${RED}${BOLD}${CROSS} Failed to clone MinilibX${RESET}\n" && exit 1); \
+		printf "${GREEN}${BOLD}${CHECK} MinilibX downloaded${RESET}\n"; \
+		printf "${GREEN}${BOLD}${CHECK} MinilibX ready${RESET}\n"; \
+	fi
 
 #------------------------------------------------------------------------------#
 #                                TESTING RULES                                 #
@@ -155,11 +197,20 @@ test: all
 clean:
 	@printf "${YELLOW}${BOLD}${CLEAN} Cleaning object files...${RESET}\n"
 	@$(RM) $(OBJS) $(BUILD_PATH)
+	@if [ -d $(LIBFT_PATH) ]; then \
+		$(MAKE) -C $(LIBFT_PATH) clean; \
+	fi
+	@if [ -d $(MINILIBX_PATH) ]; then \
+		$(MAKE) -C $(MINILIBX_PATH) clean; \
+	fi
 	@printf "${GREEN}${BOLD}${CHECK} Object files removed${RESET}\n"
 
 fclean: clean
 	@printf "${YELLOW}${BOLD}${CLEAN} Removing all build artifacts...${RESET}\n"
-	@$(RM) $(NAME) $(LIBFT_PATH)
+	@$(RM) $(NAME)
+	@if [ -d $(LIBFT_PATH) ]; then \
+		$(RM) $(LIBFT_PATH) $(MINILIBX_PATH); \
+	fi
 	@printf "${GREEN}${BOLD}${CHECK} Full cleanup completed${RESET}\n"
 
 re: fclean all
