@@ -6,7 +6,7 @@
 #    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/03/31 15:49:06 by meferraz         ###   ########.fr        #
+#    Updated: 2025/03/31 16:19:20 by meferraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,13 +63,20 @@ MKDIR       = mkdir -p
 INCLUDES    = -I$(INC_PATH)
 LDFLAGS     = -L$(LIBFT_PATH) -lft
 
-ifeq ($(shell uname), Darwin)
+UNAME_S := $(shell uname -s)
+
+ifeq ($(UNAME_S),Darwin)
 	MINILIBX_PATH := lib/minilibx_opengl_20191021
 	MLXFLAGS := -L$(MINILIBX_PATH) -lmlx -framework OpenGL -framework AppKit
 else
 	MINILIBX_PATH := lib/minilibx-linux
 	MLXFLAGS := -L$(MINILIBX_PATH) -lmlx_Linux -lXext -lX11 -lm
 endif
+
+LIBFT_ARC  = $(LIBFT_PATH)/libft.a
+MLX_ARC    = $(MINILIBX_PATH)/libmlx.a
+LIBFT_FLAGS = -L$(LIBFT_PATH) -lft
+LIBFT_INC   = -I$(LIBFT_PATH) -I$(MINILIBX_PATH)
 
 MAKE_LIBFT  = $(MAKE) -C $(LIBFT_PATH)
 
@@ -83,7 +90,7 @@ V_ARGS      = --leak-check=full --show-leak-kinds=all --track-origins=yes --trac
 all: deps $(NAME)
 	@printf "\n${GREEN}${BOLD}${CHECK} Build completed successfully!${RESET}\n"
 
-$(NAME): $(OBJS) $(LIBFT_ARC) | $(BUILD_PATH)
+$(NAME): $(OBJS) $(LIBFT_ARC) $(MLX_ARC)| $(BUILD_PATH)
 	@printf "${CYAN}${DIM}Linking cub3d...${RESET}\n"
 	@$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) $(MLXFLAGS) -o $@
 	@printf "${GREEN}${BOLD}${CHECK} Cube3D compiled!${RESET}\n"
@@ -110,10 +117,10 @@ $(MLX_ARC):
 	@printf "${GREEN}${BOLD}${CHECK} MinilibX ready${RESET}\n"
 
 deps: check_tools
-	if [ ! -d "$(LIBFT_PATH)" ]; then \
-		$(MAKE) get_libft; \
-	else \
-		printf "${GREEN}${BOLD}${ROCKET} ${WHITE}$(LIBFT_ARC) found${RESET}\n"; \
+	@if [ ! -d "$(LIBFT_PATH)" ]; then \
+		@$(MAKE) get_libft; \
+	@else \
+		@printf "${GREEN}${BOLD}${ROCKET} ${WHITE}$(LIBFT_ARC) found${RESET}\n"; \
 	fi
 
 get_libft:
@@ -153,6 +160,7 @@ clean:
 fclean: clean
 	@printf "${YELLOW}${BOLD}${CLEAN} Removing all build artifacts...${RESET}\n"
 	@$(RM) $(NAME) $(LIBFT_PATH)
+	@make fclean -C $(MINILIBX_PATH)
 	@printf "${GREEN}${BOLD}${CHECK} Full cleanup completed${RESET}\n"
 
 re: fclean all
