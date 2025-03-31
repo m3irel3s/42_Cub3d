@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   100_main.c                                         :+:      :+:    :+:   */
+/*   safe_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/03/31 15:26:39 by meferraz         ###   ########.fr       */
+/*   Created: 2025/03/31 19:01:37 by jmeirele          #+#    #+#             */
+/*   Updated: 2025/03/31 19:15:31 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include "cub3d.h"
 
-int	main(int argc, char **argv)
+void	*ft_safe_malloc(size_t size)
 {
-	(void)argc;
-	(void)argv;
+	void	*p;
 
-	ft_display_startup_banner();
-
-	return (0);
+	p = malloc(size);
+	if (!p)
+	{
+		ft_printf(2, "Err malloc failed\n");
+		return (NULL);
+	}
+	return (p);
 }
