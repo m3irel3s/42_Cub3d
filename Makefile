@@ -6,12 +6,12 @@
 #    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/03/31 15:35:38 by meferraz         ###   ########.fr        #
+#    Updated: 2025/03/31 15:49:06 by meferraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #==============================================================================#
-#                              MINISHELL PROJECT                               #
+#                              CUBE3D PROJECT                                  #
 #==============================================================================#
 
 NAME        = cub3d
@@ -48,7 +48,7 @@ LIBFT_PATH  = 42_Libft
 HEADERS     = $(addprefix $(INC_PATH)/, ansi.h cub3d.h macros.h prototypes.h types.h)
 
 SRCS        = $(SRC_PATH)/000_intro.c \
-              $(SRC_PATH)/100_main.c
+			$(SRC_PATH)/100_main.c
 
 OBJS        = $(SRCS:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
 
@@ -71,20 +71,20 @@ else
 	MLXFLAGS := -L$(MINILIBX_PATH) -lmlx_Linux -lXext -lX11 -lm
 endif
 
-MAKE_LIBFT = $(MAKE) -C $(LIBFT_PATH)
+MAKE_LIBFT  = $(MAKE) -C $(LIBFT_PATH)
 
 # Valgrind options
-V_ARGS = --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes --suppressions=readline.supp
+V_ARGS      = --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes --suppressions=readline.supp
 
 #------------------------------------------------------------------------------#
-# RULES #
+#                                    RULES                                     #
 #------------------------------------------------------------------------------#
 
 all: deps $(NAME)
 	@printf "\n${GREEN}${BOLD}${CHECK} Build completed successfully!${RESET}\n"
 
 $(NAME): $(OBJS) $(LIBFT_ARC) | $(BUILD_PATH)
-	@printf "${CYAN}${DIM}Linking cube3d...${RESET}\n"
+	@printf "${CYAN}${DIM}Linking cub3d...${RESET}\n"
 	@$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) $(MLXFLAGS) -o $@
 	@printf "${GREEN}${BOLD}${CHECK} Cube3D compiled!${RESET}\n"
 
@@ -110,8 +110,11 @@ $(MLX_ARC):
 	@printf "${GREEN}${BOLD}${CHECK} MinilibX ready${RESET}\n"
 
 deps: check_tools
-	 ! -d "$(LIBFT_PATH)" ]; then ($(MAKE) get_libft) ; \
-	else (printf "${GREEN}${BOLD}${ROCKET} ${WHITE}$(LIBFT_ARC) found${RESET}\n"); fi
+	if [ ! -d "$(LIBFT_PATH)" ]; then \
+		$(MAKE) get_libft; \
+	else \
+		printf "${GREEN}${BOLD}${ROCKET} ${WHITE}$(LIBFT_ARC) found${RESET}\n"; \
+	fi
 
 get_libft:
 	@printf "${CYAN}${BOLD}${BOOK} Cloning Libft...${RESET}\n"
@@ -119,7 +122,7 @@ get_libft:
 	@printf "${GREEN}${BOLD}${CHECK} Libft downloaded${RESET}\n"
 
 #------------------------------------------------------------------------------#
-# TESTING RULES #
+#                                TESTING RULES                                 #
 #------------------------------------------------------------------------------#
 
 val: deps $(NAME)
@@ -139,7 +142,7 @@ test: all
 	@./$(NAME)
 
 #------------------------------------------------------------------------------#
-# CLEANING RULES #
+#                                CLEANING RULES                                #
 #------------------------------------------------------------------------------#
 
 clean:
@@ -156,7 +159,7 @@ re: fclean all
 	@printf "${GREEN}${BOLD}${ROCKET} Rebuild finished${RESET}\n"
 
 #------------------------------------------------------------------------------#
-# NORMINETTE #
+#                                NORMINETTE                                    #
 #------------------------------------------------------------------------------#
 
 norm:
@@ -167,11 +170,11 @@ norm:
 	else (printf "${YELLOW}${BOLD}⚠️ No files to check${RESET}\n"); fi
 
 #------------------------------------------------------------------------------#
-# UTILITY RULES #
+#                                UTILITY RULES                                 #
 #------------------------------------------------------------------------------#
 
 check_tools:
 	@command -v git >/dev/null || (printf "${RED}${BOLD}${CROSS} Git not found${RESET}\n" && exit 1)
 	@command -v $(CC) >/dev/null || (printf "${RED}${BOLD}${CROSS} Compiler $(CC) not found${RESET}\n" && exit 1)
 
-.PHONY: all clean fclean re norm check_external_functions deps get_libft val vgdb gdb test check_tools
+.PHONY: all clean fclean re norm check_tools deps get_libft val vgdb gdb test
