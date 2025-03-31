@@ -6,7 +6,7 @@
 #    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/03/31 16:19:20 by meferraz         ###   ########.fr        #
+#    Updated: 2025/03/31 16:29:28 by meferraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #                              CUBE3D PROJECT                                  #
 #==============================================================================#
 
-NAME        = cub3d
+NAME        = cub3D
 
 #------------------------------------------------------------------------------#
 #                                COLORS & STYLES                               #
@@ -118,9 +118,9 @@ $(MLX_ARC):
 
 deps: check_tools
 	@if [ ! -d "$(LIBFT_PATH)" ]; then \
-		@$(MAKE) get_libft; \
-	@else \
-		@printf "${GREEN}${BOLD}${ROCKET} ${WHITE}$(LIBFT_ARC) found${RESET}\n"; \
+		$(MAKE) get_libft; \
+	else \
+		printf "${GREEN}${BOLD}${ROCKET} ${WHITE}$(LIBFT_ARC) found${RESET}\n"; \
 	fi
 
 get_libft:
@@ -160,7 +160,6 @@ clean:
 fclean: clean
 	@printf "${YELLOW}${BOLD}${CLEAN} Removing all build artifacts...${RESET}\n"
 	@$(RM) $(NAME) $(LIBFT_PATH)
-	@make fclean -C $(MINILIBX_PATH)
 	@printf "${GREEN}${BOLD}${CHECK} Full cleanup completed${RESET}\n"
 
 re: fclean all
