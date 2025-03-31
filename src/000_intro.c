@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:37:43 by meferraz          #+#    #+#             */
-/*   Updated: 2025/03/31 16:54:06 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/03/31 21:28:55 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,59 +14,39 @@
 
 static void	ft_display_infos(void);
 static void	ft_print_banner_line(char *banner[]);
-static void	ft_authors(void);
-static void	ft_print_color_line(int width, const char *left, const char *right, char fill);
+static void ft_authors(void);
 
 /**
  * @brief Display the startup banner and information in the terminal.
  */
 void	ft_display_startup_banner(void)
 {
-	char	*title[9];
+	char	*title[7];
 
-	title[0] = BBLU "╔═════════════════════════════════════════════╗" RESET;
-	title[1] = BBLU "║" BMAG "   ██████╗██╗   ██╗██████╗ ██████╗██████╗ " BBLU "   ║" RESET;
-	title[2] = BBLU "║" BMAG "  ██╔════╝██║   ██║██╔══██╗╚════██║██╔══██╗" BBLU "  ║" RESET;
-	title[3] = BBLU "║" BMAG "  ██║     ██║   ██║██████╔╝ █████╔╝██║  ██║" BBLU "  ║" RESET;
-	title[4] = BBLU "║" BMAG "  ██║     ██║   ██║██╔══██╗ ╚═══██╗██║  ██║" BBLU "  ║" RESET;
-	title[5] = BBLU "║" BMAG "  ╚██████╗╚██████╔╝██████╔╝██████╔╝██████╔╝" BBLU "  ║" RESET;
-	title[6] = BBLU "║" BMAG "   ╚═════╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚═════╝ " BBLU "  ║" RESET;
-	title[7] = BBLU "╚═════════════════════════════════════════════╝" RESET;
-	title[8] = NULL;
-
+	title[0] = BGRN " ██████╗ ██╗   ██╗██████╗ ██████╗ ██████╗ " RESET;
+	title[1] = BGRN " ██║     ██║   ██║██╔══██╗╚════██╗██╔══██╗" RESET;
+	title[2] = BGRN " ██║     ██║   ██║██████╔╝ █████╔╝██║  ██║" RESET;
+	title[3] = BGRN " ██║     ██║   ██║██╔══██╗ ╚═══██╗██║  ██║" RESET;
+	title[4] = BGRN " ██████╔╝╚██████╔╝██████╔╝██████╔╝██████╔╝" RESET;
+	title[5] = BGRN " ╚═════╝  ╚═════╝ ╚═════╝ ╚═════╝ ╚═════╝ " RESET;
+	title[6] = NULL;
 	ft_print_banner_line(title);
-	ft_printf(1, "\n");
-	ft_print_color_line(58, BBLU "║" RESET, BBLU "║" RESET, 32);
-	ft_printf(1, BBLU "║" RESET HCYN "  ➤ " RESET BGRN "Welcome to " HYEL "Cub3D" BGRN "!"
-		HCYN " %-37s " BBLU "║\n" RESET, " ");
-	ft_printf(1, BBLU "║" RESET HCYN "  ➤ " RESET HYEL "Navigate " HMAG "3D mazes " HGRN
-		"with raycasting technology!" HCYN "%-7s " BBLU "║\n" RESET, " ");
-	ft_print_color_line(58, BBLU "║" RESET, BBLU "║" RESET, 32);
-	ft_printf(1, "\n");
+	ft_printf(1, "\n\n%s[ Welcome to Cub3D! ]%s\n", BGRN, RESET);
+	ft_printf(1, "%sA 3D raycasting adventure - Navigate the maze and find your way out!%s\n\n",
+		HYEL, RESET);
 	ft_display_infos();
 	ft_authors();
 }
 
 /**
- * @brief Helper function to print formatted lines with borders
-*/
-static void	ft_print_color_line(int width, const char *left, const char *right, char fill)
-{
-	ft_printf(1, "%s", left);
-	while (width-- > 2)
-		ft_printf(1, "%s", fill);
-	ft_printf(1, "%s\n", right);
-}
-
-/**
- * @brief Helper function to print a banner line with a given format
+ * @brief Helper function to print each line of the banner.
  */
 static void	ft_print_banner_line(char *banner[])
 {
 	int	i;
 
 	i = 0;
-	while (banner[i])
+	while (banner[i] != NULL)
 	{
 		ft_printf(1, "%s\n", banner[i]);
 		i++;
@@ -74,52 +54,56 @@ static void	ft_print_banner_line(char *banner[])
 }
 
 /**
- * @brief Displays information about the Cube3D implementation
+ * @brief Displays information about the Cube3D implementation.
+ *
+ * This function displays a banner with information about the
+ * Cube3D game, including features and examples.
+ *
+ * @return void
  */
 static void	ft_display_infos(void)
 {
-	ft_print_color_line(58, BBLU "╔" RESET, BBLU "╗" RESET, 61);
-	ft_printf(1, BBLU "║" RESET BMAG "   CUB3D FEATURES & CONTROLS"
-		HCYN " %28s " BBLU "║\n" RESET, " ");
-	ft_print_color_line(58, BBLU "╠" RESET, BBLU "╣" RESET, 45);
-
-	ft_printf(1, BBLU "║" RESET HGRN "  • " RESET "Raycasting Engine:"
-		HYEL " %-36s " BBLU "║\n" RESET, "Advanced 3D rendering");
-	ft_printf(1, BBLU "║" RESET HGRN "  • " RESET "Map Parsing:"
-		HYEL " %-42s " BBLU "║\n" RESET, ".cub file format support");
-	ft_printf(1, BBLU "║" RESET HGRN "  • " RESET "Movement:"
-		HYEL " %-44s " BBLU "║\n" RESET, "W/A/S/D keys");
-	ft_printf(1, BBLU "║" RESET HGRN "  • " RESET "Rotation:"
-		HYEL " %-43s " BBLU "║\n" RESET, "←/→ arrow keys");
-	ft_printf(1, BBLU "║" RESET HGRN "  • " RESET "Actions:"
-		HYEL " %-43s " BBLU "║\n" RESET, "ESC to exit | M: Map toggle");
-
-	ft_print_color_line(58, BBLU "╠" RESET, BBLU "╣" RESET, 45);
-	ft_printf(1, BBLU "║" RESET HCYN "  ➤ " RESET "Usage: " HYEL "./cub3D "
-		HMAG "<mapfile.cub>" HCYN "%-25s " BBLU "║\n" RESET, " ");
-	ft_print_color_line(58, BBLU "╚" RESET, BBLU "╝" RESET, 61);
-	ft_printf(1, "\n");
+	ft_printf(1, "\n%s+-----------------------------+%s\n", BYEL, RESET);
+	ft_printf(1, "%s|        CUBE3D INFO          |%s\n", BMAG, RESET);
+	ft_printf(1, "%s+-----------------------------+%s\n\n", BYEL, RESET);
+	ft_printf(1, "%sFeatures:%s\n", BBLU, RESET);
+	ft_printf(1, " %s- Raycasting engine:%s for rendering 3D environments.\n",
+		HGRN, RESET);
+	ft_printf(1, " - %sMap paRESETing:%s from .cub files.\n", HGRN, RESET);
+	ft_printf(1, " - %sPlayer movement:%s W, A, S, D keys.\n", HGRN, RESET);
+	ft_printf(1, " - %sRotation:%s left and right arrow keys.\n\n", HGRN, RESET);
+	ft_printf(1, "%sExamples:%s\n", BBLU, RESET);
+	ft_printf(1, " %s- Run the game with a .cub map file:%s ./cube3d map.cub\n", HYEL, RESET);
+	ft_printf(1, " - %sUse W, A, S, D keys to move and arrow keys to rotate.%s\n\n", HYEL, RESET);
+	ft_printf(1, "%sType 'exit' to quit the game.%s\n\n", HCYN, RESET);
 }
 
 /**
- * @brief Prints the authors of the program in a stylized box
+ * @brief Prints the authors of the program.
  */
 void	ft_authors(void)
 {
 	char	*authors[14];
+	int		i;
 
-	authors[0] = BBLU "╔═════════════════════════════════════════════════════════╗" RESET;
-	authors[1] = BBLU "║" BMAG "                     DEVELOPERS                      " BBLU "║" RESET;
-	authors[2] = BBLU "╠═════════════════════════════════════════════════════════╣" RESET;
-	authors[3] = BBLU "║" HCYN "  • " HYEL "Miguel Meireles" HRED " <jmeirele@student.42porto.com> " HCYN "%-7s " BBLU "║" RESET;
-	authors[4] = BBLU "║" HCYN "  • " HYEL "Melanie Reis   " HRED " <meferraz@student.42porto.com> " HCYN "%-7s " BBLU "║" RESET;
-	authors[5] = BBLU "╠═════════════════════════════════════════════════════════╣" RESET;
-	authors[6] = BBLU "║" HMAG "        42 Porto " HCYN "•" HYEL " 2025 " HCYN "•"
-		HMAG " 🦄 Magic Powered          " BBLU "║" RESET;
-	authors[7] = BBLU "╚═════════════════════════════════════════════════════════╝" RESET;
-	authors[8] = NULL;
-
-	ft_printf(1, "\n");
-	ft_print_banner_line(authors);
-	ft_printf(1, "\n");
+	authors[0] = BYEL "\n+-------------------------------------------+"RESET;
+	authors[1] = BMAG "|                authors                    |"RESET;
+	authors[2] = BYEL "+-------------------------------------------+"RESET;
+	authors[3] = BGRN "| Cube3D - 42 School Project             |"RESET;
+	authors[4] = BYEL "|                                           |"RESET;
+	authors[5] = HCYN "| Created by:                               |"RESET;
+	authors[6] = BMAG "| > Miguel Meireles                         |"RESET;
+	authors[7] = HRED "| <jmeirele@student.42porto.com>            |"RESET;
+	authors[8] = BMAG "| > Melanie Reis                            |"RESET;
+	authors[9] = HRED "| <meferraz@student.42porto.com>            |"RESET;
+	authors[10] = BGRN "|                                           |"RESET;
+	authors[11] = HYEL "| April 2025                                |"RESET;
+	authors[12] = BYEL "+-------------------------------------------+\n"RESET;
+	authors[13] = NULL;
+	i = 0;
+	while (authors[i] != NULL)
+	{
+		ft_printf(1, "%s\n", authors[i]);
+		i++;
+	}
 }
