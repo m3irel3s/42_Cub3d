@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/01 12:13:31 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/01 16:27:33 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,21 @@ void		ft_parse_map_name(t_game *game);
 /* cub_file.c */
 void		ft_set_cub_file(t_game *game);
 
+/* map_grid.c */
+
+/* map_elements.c */
+void		ft_set_map_elements(t_game *game);
+
+/* parse_utils.c */
+int			ft_check_valid_map_chars(char c);
+int			ft_set_grid_start_index(t_game *game);
+
 //============================================================================//
 //                                  UTILS                                     //
 //============================================================================//
+/* utils.c */
+int			ft_is_space(char c);
+
 /* safe_utils.c */
 void		*ft_safe_malloc(size_t size);
 

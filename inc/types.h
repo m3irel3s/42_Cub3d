@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/01 11:46:21 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/01 16:29:41 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ typedef struct	s_rgb
 	int		b;
 }	t_rgb;
 
-typedef struct	s_img
+typedef struct	s_texture
 {
 	void	*no_img;
 	void	*so_img;
 	void	*we_img;
 	void	*ea_img;
-}	t_img;
+}	t_texture;
 
 typedef struct	s_path
 {
@@ -68,15 +68,17 @@ typedef struct	s_path
 
 typedef struct	s_map
 {
-	char	**grid;
-	size_t	width;
-	size_t	height;
-	t_point	*s_pos;
-	t_img	*imgs;
-	t_path	*paths;
-	t_rgb	floor_color;
-	t_rgb	ceiling_color;
-	char	*map_path;
+	char		**grid;
+	size_t		width;
+	size_t		height;
+	int			grid_start_index;
+	t_point		*s_pos;
+	t_texture	*textures;
+	t_path		*paths;
+	t_rgb		floor_color;
+	t_rgb		ceiling_color;
+	char		*map_path;
+
 }	t_map;
 
 typedef struct s_game

@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   map_elements.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/01 11:06:31 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/01 17:17:54 by jmeirele         ###   ########.fr       */
+/*   Created: 2025/04/01 14:11:35 by jmeirele          #+#    #+#             */
+/*   Updated: 2025/04/01 15:54:35 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_parse(t_game *game, char **argv)
-{
-	game->map->map_path = argv[1];
-	// protect open maybe
-	ft_parse_map_name(game);
-	ft_set_cub_file(game);
-	game->map->grid_start_index = ft_set_grid_start_index(game);
-	printf("index => %d\n", game->map->grid_start_index);
-	for (int i = 0; game->cub_file[i]; i++)
-		printf("%s", game->cub_file[i]);
-	
-	
-	// ft_set_map_elements(game);
+// check for duplicates
+// iterate till 11111 (check if all elements are given)
 
-	// ft_parse_map_colors();
-	// ft_parse_map_grid();
-}
+// void	ft_set_map_elements(t_game *game)
+// {
+// 	int		i;
+// 	char	**file;
+
+
+
+// }
+
+
+// int	ft_is_valid_element(char *str)
+// {
+// 	if (ft_strcmp("SO", str) == SUCCESS)
+// 		return (SUCCESS);
+	
+// }
