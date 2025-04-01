@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
+#    By: jmeirele <jmeirele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/03/31 22:49:26 by meferraz         ###   ########.fr        #
+#    Updated: 2025/04/01 10:19:17 by jmeirele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,15 +64,21 @@ BYEL        = \033[1;33m
 #                             NAMES AND PATHS                                  #
 #------------------------------------------------------------------------------#
 
-BUILD_PATH  = .build
-SRC_PATH    = src
+BUILD_PATH   = .build
+SRC_PATH     = src
+INIT_PATH    = ${SRC_PATH}/100_init
+PARSE_PATH   = ${SRC_PATH}/200_parse
+
+UTILS_PATH   = ${SRC_PATH}/800_utils
+
 INC_PATH    = inc
 LIBFT_PATH  = 42_Libft
 
 HEADERS     = $(addprefix $(INC_PATH)/, ansi.h cub3d.h macros.h prototypes.h types.h)
 
-SRCS        = $(SRC_PATH)/000_intro.c \
-			$(SRC_PATH)/100_main.c
+SRCS        = ${SRC_PATH}/main.c \
+				${INIT_PATH}/init.c \
+				${UTILS_PATH}/safe_utils.c
 
 OBJS        = $(SRCS:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
 

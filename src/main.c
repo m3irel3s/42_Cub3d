@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macros.h                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/03/31 14:53:41 by meferraz         ###   ########.fr       */
+/*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
+/*   Updated: 2025/03/31 19:38:48 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACROS_H
-# define MACROS_H
+#include "cub3d.h"
 
-# define SUCCESS 0
-# define FAILURE 1
-# define TRUE 0
-# define FALSE 1
-# define ERROR -1
+int	main(int argc, char **argv)
+{
+	t_game	*game;
 
-#endif
+	(void)argv;
+	game = NULL;
+	if (argc != 2)
+		return (ft_putstr_fd("Invalid arguments given\n", 2), FAILURE);
+	game = ft_init_structs();
+	(void)game;
+	return (SUCCESS);
+}

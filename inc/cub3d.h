@@ -12,25 +12,23 @@
 
 #ifndef CUB3D_H
 # define CUB3D_H
+#ifndef CUB3D_H
+# define CUB3D_H
 
+# include "../lib/minilibx-linux/mlx.h"
 # include "../42_Libft/FT_Libft/inc/libft.h"
 # include "../lib/minilibx/mlx.h"
 # include "../42_Libft/FT_Printf/inc/ft_printf.h"
 # include "../42_Libft/Get_next_line/inc/get_next_line.h"
 
-# include <sys/stat.h>
-# include <dirent.h>
-# include <sys/types.h>
-# include <sys/ioctl.h>
-# include <termios.h>
-# include <curses.h>
-# include <term.h>
 # include <unistd.h>
-# include <stdlib.h>
-# include <signal.h>
 # include <stdio.h>
+# include <fcntl.h>
+# include <stdlib.h>
 # include <string.h>
-# include <errno.h>
+# include <sys/types.h>
+# include <sys/time.h>
+# include <math.h> // For math functions (e.g., sin(), cos())
 
 # include "macros.h"
 # include "types.h"
