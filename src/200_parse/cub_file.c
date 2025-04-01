@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:24:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/01 16:50:54 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/01 17:19:58 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static void	ft_trim_cub_file(t_game *game)
 	{
 		temp = ft_strtrim(game->cub_file[i], " \t");
 		ft_free(game->cub_file[i]);
-		game->cub_file[i] = temp;	
+		game->cub_file[i] = temp;
 		i++;
 	}
 }
