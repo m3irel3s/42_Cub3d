@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/03/31 18:54:39 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/01 11:46:21 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@
 //============================================================================//
 //                                  ENUMS                                     //
 //============================================================================//
+
+typedef enum e_cell
+{
+	EMPTY,
+	WALL,
+	FLOOR
+}	t_cell;
 
 
 //============================================================================//
@@ -65,14 +72,17 @@ typedef struct	s_map
 	size_t	width;
 	size_t	height;
 	t_point	*s_pos;
-	t_img	*img;
+	t_img	*imgs;
 	t_path	*paths;
+	t_rgb	floor_color;
+	t_rgb	ceiling_color;
 	char	*map_path;
 }	t_map;
 
 typedef struct s_game
 {
 	t_map	*map;
+	char	**cub_file;
 	void	*mlx;
 	void	*win;
 }	t_game;

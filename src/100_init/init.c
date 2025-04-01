@@ -6,14 +6,14 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 18:29:06 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/03/31 19:35:57 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/01 11:44:50 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 static t_map	*ft_init_map(void);
-static t_img	*ft_init_img(void);
+static t_img	*ft_init_imgs(void);
 static t_path	*ft_init_path(void);
 
 t_game	*ft_init_structs(void)
@@ -24,6 +24,7 @@ t_game	*ft_init_structs(void)
 	if (!game)
 		return (NULL);
 	game->map = ft_init_map();
+	game->cub_file = NULL;
 	game->mlx = NULL;
 	game->win = NULL;
 	return (game);
@@ -37,13 +38,13 @@ static t_map	*ft_init_map(void)
 	if (!map)
 		return (NULL);
 	map->grid = NULL;
-	map->img = ft_init_img();
+	map->imgs = ft_init_imgs();
 	map->paths = ft_init_path();
 	map->map_path = NULL;
 	return (map);
 }
 
-static t_img	*ft_init_img(void)
+static t_img	*ft_init_imgs(void)
 {
 	t_img	*img;
 

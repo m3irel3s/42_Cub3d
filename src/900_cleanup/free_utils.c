@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/01 12:16:24 by jmeirele         ###   ########.fr       */
+/*   Created: 2025/04/01 11:38:34 by jmeirele          #+#    #+#             */
+/*   Updated: 2025/04/01 11:43:19 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int argc, char **argv)
+void	ft_free(void *ptr)
 {
-	t_game	*game;
+	if (ptr)
+		free(ptr);
+}
 
-	game = NULL;
-	if (argc != 2)
-		return (ft_putstr_fd("Invalid arguments given\n", 2), FAILURE);
-	game = ft_init_structs();
-	ft_parse(game, argv);
-	return (SUCCESS);
+void	ft_free_arr(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+		ft_free(arr[i++]);
+	ft_free(arr);
 }

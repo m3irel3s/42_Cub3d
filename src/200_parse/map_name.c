@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map_name.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/01 12:16:24 by jmeirele         ###   ########.fr       */
+/*   Created: 2025/04/01 11:31:22 by jmeirele          #+#    #+#             */
+/*   Updated: 2025/04/01 12:14:05 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int argc, char **argv)
+void	ft_parse_map_name(t_game *game)
 {
-	t_game	*game;
+	char	*extension;
+	char	*to_compare;
 
-	game = NULL;
-	if (argc != 2)
-		return (ft_putstr_fd("Invalid arguments given\n", 2), FAILURE);
-	game = ft_init_structs();
-	ft_parse(game, argv);
-	return (SUCCESS);
+	extension = ft_strrchr(game->map->map_path, '.');
+	to_compare = ft_strrchr(game->map->map_path, '/');
+	if (extension && (ft_strcmp(extension, ".cub") == 0)
+		&& (ft_strlen(to_compare) > 5))
+		return ;
+	ft_cleanup(game, "Invalid map name given\n", 2);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jmeirele <jmeirele@student.42.fr>          +#+  +:+       +#+         #
+#    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/01 10:19:17 by jmeirele         ###   ########.fr        #
+#    Updated: 2025/04/01 12:02:31 by jmeirele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,7 @@ INIT_PATH    = ${SRC_PATH}/100_init
 PARSE_PATH   = ${SRC_PATH}/200_parse
 
 UTILS_PATH   = ${SRC_PATH}/800_utils
+CLEANUP_PATH = ${SRC_PATH}/900_cleanup
 
 INC_PATH    = inc
 LIBFT_PATH  = 42_Libft
@@ -78,7 +79,13 @@ HEADERS     = $(addprefix $(INC_PATH)/, ansi.h cub3d.h macros.h prototypes.h typ
 
 SRCS        = ${SRC_PATH}/main.c \
 				${INIT_PATH}/init.c \
-				${UTILS_PATH}/safe_utils.c
+				${PARSE_PATH}/parse.c \
+				${PARSE_PATH}/map_name.c \
+				${PARSE_PATH}/cub_file.c \
+				${PARSE_PATH}/map_grid.c \
+				${UTILS_PATH}/safe_utils.c \
+				${CLEANUP_PATH}/free.c \
+				${CLEANUP_PATH}/free_utils.c \
 
 OBJS        = $(SRCS:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
 
@@ -195,6 +202,16 @@ gdb: all
 test: all
 	@printf "${BLUE}${BOLD}Testing cube3d...${RESET}\n"
 	@./$(NAME)
+
+#------------------------------------------------------------------------------#
+#                                 MAPPING TEST                                 #
+#------------------------------------------------------------------------------#
+
+test1: all
+	./${NAME} maps/valid_maps/subject.cub
+
+test2: all
+	./${NAME} maps/valid_maps/test.cub
 
 #------------------------------------------------------------------------------#
 #                                CLEANING RULES                                #
