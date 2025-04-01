@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:31:22 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/01 12:14:05 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/01 13:39:01 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ void	ft_parse_map_name(t_game *game)
 
 	extension = ft_strrchr(game->map->map_path, '.');
 	to_compare = ft_strrchr(game->map->map_path, '/');
-	if (extension && (ft_strcmp(extension, ".cub") == 0)
-		&& (ft_strlen(to_compare) > 5))
-		return ;
-	ft_cleanup(game, "Invalid map name given\n", 2);
+	if (extension && (ft_strcmp(extension, ".cub") == 0))
+	{
+		if (to_compare == NULL || ft_strlen(to_compare) > 5)
+			return ;
+	}
+	ft_cleanup(game, INVALID_MAP_NAME, 2);
 }

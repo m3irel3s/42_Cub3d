@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/03/31 14:53:41 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/01 12:38:41 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,13 @@
 # define TRUE 0
 # define FALSE 1
 # define ERROR -1
+
+
+//============================================================================//
+//                              ERROR MESSAGES                                //
+//============================================================================//
+
+# define INVALID_MAP_NAME "Error\nInvalid map name given\n"
+
 
 #endif
