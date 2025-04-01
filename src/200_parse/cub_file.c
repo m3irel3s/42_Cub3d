@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:24:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/01 12:22:53 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/01 12:27:15 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,8 @@ static int	ft_get_cub_file_size(t_game *game);
 void	ft_set_cub_file(t_game *game)
 {
 	int		i;
-	int		fd;
-	char	*line;
 
 	i = ft_get_cub_file_size(game);
-	fd = open(game->map->map_path, O_RDONLY);
-	line = get_next_line(fd);
-	// while (line != NULL)
-	// {
-
-	// }
-	close(fd);
 	return ;
 }
 

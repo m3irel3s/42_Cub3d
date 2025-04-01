@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/01 12:16:24 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/01 12:30:17 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int	main(int argc, char **argv)
 		return (ft_putstr_fd("Invalid arguments given\n", 2), FAILURE);
 	game = ft_init_structs();
 	ft_parse(game, argv);
+	ft_cleanup(game, "", 1);
 	return (SUCCESS);
 }
