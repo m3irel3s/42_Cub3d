@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/01 11:46:21 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/01 15:10:58 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ typedef struct	s_rgb
 	int		b;
 }	t_rgb;
 
-typedef struct	s_img
+typedef struct	s_texture
 {
 	void	*no_img;
 	void	*so_img;
 	void	*we_img;
 	void	*ea_img;
-}	t_img;
+}	t_texture;
 
 typedef struct	s_path
 {
@@ -72,20 +72,40 @@ typedef struct	s_map
 	size_t	width;
 	size_t	height;
 	t_point	*s_pos;
-	t_img	*imgs;
+	t_texture	*imgs;
 	t_path	*paths;
 	t_rgb	floor_color;
 	t_rgb	ceiling_color;
 	char	*map_path;
 }	t_map;
 
+typedef struct s_player
+{
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+}	t_player;
+
+typedef struct s_img
+{
+	void	*mlx_img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}			t_img;
+
 typedef struct s_game
 {
-	t_map	*map;
-	char	**cub_file;
-	void	*mlx;
-	void	*win;
+	t_map		*map;
+	char		**cub_file;
+	void		*mlx;
+	void		*win;
+	t_player	*player;
+	t_img		*img;
 }	t_game;
-
 
 #endif
