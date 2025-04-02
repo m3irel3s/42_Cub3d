@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/01 21:35:23 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/02 10:25:53 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 static void	ft_init_graphics(t_game *game);
 
-void	ft_test(t_game *game)
+void ft_test(t_game *game)
 {
-	/* Allocate and initialize the player structure */
 	game->player = ft_safe_malloc(sizeof(t_player));
 	if (!game->player)
 		ft_cleanup(game, "Error allocating player", 1);
@@ -24,11 +23,9 @@ void	ft_test(t_game *game)
 	game->player->pos_y = 3.5;
 	game->player->dir_x = -1;
 	game->player->dir_y = 0;
-	game->player->plane_x = 0;
-	game->player->plane_y = 0.66;
-	/* Initialize a fixed map.
-	   The grid is a 7x7 array with walls ('1') as borders.
-	*/
+	game->player->plane_x = 0;    // Explicitly set
+	game->player->plane_y = 0.66; // Field of view adjustment
+	/* Map initialization remains the same */
 	game->map->grid = malloc(sizeof(char *) * 8);
 	if (!game->map->grid)
 		ft_cleanup(game, "Error allocating map grid", 1);
@@ -63,6 +60,22 @@ int	main(int argc, char **argv)
 	return (SUCCESS);
 }
 
+/*************  ✨ Codeium Command ⭐  *************/
+/**
+ * ft_quit_game:
+ * @game: The game structure containing all game-relevant data.
+ *
+ * Cleans up the game and its resources, then exits the game loop.
+ *
+ * Returns: 0
+ */
+/******  c99fbfee-4a7a-4238-bece-106b67a1e722  *******/
+int ft_quit_game(t_game *game)
+{
+	ft_cleanup(game, "Game exited", 0);
+	return (0);
+}
+
 static void	ft_init_graphics(t_game *game)
 {
 	game->mlx = mlx_init();
@@ -77,4 +90,5 @@ static void	ft_init_graphics(t_game *game)
 			&game->img->line_len, &game->img->endian);
 	mlx_loop_hook(game->mlx, ft_render_next_frame, game);
 	mlx_hook(game->win, 2, 1L << 0, ft_handle_key, game);
+	mlx_hook(game->win, 17, 1L<<17, &ft_quit_game, game);
 }

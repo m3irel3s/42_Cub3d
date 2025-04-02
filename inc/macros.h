@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/01 15:11:39 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/02 13:41:52 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # define FALSE 1
 # define ERROR -1
 
-# define SCREEN_WIDTH 640
-# define SCREEN_HEIGHT 480
+# define SCREEN_WIDTH 1920
+# define SCREEN_HEIGHT 1080
 
 //============================================================================//
 //                              ERROR MESSAGES                                //

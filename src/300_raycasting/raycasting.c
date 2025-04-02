@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_name.c                                         :+:      :+:    :+:   */
+/*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/01 11:31:22 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/01 15:58:46 by meferraz         ###   ########.fr       */
+/*   Created: 2025/04/01 14:00:00 by meferraz          #+#    #+#             */
+/*   Updated: 2025/04/02 10:22:44 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
-void	ft_parse_map_name(t_game *game)
+void	ft_cast_rays(t_game *game)
 {
-	char	*extension;
-	char	*to_compare;
+	int		x;
+	t_ray	ray;
 
-	extension = ft_strrchr(game->map->map_path, '.');
-	to_compare = ft_strrchr(game->map->map_path, '/');
-	if (extension && (ft_strcmp(extension, ".cub") == 0))
+	x = 0;
+	while (x < SCREEN_WIDTH)
 	{
-		if (to_compare == NULL || ft_strlen(to_compare) > 5)
-			return ;
+		ft_init_ray(game, x, &ray);
+		ft_perform_dda(game, &ray);
+		if (ray.hit)
+		{
+			ft_calc_wall(game, &ray);
+			ft_draw_line(game, x, ray.draw_start, ray.draw_end, ray.side);
+		}
+		x++;
 	}
-	ft_cleanup(game, INVALID_MAP_NAME, 2);
 }
