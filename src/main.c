@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/02 10:25:53 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/02 14:18:37 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,6 @@ int	main(int argc, char **argv)
 	return (SUCCESS);
 }
 
-/*************  ✨ Codeium Command ⭐  *************/
-/**
- * ft_quit_game:
- * @game: The game structure containing all game-relevant data.
- *
- * Cleans up the game and its resources, then exits the game loop.
- *
- * Returns: 0
- */
-/******  c99fbfee-4a7a-4238-bece-106b67a1e722  *******/
 int ft_quit_game(t_game *game)
 {
 	ft_cleanup(game, "Game exited", 0);
