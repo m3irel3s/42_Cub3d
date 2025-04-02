@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/01 16:29:41 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/02 14:41:36 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,23 @@
 //                                  ENUMS                                     //
 //============================================================================//
 
+typedef enum e_tag
+{
+	SO_TAG,
+	NO_TAG,
+	EA_TAG,
+	WE_TAG,
+	F_TAG,
+	C_TAG,
+	UNKNOWN
+}	t_tag;
+
 typedef enum e_cell
 {
 	EMPTY,
 	WALL,
 	FLOOR
 }	t_cell;
-
 
 //============================================================================//
 //                                STRUCTURES                                  //
@@ -49,6 +59,13 @@ typedef struct	s_rgb
 	int		g;
 	int		b;
 }	t_rgb;
+
+typedef struct s_headers
+{
+	t_tag	tag;
+	char	*tag_name;
+	char	*value;
+}	t_headers;
 
 typedef struct	s_texture
 {

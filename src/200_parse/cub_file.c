@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:24:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/01 17:19:58 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/02 12:51:17 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_set_cub_file(t_game *game)
 
 	fd = open(game->map->map_path, O_RDONLY);
 	i = ft_get_cub_file_size(game);
-	game->cub_file = malloc(sizeof(char *) * i + 1);
+	game->cub_file = malloc(sizeof(char *) * (i + 1));
 	j = -1;
 	while(++j < i)
 	{
@@ -34,6 +34,9 @@ void	ft_set_cub_file(t_game *game)
 	}
 	game->cub_file[j] = NULL;
 	close(fd);
+	game->map->grid_start_index = ft_set_grid_start_index(game);
+	if (game->map->grid_start_index < 6)
+		ft_cleanup(game, INVALID_MAP_GRID, 2);
 	ft_trim_cub_file(game);
 	return ;
 }
@@ -65,7 +68,7 @@ static void	ft_trim_cub_file(t_game *game)
 
 	i = 0;
 	temp = NULL;
-	while (game->cub_file[i])
+	while (i < game->map->grid_start_index)
 	{
 		temp = ft_strtrim(game->cub_file[i], " \t");
 		ft_free(game->cub_file[i]);

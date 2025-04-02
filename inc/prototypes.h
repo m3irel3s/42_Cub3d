@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/01 16:27:33 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/02 15:26:00 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,19 @@ void		ft_set_cub_file(t_game *game);
 
 /* map_grid.c */
 
-/* map_elements.c */
-void		ft_set_map_elements(t_game *game);
+/* map_headers.c */
+void		ft_parse_map_headers(t_game *game);
+
+/* map_headers_2.c */
+void		ft_check_map_tags(t_game *game, t_headers *headers);
+t_tag		ft_compare_tags(char *str);
+int			ft_count_headers(t_game *game);
+
 
 /* parse_utils.c */
 int			ft_check_valid_map_chars(char c);
 int			ft_set_grid_start_index(t_game *game);
+int			ft_is_empty_line(char *str);
 
 //============================================================================//
 //                                  UTILS                                     //
