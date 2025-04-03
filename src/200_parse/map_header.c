@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:11:35 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/03 15:57:14 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/03 16:28:56 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ void	ft_parse_map_headers(t_game *game)
 
 	game->map->headers = ft_headers(game);
 	headers = game->map->headers;
-	ft_check_map_tags(game, headers);
+	ft_check_and_set_map_tags(game, headers);
+	ft_check_map_values(game, headers);
+	// ft_check_and_set_map_colors(game, headers);
 	// ft_check_map_paths(game, headers);
-	// ft_check_map_colors(game, headers);
 	
 	// go for each tag, if it is texture do ...
 	// if it is color do ...
@@ -42,7 +43,6 @@ void	ft_parse_map_headers(t_game *game)
 		// }
 		
 	}
-	ft_check_map_values(game, headers);
 	return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 14:35:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/03 13:49:58 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/03 16:15:13 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_check_single_word(char *str);
 
-void	ft_check_map_tags(t_game *game, t_headers *headers)
+void	ft_check_and_set_map_tags(t_game *game, t_headers *headers)
 {
 	int		i;
 	t_tag	tag;
