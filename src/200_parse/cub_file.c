@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:24:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/02 12:51:17 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:28:04 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static void	ft_trim_cub_file(t_game *game)
 	temp = NULL;
 	while (i < game->map->grid_start_index)
 	{
-		temp = ft_strtrim(game->cub_file[i], " \t");
+		temp = ft_strtrim(game->cub_file[i], "\t\r\n ");
 		ft_free(game->cub_file[i]);
 		game->cub_file[i] = temp;
 		i++;

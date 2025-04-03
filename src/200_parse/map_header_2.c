@@ -6,18 +6,23 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 14:35:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/02 15:19:01 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:49:58 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+static int	ft_check_single_word(char *str);
+
 void	ft_check_map_tags(t_game *game, t_headers *headers)
 {
 	int		i;
 	t_tag	tag;
-	int		found_tags[6] = {0};
+	int		found_tags[6];
 
+	i = -1;
+	while (++i < 6)
+		found_tags[i] = 0;
 	i = 0;
 	while (i < 6)
 	{
@@ -30,6 +35,20 @@ void	ft_check_map_tags(t_game *game, t_headers *headers)
 		found_tags[tag]++;
 		i++;
 	}
+}
+
+void	ft_check_map_values(t_game *game, t_headers *headers)
+{
+	int	i;
+
+	i = 0;
+	while (i < 6)
+	{
+		if (ft_check_single_word(headers[i].value) == FAILURE)
+			ft_cleanup(game, FOUND_INVALID_VALUE, 2);
+		i++;
+	}
+	return ;
 }
 
 t_tag	ft_compare_tags(char *str)
@@ -63,4 +82,20 @@ int	ft_count_headers(t_game *game)
 		i++;
 	}
 	return counter;
+}
+
+static int	ft_check_single_word(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (FAILURE);
+	while (str[i])
+	{
+		if (ft_is_space(str[i]))
+			return (FAILURE);
+		i++;
+	}
+	return (SUCCESS);
 }

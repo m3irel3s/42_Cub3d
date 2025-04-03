@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/02 15:34:21 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:50:01 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@
 # define INVALID_TAG_FOUND "Error\nFound an invalid tag\n"
 # define FOUND_DUPLICATE_TAG "Error\nFound a duplicated tag\n"
 # define FOUND_INVALID_N_HEADERS "Error\nFound invalid number of headers\n"
+# define FOUND_INVALID_VALUE "Error\nFound invalid value for tag\n"
 
 #endif

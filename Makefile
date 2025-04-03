@@ -6,7 +6,7 @@
 #    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/02 15:21:25 by jmeirele         ###   ########.fr        #
+#    Updated: 2025/04/03 13:03:11 by jmeirele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -199,9 +199,25 @@ vgdb: deps $(NAME)
 	@printf "${BLUE}${BOLD}Running Valgrind with GDB...${RESET}\n"
 	@valgrind --vgdb-error=0 $(V_ARGS) ./$(NAME)
 
-gdb: all
-	@printf "${BLUE}${BOLD}Launching GDB...${RESET}\n"
-	@gdb -tui -q ./$(NAME) -x .gdbinit
+# gdb: all
+# 	@printf "${BLUE}${BOLD}Launching GDB...${RESET}\n"
+# 	@gdb -tui -q ./$(NAME) -x .gdbinit
+
+ARGS        = maps/valid_maps/test.cub
+
+gdb: all $(NAME)
+	tmux split-window -h "gdb --tui --args ./$(NAME) $(ARGS)"
+	tmux resize-pane -L 5
+	make get_log
+
+get_log:
+	rm -f gdb.txt
+	touch gdb.txt
+	@if command -v lnav; then \
+		lnav gdb.txt; \
+	else \
+		tail -f gdb.txt; \
+	fi
 
 test: all
 	@printf "${BLUE}${BOLD}Testing cube3d...${RESET}\n"

@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:11:35 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/02 15:34:20 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:46:22 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,17 @@ void	ft_parse_map_headers(t_game *game)
 	
 	// go for each tag, if it is texture do ...
 	// if it is color do ...
-	
 	for (int i = 0; i < headers_size; i++)
 	{
-		printf("tag > %s\n", headers[i].tag_name);
-		printf("value > %s\n", headers[i].value);
+		printf("tag > :%s:\n", headers[i].tag_name);
+		printf("value > :%s:\n", headers[i].value);
+		// for (int j = 0; headers[i].value[j]; j++)
+		// {
+			// printf("%d -> %c\n", headers[i].value[j], headers[i].value[j]);
+		// }
+		
 	}
+	ft_check_map_values(game, headers);
 	return ;
 }
 
@@ -65,7 +70,7 @@ static t_headers	*ft_headers(t_game *game, t_headers *headers)
 		while (ft_is_space(game->cub_file[i][j]))
 			j++;
 		z = j;
-		while (game->cub_file[i][j])
+		while (game->cub_file[i][j] != 13 && game->cub_file[i][j])
 			j++;
 		if (j == z)
 			headers[k].value = NULL;

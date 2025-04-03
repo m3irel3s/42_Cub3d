@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/02 14:41:36 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/03 11:05:29 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,10 @@ typedef struct	s_path
 typedef struct	s_map
 {
 	char		**grid;
-	size_t		width;
-	size_t		height;
+	size_t		grid_width;
+	size_t		grid_height;
 	int			grid_start_index;
+	t_headers	*headers;
 	t_point		*s_pos;
 	t_texture	*textures;
 	t_path		*paths;

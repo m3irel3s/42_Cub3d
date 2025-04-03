@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 18:29:06 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/01 15:06:17 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/03 11:05:48 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static t_map	*ft_init_map(void)
 	map = ft_safe_malloc(sizeof(t_map));
 	if (!map)
 		return (NULL);
+	map->headers = NULL;
 	map->grid = NULL;
 	map->textures = ft_init_imgs();
 	map->paths = ft_init_path();

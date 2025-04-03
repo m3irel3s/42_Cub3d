@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/02 15:26:00 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/03 12:06:40 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void		ft_parse_map_headers(t_game *game);
 
 /* map_headers_2.c */
 void		ft_check_map_tags(t_game *game, t_headers *headers);
+void		ft_check_map_values(t_game *game, t_headers *headers);
 t_tag		ft_compare_tags(char *str);
 int			ft_count_headers(t_game *game);
 
