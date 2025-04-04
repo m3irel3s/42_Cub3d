@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 21:11:33 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/04 21:44:49 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ typedef struct s_ray
 	int			draw_end;
 	t_ray_step	step;
 	double		wall_x;
-	char		wall_side;
+	t_wall_side	wall_side;
 }	t_ray;
 
 typedef struct s_game

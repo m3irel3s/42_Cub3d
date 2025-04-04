@@ -6,7 +6,7 @@
 #    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/04 16:48:25 by meferraz         ###   ########.fr        #
+#    Updated: 2025/04/04 21:50:05 by meferraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,7 @@ SRCS        = ${SRC_PATH}/main.c \
 				${RAYCAST_PATH}/init_raycasting.c \
 				${RAYCAST_PATH}/dda_raycasting.c \
 				${RAYCAST_PATH}/draw_raycasting.c \
-				${DRAW_PATH}/draw_line.c \
+				${DRAW_PATH}/draw.c \
 				${RENDER_PATH}/render.c \
 				${RENDER_PATH}/events.c \
 				${RENDER_PATH}/rotations.c \

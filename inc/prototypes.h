@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/04 21:36:01 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/04 21:49:48 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ void		ft_calc_wall(t_game *game, t_ray *ray);
 //============================================================================//
 //                                DRAWING                                     //
 //============================================================================//
-/* draw_line.c */
-void		ft_draw_line(t_game *game, int x, int draw_start, int draw_end, t_ray *ray);
+/* draw.c */
+void		ft_draw_textured_wall(t_game *game, int x, t_ray *ray);
 void		ft_mlx_pixel_put_to_image(t_game *game, int x, int y, int color);
 
 //============================================================================//

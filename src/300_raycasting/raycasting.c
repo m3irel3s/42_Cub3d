@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:00:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/04 21:37:45 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/04 21:49:22 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_cast_rays(t_game *game)
 		if (ray.hit)
 		{
 			ft_calc_wall(game, &ray);
-			ft_draw_line(game, x, ray.draw_start, ray.draw_end, &ray);
+			ft_draw_textured_wall(game, x, &ray);
 		}
 		x++;
 	}

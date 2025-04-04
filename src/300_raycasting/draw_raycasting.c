@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 22:14:50 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/04 16:59:09 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/04 21:47:32 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,18 @@ void ft_calc_wall(t_game *game, t_ray *ray)
 	else
 		ray->wall_x = game->player->pos_x + ray->perp_wall_dist * ray->ray_dir_x;
 	ray->wall_x -= floor(ray->wall_x);
-	if (ray->side == 0 && ray->ray_dir_x > 0)
-		ray->wall_side = 'E';
-	else if (ray->side == 0 && ray->ray_dir_x < 0)
-		ray->wall_side = 'W';
-	else if (ray->side == 1 && ray->ray_dir_y > 0)
-		ray->wall_side = 'S';
+	if (ray->side == 0)
+	{
+		if (ray->ray_dir_x > 0)
+			ray->wall_side = EAST;
+		else
+			ray->wall_side = WEST;
+	}
 	else
-		ray->wall_side = 'N';
+	{
+		if (ray->ray_dir_y > 0)
+			ray->wall_side = SOUTH;
+		else
+			ray->wall_side = NORTH;
+	}
 }
