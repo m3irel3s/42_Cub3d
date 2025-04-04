@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/04 16:55:28 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/04 20:47:57 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void		ft_rotate_right(t_game *game, double rot_speed);
 //============================================================================//
 /* textures.c */
 void		ft_load_textures(t_game *game);
-void		ft_load_addresses(t_game *game);
+void		ft_load_textures_addr(t_game *game);
 void		ft_set_img_size(t_game *game);
 
 //============================================================================//

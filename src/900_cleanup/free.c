@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 16:28:10 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 20:44:34 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 static void	ft_clean_map(t_map * map);
+static void	ft_free_textures(t_game *game);
 static void	ft_clean_graphics(t_game *game);
 
 void	ft_cleanup(t_game *game, char *msg, int fd)
@@ -20,10 +21,11 @@ void	ft_cleanup(t_game *game, char *msg, int fd)
 	if (game)
 	{
 		ft_clean_map(game->map);
+		ft_free_textures(game);
 		ft_clean_graphics(game);
 		ft_free(game->map);
-	ft_free(game->textures);
-	ft_free(game->paths);
+		ft_free(game->textures);
+		ft_free(game->paths);
 		ft_free(game->player);
 		ft_free(game);
 	}
@@ -49,4 +51,23 @@ static void	ft_clean_graphics(t_game *game)
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	ft_free(game->mlx);
+}
+
+static void	ft_free_textures(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < 4)
+	{
+		if (game->textures[i].no_img)
+			mlx_destroy_image(game->mlx, game->textures[i].no_img);
+		if (game->textures[i].so_img)
+			mlx_destroy_image(game->mlx, game->textures[i].so_img);
+		if (game->textures[i].we_img)
+			mlx_destroy_image(game->mlx, game->textures[i].we_img);
+		if (game->textures[i].ea_img)
+			mlx_destroy_image(game->mlx, game->textures[i].ea_img);
+		i++;
+	}
 }
