@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:44:54 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/04 20:50:09 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/04 21:08:49 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,18 @@ void	ft_load_textures(t_game *game)
 	{
 		if (game->headers[i].tag != C_TAG && game->headers[i].tag != F_TAG)
 		{
-			game->textures[j].no_img = mlx_xpm_file_to_image(game->mlx, game->headers[i].value, &game->textures[j].width, &game->textures[j].height);
+			game->textures[j]= mlx_xpm_file_to_image(game->mlx, game->headers[i].value, &game->textures[j].width, &game->textures[j].height);
+			if (!game->textures[j])
+			{
+				ft_cleanup(game, "Error loading texture", 1);
+			}
+			game->textures[j].addr = mlx_get_data_addr(game->textures[j], &game->textures[j].bpp, &game->textures[j].line_len, &game->textures[j].endian);
+			if (!game->textures[j].addr)
+			{
+				ft_cleanup(game, "Error getting texture address", 1);
+			}
 			j++;
 		}
-		i++;
-	}
-}
-
-void	ft_load_textures_addr(t_game *game)
-{
-	int	i;
-
-	i = 0;
-	while (i < 4)
-	{
-		game->textures[i].addr = mlx_get_data_addr(game->textures[i].img, &game->textures[i].bpp, &game->textures[i].line_len, &game->textures[i].endian);
 		i++;
 	}
 }

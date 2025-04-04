@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/04 20:48:26 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/04 21:09:01 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ static void	ft_init_graphics(t_game *game)
 	game->img->addr = mlx_get_data_addr(game->img->mlx_img, &game->img->bpp,
 			&game->img->line_len, &game->img->endian);
 	ft_load_textures(game);
-	ft_load_textures_addr(game);
 	mlx_loop_hook(game->mlx, ft_render_next_frame, game);
 	mlx_hook(game->win, 2, 1L << 0, ft_handle_key, game);
 	mlx_hook(game->win, 17, 1L<<17, &ft_quit_game, game);
