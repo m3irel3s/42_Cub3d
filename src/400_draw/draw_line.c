@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:56:43 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/01 15:58:15 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/03 22:12:41 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,70 @@ void	ft_mlx_pixel_put_to_image(t_game *game, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-void	ft_draw_line(t_game *game, int x, int draw_start, int draw_end, int side)
+static int	ft_get_texture_x(int side, double wallX,
+				int tex_width, t_ray *ray)
 {
-	int	y;
-	int	color;
+	int		tex_x;
 
-	y = draw_start;
-	if (side == 1)
-		color = 0x00FF00;  /* Green for y-sides */
+	tex_x = (int)(wallX * tex_width);
+	if (side == 0)
+	{
+		if (ray->ray_dir_x > 0)
+			tex_x = tex_width - tex_x - 1;
+	}
 	else
-		color = 0xFF0000;  /* Red for x-sides */
+	{
+		if (ray->ray_dir_y < 0)
+			tex_x = tex_width - tex_x - 1;
+	}
+	return (tex_x);
+}
+
+void	ft_draw_texture_line(t_game *game, int x, int draw_start,
+				int draw_end, int side, double wallX, void *ray_ptr)
+{
+	t_ray		*ray;
+	int			y;
+	int			tex_x;
+	int			tex_y;
+	int			color;
+	char		*tex_addr;
+	int			tex_bpp;
+	int			tex_line_len;
+	int			tex_endian;
+	int			tex_width;
+	int			tex_height;
+
+	/* Cast ray_ptr to t_ray pointer */
+	ray = (t_ray *)ray_ptr;
+	/* Assume texture size is 64x64; update accordingly if stored */
+	tex_width = 1024;
+	tex_height = 1024;
+	if (side == 0)
+	{
+		if (ray->ray_dir_x > 0)
+			tex_addr = mlx_get_data_addr(game->map->imgs->we_img,
+				&tex_bpp, &tex_line_len, &tex_endian);
+		else
+			tex_addr = mlx_get_data_addr(game->map->imgs->ea_img,
+				&tex_bpp, &tex_line_len, &tex_endian);
+	}
+	else
+	{
+		if (ray->ray_dir_y > 0)
+			tex_addr = mlx_get_data_addr(game->map->imgs->no_img,
+				&tex_bpp, &tex_line_len, &tex_endian);
+		else
+			tex_addr = mlx_get_data_addr(game->map->imgs->so_img,
+				&tex_bpp, &tex_line_len, &tex_endian);
+	}
+	tex_x = ft_get_texture_x(side, wallX, tex_width, ray);
+	y = draw_start;
 	while (y < draw_end)
 	{
+		tex_y = ((y - draw_start) * tex_height) / (draw_end - draw_start);
+		color = *(unsigned int *)(tex_addr + (tex_y * tex_line_len +
+					tex_x * (tex_bpp / 8)));
 		ft_mlx_pixel_put_to_image(game, x, y, color);
 		y++;
 	}

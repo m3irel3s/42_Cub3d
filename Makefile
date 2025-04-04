@@ -6,7 +6,7 @@
 #    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/01 22:25:21 by meferraz         ###   ########.fr        #
+#    Updated: 2025/04/03 16:35:17 by meferraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,6 +95,7 @@ SRCS        = ${SRC_PATH}/main.c \
 				${RENDER_PATH}/events.c \
 				${RENDER_PATH}/rotations.c \
 				${RENDER_PATH}/movements.c \
+				${RENDER_PATH}/textures.c \
 				${UTILS_PATH}/safe_utils.c \
 				${CLEANUP_PATH}/free.c \
 				${CLEANUP_PATH}/free_utils.c \

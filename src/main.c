@@ -6,13 +6,19 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/02 14:18:37 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/03 22:34:20 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
 static void	ft_init_graphics(t_game *game);
+
+/* Texture file paths */
+# define NO_TEXTURE_PATH "textures/no.xpm"
+# define SO_TEXTURE_PATH "textures/so.xpm"
+# define WE_TEXTURE_PATH "textures/we.xpm"
+# define EA_TEXTURE_PATH "textures/ea.xpm"
 
 void ft_test(t_game *game)
 {
@@ -24,7 +30,7 @@ void ft_test(t_game *game)
 	game->player->dir_x = -1;
 	game->player->dir_y = 0;
 	game->player->plane_x = 0;    // Explicitly set
-	game->player->plane_y = 0.66; // Field of view adjustment
+	game->player->plane_y = FOV; // Field of view adjustment
 	/* Map initialization remains the same */
 	game->map->grid = malloc(sizeof(char *) * 8);
 	if (!game->map->grid)
@@ -39,6 +45,10 @@ void ft_test(t_game *game)
 	game->map->grid[7] = NULL;
 	game->map->width = 7;
 	game->map->height = 7;
+	game->map->paths->no_path = ft_strdup(NO_TEXTURE_PATH);
+	game->map->paths->so_path = ft_strdup(SO_TEXTURE_PATH);
+	game->map->paths->we_path = ft_strdup(WE_TEXTURE_PATH);
+	game->map->paths->ea_path = ft_strdup(EA_TEXTURE_PATH);
 }
 
 int	main(int argc, char **argv)
@@ -78,6 +88,7 @@ static void	ft_init_graphics(t_game *game)
 	game->img->mlx_img = mlx_new_image(game->mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
 	game->img->addr = mlx_get_data_addr(game->img->mlx_img, &game->img->bpp,
 			&game->img->line_len, &game->img->endian);
+	ft_load_textures(game);
 	mlx_loop_hook(game->mlx, ft_render_next_frame, game);
 	mlx_hook(game->win, 2, 1L << 0, ft_handle_key, game);
 	mlx_hook(game->win, 17, 1L<<17, &ft_quit_game, game);

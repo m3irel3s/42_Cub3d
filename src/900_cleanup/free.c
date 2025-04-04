@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/01 22:05:43 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/03 16:15:58 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ void	ft_cleanup(t_game *game, char *msg, int fd)
 static void	ft_clean_map(t_map * map)
 {
 	ft_free(map->imgs);
-	ft_free(map->paths);
+	ft_free(map->paths->no_path);
+	ft_free(map->paths->so_path);
+	ft_free(map->paths->we_path);
+	ft_free(map->paths->ea_path);
 }
 
 static void	ft_clean_graphics(t_game *game)

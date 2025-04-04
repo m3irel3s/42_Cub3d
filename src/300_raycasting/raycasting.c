@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:00:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/02 10:22:44 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/04 15:37:10 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_cast_rays(t_game *game)
 {
 	int		x;
 	t_ray	ray;
+	double	wallX;
 
 	x = 0;
 	while (x < SCREEN_WIDTH)
@@ -25,7 +26,13 @@ void	ft_cast_rays(t_game *game)
 		if (ray.hit)
 		{
 			ft_calc_wall(game, &ray);
-			ft_draw_line(game, x, ray.draw_start, ray.draw_end, ray.side);
+			if (ray.side == 0)
+				wallX = game->player->pos_y + ray.perp_wall_dist * ray.ray_dir_y;
+			else
+				wallX = game->player->pos_x + ray.perp_wall_dist * ray.ray_dir_x;
+			wallX = wallX - floor(wallX);
+			ft_draw_texture_line(game, x, ray.draw_start,
+				ray.draw_end, ray.side, wallX, &ray);
 		}
 		x++;
 	}
