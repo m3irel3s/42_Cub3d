@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/04 21:09:01 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/04 21:11:04 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ int	main(int argc, char **argv)
 	 	return (ft_putstr_fd("Invalid arguments given\n", 2), FAILURE);
 	game = ft_init_structs();
 	ft_parse(game, argv);
-
 	ft_test(game);
 	ft_init_graphics(game);
 	mlx_loop(game->mlx);

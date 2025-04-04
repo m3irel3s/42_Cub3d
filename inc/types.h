@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 17:18:35 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/04 21:11:33 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,22 +105,6 @@ typedef struct	s_map
 	t_point		*s_pos;
 }	t_map;
 
-typedef struct s_game
-{
-	t_map		*map;
-	char		*file_path;
-	char		**cub_file;
-	void		*mlx;
-	void		*win;
-	t_headers	*headers;
-	t_rgb		floor_color;
-	t_rgb		ceiling_color;
-	t_img		*img;
-	t_img		*textures[4];
-	t_player	*player;
-	t_ray		*ray;
-}	t_game;
-
 typedef struct s_ray_step
 {
 	int		step_x;
@@ -148,5 +132,22 @@ typedef struct s_ray
 	double		wall_x;
 	char		wall_side;
 }	t_ray;
+
+typedef struct s_game
+{
+	t_map		*map;
+	char		*file_path;
+	char		**cub_file;
+	void		*mlx;
+	void		*win;
+	t_headers	*headers;
+	t_rgb		floor_color;
+	t_rgb		ceiling_color;
+	t_img		*img;
+	t_img		textures[4];
+	t_player	*player;
+	t_ray		*ray;
+}	t_game;
+
 
 #endif
