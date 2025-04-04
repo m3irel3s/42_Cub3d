@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
+#    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/04 16:22:58 by jmeirele         ###   ########.fr        #
+#    Updated: 2025/04/04 16:48:25 by meferraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,7 @@ PARSE_PATH   = ${SRC_PATH}/200_parse
 RAYCAST_PATH = ${SRC_PATH}/300_raycasting
 DRAW_PATH    = ${SRC_PATH}/400_draw
 RENDER_PATH  = ${SRC_PATH}/500_rendering
+TEXTURE_PATH = ${SRC_PATH}/500_textures
 
 UTILS_PATH   = ${SRC_PATH}/800_utils
 CLEANUP_PATH = ${SRC_PATH}/900_cleanup
@@ -100,6 +101,7 @@ SRCS        = ${SRC_PATH}/main.c \
 				${RENDER_PATH}/events.c \
 				${RENDER_PATH}/rotations.c \
 				${RENDER_PATH}/movements.c \
+				${TEXTURE_PATH}/textures.c \
 				${UTILS_PATH}/safe_utils.c \
 				${CLEANUP_PATH}/free.c \
 				${CLEANUP_PATH}/free_utils.c \

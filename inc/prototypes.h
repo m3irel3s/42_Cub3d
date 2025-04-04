@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/04 16:19:29 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 16:55:28 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,14 @@ void		ft_move_right(t_game *game, double move_speed);
 /* rotations.c */
 void		ft_rotate_left(t_game *game, double rot_speed);
 void		ft_rotate_right(t_game *game, double rot_speed);
+
+//============================================================================//
+//                              TEXTURES                                      //
+//============================================================================//
+/* textures.c */
+void		ft_load_textures(t_game *game);
+void		ft_load_addresses(t_game *game);
+void		ft_set_img_size(t_game *game);
 
 //============================================================================//
 //                                  UTILS                                     //

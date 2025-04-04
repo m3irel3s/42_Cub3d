@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 16:26:35 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 16:53:00 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,10 @@ typedef struct s_headers
 
 typedef struct	s_texture
 {
-	void	*no_img;
-	void	*so_img;
-	void	*we_img;
-	void	*ea_img;
+	t_img	*no_img;
+	t_img	*so_img;
+	t_img	*we_img;
+	t_img	*ea_img;
 }	t_texture;
 
 typedef struct	s_path
@@ -101,6 +101,8 @@ typedef struct s_img
 	int		bpp;
 	int		line_len;
 	int		endian;
+	int		width;
+	int		height;
 }			t_img;
 
 typedef struct	s_map
