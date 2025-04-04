@@ -6,11 +6,11 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:13:47 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/01 16:04:47 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 16:21:29 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
 
 int	ft_is_space(char c)
 {

@@ -6,11 +6,11 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:31:22 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 16:10:38 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 16:20:59 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
 
 void	ft_parse_map_name(t_game *game)
 {

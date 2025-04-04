@@ -6,11 +6,11 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:24:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 16:11:23 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 16:20:54 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
 
 static int	ft_get_cub_file_size(t_game *game);
 static void	ft_trim_cub_file(t_game *game);

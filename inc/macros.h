@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/04 15:49:56 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 16:18:44 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # define TRUE 0
 # define FALSE 1
 # define ERROR -1
+
+# define SCREEN_WIDTH 1920
+# define SCREEN_HEIGHT 1080
 
 //============================================================================//
 //                              ERROR MESSAGES                                //

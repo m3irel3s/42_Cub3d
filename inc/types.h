@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 16:08:30 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 16:26:35 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,33 @@ typedef struct	s_path
 	char	*ea_path;
 }	t_path;
 
+
+typedef struct s_player
+{
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+}	t_player;
+
+typedef struct s_img
+{
+	void	*mlx_img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}			t_img;
+
 typedef struct	s_map
 {
 	char		**grid;
-	size_t		grid_width;
-	size_t		grid_height;
+	size_t		width;
+	size_t		height;
 	int			grid_start_index;
 	t_point		*s_pos;
-	
 }	t_map;
 
 typedef struct s_game
@@ -105,7 +124,34 @@ typedef struct s_game
 	t_path		*paths;
 	t_rgb		floor_color;
 	t_rgb		ceiling_color;
+	t_img		*img;
+	t_player	*player;
 }	t_game;
 
+typedef struct s_ray_step
+{
+	int		step_x;
+	int		step_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+}	t_ray_step;
+
+typedef struct s_ray
+{
+	double		camera_x;
+	double		ray_dir_x;
+	double		ray_dir_y;
+	int			map_x;
+	int			map_y;
+	int			hit;
+	int			side;
+	double		perp_wall_dist;
+	int			line_height;
+	int			draw_start;
+	int			draw_end;
+	t_ray_step	step;
+}	t_ray;
 
 #endif

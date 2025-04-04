@@ -6,14 +6,14 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 18:29:06 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 16:09:24 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 16:29:36 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
 
 static t_map		*ft_init_map(void);
-static t_texture	*ft_init_imgs(void);
+static t_texture	*ft_init_textures(void);
 static t_path		*ft_init_path(void);
 
 t_game	*ft_init_structs(void)
@@ -26,11 +26,13 @@ t_game	*ft_init_structs(void)
 	game->map = ft_init_map();
 	game->cub_file = NULL;
 	game->headers = NULL;
-	game->textures = ft_init_imgs();
+	game->textures = ft_init_textures();
 	game->paths = ft_init_path();
 	game->file_path = NULL;
 	game->mlx = NULL;
 	game->win = NULL;
+	game->img = NULL;
+	game->player = NULL;
 	return (game);
 }
 
@@ -42,10 +44,13 @@ static t_map	*ft_init_map(void)
 	if (!map)
 		return (NULL);
 	map->grid = NULL;
+	map->width = 0;
+	map->height = 0;
+	map->s_pos = NULL;
 	return (map);
 }
 
-static t_texture	*ft_init_imgs(void)
+static t_texture	*ft_init_textures(void)
 {
 	t_texture	*texture;
 
