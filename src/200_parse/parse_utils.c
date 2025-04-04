@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:42:48 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/03 13:45:49 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 16:03:52 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,24 @@ int	ft_is_empty_line(char *str)
 		return (SUCCESS);
 	return (FAILURE);
 }
+
+int	ft_count_occurs(char *str, char c)
+{
+	int	i;
+	int	counter;
+
+	i = 0;
+	counter = 0;
+	if (!str)
+		return (ERROR);
+	while (str[i])
+	{
+		if (str[i] == c)
+			counter++;
+		i++;
+	}
+	return (counter);
+}
+
 
 

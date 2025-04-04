@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/03 16:17:07 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 16:03:51 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int			ft_count_headers(t_game *game);
 int			ft_check_valid_map_chars(char c);
 int			ft_set_grid_start_index(t_game *game);
 int			ft_is_empty_line(char *str);
+int			ft_count_occurs(char *str, char c);
 
 /* map_grid.c */
 

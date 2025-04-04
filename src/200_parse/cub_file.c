@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:24:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/03 15:33:28 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 16:11:23 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_set_cub_file(t_game *game)
 	int		fd;
 	char	*line;
 
-	fd = open(game->map->map_path, O_RDONLY);
+	fd = open(game->file_path, O_RDONLY);
 	i = ft_get_cub_file_size(game);
 	game->cub_file = malloc(sizeof(char *) * (i + 1));
 	j = -1;
@@ -48,7 +48,7 @@ static int	ft_get_cub_file_size(t_game *game)
 	char	*line;
 
 	i = 0;
-	fd = open(game->map->map_path, O_RDONLY);
+	fd = open(game->file_path, O_RDONLY);
 	line = get_next_line(fd);
 	while (line != NULL)
 	{

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_name.c                                         :+:      :+:    :+:   */
+/*   file_path.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:31:22 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/01 13:39:01 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 16:10:38 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_parse_map_name(t_game *game)
 	char	*extension;
 	char	*to_compare;
 
-	extension = ft_strrchr(game->map->map_path, '.');
-	to_compare = ft_strrchr(game->map->map_path, '/');
+	extension = ft_strrchr(game->file_path, '.');
+	to_compare = ft_strrchr(game->file_path, '/');
 	if (extension && (ft_strcmp(extension, ".cub") == 0))
 	{
 		if (to_compare == NULL || ft_strlen(to_compare) > 5)

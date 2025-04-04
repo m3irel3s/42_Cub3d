@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/03 16:10:49 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 16:08:30 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,22 +89,22 @@ typedef struct	s_map
 	size_t		grid_width;
 	size_t		grid_height;
 	int			grid_start_index;
-	t_headers	*headers;
 	t_point		*s_pos;
-	t_texture	*textures;
-	t_path		*paths;
-	t_rgb		floor_color;
-	t_rgb		ceiling_color;
-	char		*map_path;
-
+	
 }	t_map;
 
 typedef struct s_game
 {
-	t_map	*map;
-	char	**cub_file;
-	void	*mlx;
-	void	*win;
+	t_map		*map;
+	char		*file_path;
+	char		**cub_file;
+	void		*mlx;
+	void		*win;
+	t_headers	*headers;
+	t_texture	*textures;
+	t_path		*paths;
+	t_rgb		floor_color;
+	t_rgb		ceiling_color;
 }	t_game;
 
 

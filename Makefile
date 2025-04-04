@@ -6,7 +6,7 @@
 #    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/03 16:11:30 by jmeirele         ###   ########.fr        #
+#    Updated: 2025/04/04 16:10:49 by jmeirele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,7 @@ HEADERS     = $(addprefix $(INC_PATH)/, ansi.h cub3d.h macros.h prototypes.h typ
 SRCS        = ${SRC_PATH}/main.c \
 				${INIT_PATH}/init.c \
 				${PARSE_PATH}/parse.c \
-				${PARSE_PATH}/map_name.c \
+				${PARSE_PATH}/file_path.c \
 				${PARSE_PATH}/cub_file.c \
 				${PARSE_PATH}/map_grid.c \
 				${PARSE_PATH}/map_header.c \
