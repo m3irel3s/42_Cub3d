@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 16:53:00 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/04 17:18:35 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ typedef enum e_cell
 	WALL,
 	FLOOR
 }	t_cell;
+
+typedef enum e_wall_side
+{
+	NORTH,
+	SOUTH,
+	EAST,
+	WEST
+}	t_wall_side;
 
 //============================================================================//
 //                                STRUCTURES                                  //
@@ -66,23 +74,6 @@ typedef struct s_headers
 	char	*tag_name;
 	char	*value;
 }	t_headers;
-
-typedef struct	s_texture
-{
-	t_img	*no_img;
-	t_img	*so_img;
-	t_img	*we_img;
-	t_img	*ea_img;
-}	t_texture;
-
-typedef struct	s_path
-{
-	char	*no_path;
-	char	*so_path;
-	char	*we_path;
-	char	*ea_path;
-}	t_path;
-
 
 typedef struct s_player
 {
@@ -122,12 +113,12 @@ typedef struct s_game
 	void		*mlx;
 	void		*win;
 	t_headers	*headers;
-	t_texture	*textures;
-	t_path		*paths;
 	t_rgb		floor_color;
 	t_rgb		ceiling_color;
 	t_img		*img;
+	t_img		*textures[4];
 	t_player	*player;
+	t_ray		*ray;
 }	t_game;
 
 typedef struct s_ray_step
@@ -154,6 +145,8 @@ typedef struct s_ray
 	int			draw_start;
 	int			draw_end;
 	t_ray_step	step;
+	double		wall_x;
+	char		wall_side;
 }	t_ray;
 
 #endif
