@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_header.c                                       :+:      :+:    :+:   */
+/*   headers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:11:35 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 16:09:36 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 20:34:54 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,22 @@
 
 // check for duplicates
 // iterate till 11111 (check if all elements are given)
-// static t_ele	ft_check_inicials(char *str);
 
 static t_headers	*ft_headers(t_game *game);
 static void			ft_parse_header_line(t_headers *headers, char *line);
 
-void	ft_parse_map_headers(t_game *game)
+void	ft_parse_headers(t_game *game)
 {
 	t_headers	*headers;
 
 	game->headers = ft_headers(game);
 	headers = game->headers;
-	ft_check_and_set_map_tags(game, headers);
-	ft_check_map_values(game, headers);
-	ft_check_and_set_map_colors(game, headers);
-	// ft_check_map_paths(game, headers);
+	ft_check_and_set_headers_tags(game, headers);
+	ft_check_headers_values(game, headers);
+	ft_check_and_set_headers_colors(game, headers);
+	// ft_check_headers_textures(game, headers);
 	
 	// go for each tag, if it is texture do ...
-	// if it is color do ...
 
 	for (int i = 0; i < 6; i++)
 	{

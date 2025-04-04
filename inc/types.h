@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 16:26:35 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 20:30:20 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ typedef struct	s_path
 	char	*we_path;
 	char	*ea_path;
 }	t_path;
-
 
 typedef struct s_player
 {

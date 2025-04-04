@@ -6,13 +6,13 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:31:22 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 16:20:59 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 20:27:33 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
-void	ft_parse_map_name(t_game *game)
+void	ft_parse_file_path(t_game *game)
 {
 	char	*extension;
 	char	*to_compare;

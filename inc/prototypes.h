@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/04 16:19:29 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/04 20:32:52 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,20 @@ t_game		*ft_init_structs(void);
 void		ft_parse(t_game *game, char **argv);
 
 /* parse_map_name.c */
-void		ft_parse_map_name(t_game *game);
+void		ft_parse_file_path(t_game *game);
 
 /* cub_file.c */
 void		ft_set_cub_file(t_game *game);
 
-/* map_colors.c */
-void		ft_check_and_set_map_colors(t_game *game, t_headers *headers);
+/* headers_colors.c */
+void		ft_check_and_set_headers_colors(t_game *game, t_headers *headers);
 
-/* map_headers.c */
-void		ft_parse_map_headers(t_game *game);
+/* headers.c */
+void		ft_parse_headers(t_game *game);
 
-/* map_headers_2.c */
-void		ft_check_and_set_map_tags(t_game *game, t_headers *headers);
-void		ft_check_map_values(t_game *game, t_headers *headers);
+/* headers_2.c */
+void		ft_check_and_set_headers_tags(t_game *game, t_headers *headers);
+void		ft_check_headers_values(t_game *game, t_headers *headers);
 t_tag		ft_compare_tags(char *str);
 int			ft_count_headers(t_game *game);
 
@@ -91,6 +91,7 @@ void		ft_rotate_right(t_game *game, double rot_speed);
 //============================================================================//
 /* utils.c */
 int			ft_is_space(char c);
+int			ft_array_len(char **arr);
 
 /* safe_utils.c */
 void		*ft_safe_malloc(size_t size);
