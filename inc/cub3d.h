@@ -13,7 +13,7 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
-// # include "../lib/minilibx-linux/mlx.h" 
+// # include "../lib/minilibx-linux/mlx.h"
 # include "../42_Libft/FT_Libft/inc/libft.h"
 # include "../lib/minilibx/mlx.h"
 # include "../42_Libft/FT_Printf/inc/ft_printf.h"
@@ -26,7 +26,9 @@
 # include <string.h>
 # include <sys/types.h>
 # include <sys/time.h>
-# include <math.h> // For math functions (e.g., sin(), cos())
+# include <math.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
 
 # include "macros.h"
 # include "types.h"
