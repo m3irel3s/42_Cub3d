@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/05 13:38:31 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/05 14:21:52 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@ void	ft_cleanup(t_game *game, char *msg, int fd)
 {
 	if (game)
 	{
-		ft_clean_map(game->map);
+		if(game->map)
+			ft_clean_map(game->map);
+		if (game->cub_file)
+			ft_free_arr(game->cub_file);
 		ft_free_textures(game);
-		ft_clean_graphics(game);
-		ft_free(game->map);
+		if (game->mlx)
+			ft_clean_graphics(game);
 		ft_free(game->player);
 		ft_free(game);
 	}
@@ -33,7 +36,8 @@ void	ft_cleanup(t_game *game, char *msg, int fd)
 
 static void	ft_clean_map(t_map * map)
 {
-	ft_free(map->grid);
+	ft_free_arr(map->grid);
+	ft_free(map);
 }
 
 static void	ft_clean_graphics(t_game *game)

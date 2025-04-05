@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/05 13:43:32 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/05 14:12:58 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 // 	ft_cleanup(game, "", 1);
 // 	return (SUCCESS);
 // }
-	
+
 
 #define NO_PATH "textures/no.xpm"
 #define SO_PATH "textures/so.xpm"
@@ -49,13 +49,13 @@ static void	ft_init_graphics(t_game *game);
 	game->map->grid = malloc(sizeof(char *) * 8);
 	if (!game->map->grid)
 		ft_cleanup(game, "Error allocating map grid", 1);
-	game->map->grid[0] = "1111111";
-	game->map->grid[1] = "1000001";
-	game->map->grid[2] = "1011101";
-	game->map->grid[3] = "1000001";
-	game->map->grid[4] = "1010101";
-	game->map->grid[5] = "1000001";
-	game->map->grid[6] = "1111111";
+	game->map->grid[0] = "111111111111";
+	game->map->grid[1] = "100000000001";
+	game->map->grid[2] = "111110000011";
+	game->map->grid[3] = "100000000001";
+	game->map->grid[4] = "101010100001";
+	game->map->grid[5] = "111000000001";
+	game->map->grid[6] = "111111111111";
 	game->map->grid[7] = NULL;
 	game->map->width = 7;
 	game->map->height = 7;
