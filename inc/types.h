@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 21:44:49 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/05 12:46:19 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,9 @@ typedef struct s_game
 	void		*win;
 	t_headers	*headers;
 	t_rgb		floor_color;
+	int			floor_color_hex;
 	t_rgb		ceiling_color;
+	int			ceiling_color_hex;
 	t_img		*img;
 	t_img		textures[4];
 	t_player	*player;

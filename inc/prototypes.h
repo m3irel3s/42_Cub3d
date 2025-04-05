@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/04 21:49:48 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/05 12:39:20 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void		ft_parse_map_name(t_game *game);
 void		ft_set_cub_file(t_game *game);
 
 /* map_colors.c */
-void		ft_check_and_set_map_colors(t_game *game, t_headers *headers);
+void ft_check_and_set_headers_colors(t_game *game, t_headers *headers);
 
 /* map_headers.c */
 void		ft_parse_map_headers(t_game *game);
@@ -75,6 +75,13 @@ void		ft_mlx_pixel_put_to_image(t_game *game, int x, int y, int color);
 //============================================================================//
 /* render.c */
 int			ft_render_next_frame(t_game *game);
+
+/* render_utils.c */
+void		ft_set_floor_n_ceiling(t_game *game);
+
+//============================================================================//
+//                                EVENTS                                      //
+//============================================================================//
 /* events.c */
 int			ft_handle_key(int key, t_game *game);
 /* movements.c */
