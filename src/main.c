@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/05 14:12:58 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/05 15:40:32 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,23 @@ static void	ft_init_graphics(t_game *game);
 	game->player = ft_safe_malloc(sizeof(t_player));
 	if (!game->player)
 		ft_cleanup(game, "Error allocating player", 1);
-	game->player->pos_x = 3.5;
+	game->player->pos_x = 7;
 	game->player->pos_y = 3.5;
 	game->player->dir_x = -1;
 	game->player->dir_y = 0;
 	game->player->plane_x = 0;    // Explicitly set
-	game->player->plane_y = 0.66; // Field of view adjustment
+	game->player->plane_y = FOV; // Field of view adjustment
 	/* Map initialization remains the same */
 	game->map->grid = malloc(sizeof(char *) * 8);
 	if (!game->map->grid)
 		ft_cleanup(game, "Error allocating map grid", 1);
-	game->map->grid[0] = "111111111111";
-	game->map->grid[1] = "100000000001";
-	game->map->grid[2] = "111110000011";
-	game->map->grid[3] = "100000000001";
-	game->map->grid[4] = "101010100001";
-	game->map->grid[5] = "111000000001";
-	game->map->grid[6] = "111111111111";
+	game->map->grid[0] = "111111111111111111111";
+	game->map->grid[1] = "100000000000000000001";
+	game->map->grid[2] = "111110000000000000011";
+	game->map->grid[3] = "100000000000000000001";
+	game->map->grid[4] = "101010100000000010001";
+	game->map->grid[5] = "111000000000000000001";
+	game->map->grid[6] = "111111111111111111111";
 	game->map->grid[7] = NULL;
 	game->map->width = 7;
 	game->map->height = 7;
