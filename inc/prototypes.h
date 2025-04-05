@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/04 20:32:52 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/05 13:36:55 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ void		ft_calc_wall(t_game *game, t_ray *ray);
 //============================================================================//
 //                                DRAWING                                     //
 //============================================================================//
-/* draw_line.c */
-void		ft_draw_line(t_game *game, int x, int draw_start, int draw_end, int side);
+/* draw.c */
+void		ft_draw_textured_wall(t_game *game, int x, t_ray *ray);
 void		ft_mlx_pixel_put_to_image(t_game *game, int x, int y, int color);
 
 //============================================================================//
@@ -75,6 +75,13 @@ void		ft_mlx_pixel_put_to_image(t_game *game, int x, int y, int color);
 //============================================================================//
 /* render.c */
 int			ft_render_next_frame(t_game *game);
+
+/* render_utils.c */
+void		ft_set_floor_n_ceiling(t_game *game);
+
+//============================================================================//
+//                                EVENTS                                      //
+//============================================================================//
 /* events.c */
 int			ft_handle_key(int key, t_game *game);
 /* movements.c */
@@ -85,6 +92,12 @@ void		ft_move_right(t_game *game, double move_speed);
 /* rotations.c */
 void		ft_rotate_left(t_game *game, double rot_speed);
 void		ft_rotate_right(t_game *game, double rot_speed);
+
+//============================================================================//
+//                              TEXTURES                                      //
+//============================================================================//
+/* textures.c */
+void		ft_load_textures(t_game *game);
 
 //============================================================================//
 //                                  UTILS                                     //

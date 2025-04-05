@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:20:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/02 10:49:34 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/05 12:51:24 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int ft_render_next_frame(t_game *game)
 	game->img->mlx_img = mlx_new_image(game->mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
 	game->img->addr = mlx_get_data_addr(game->img->mlx_img, &game->img->bpp,
 			&game->img->line_len, &game->img->endian);
-	ft_clear_image(game, 0x808080, 0x404040); // Ceiling gray, floor dark gray
+	ft_set_floor_n_ceiling(game);
+	ft_clear_image(game, game->ceiling_color_hex, game->floor_color_hex);
 	ft_cast_rays(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img->mlx_img, 0, 0);
 	return (0);

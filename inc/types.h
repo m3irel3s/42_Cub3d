@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 20:30:20 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/05 13:37:16 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ typedef enum e_cell
 	WALL,
 	FLOOR
 }	t_cell;
+
+typedef enum e_wall_side
+{
+	NORTH,
+	SOUTH,
+	EAST,
+	WEST
+}	t_wall_side;
 
 //============================================================================//
 //                                STRUCTURES                                  //
@@ -67,22 +75,6 @@ typedef struct s_headers
 	char	*value;
 }	t_headers;
 
-typedef struct	s_texture
-{
-	void	*no_img;
-	void	*so_img;
-	void	*we_img;
-	void	*ea_img;
-}	t_texture;
-
-typedef struct	s_path
-{
-	char	*no_path;
-	char	*so_path;
-	char	*we_path;
-	char	*ea_path;
-}	t_path;
-
 typedef struct s_player
 {
 	double	pos_x;
@@ -100,6 +92,8 @@ typedef struct s_img
 	int		bpp;
 	int		line_len;
 	int		endian;
+	int		width;
+	int		height;
 }			t_img;
 
 typedef struct	s_map
@@ -110,22 +104,6 @@ typedef struct	s_map
 	int			grid_start_index;
 	t_point		*s_pos;
 }	t_map;
-
-typedef struct s_game
-{
-	t_map		*map;
-	char		*file_path;
-	char		**cub_file;
-	void		*mlx;
-	void		*win;
-	t_headers	*headers;
-	t_texture	*textures;
-	t_path		*paths;
-	t_rgb		floor_color;
-	t_rgb		ceiling_color;
-	t_img		*img;
-	t_player	*player;
-}	t_game;
 
 typedef struct s_ray_step
 {
@@ -151,6 +129,27 @@ typedef struct s_ray
 	int			draw_start;
 	int			draw_end;
 	t_ray_step	step;
+	double		wall_x;
+	t_wall_side	wall_side;
 }	t_ray;
+
+typedef struct s_game
+{
+	t_map		*map;
+	char		*file_path;
+	char		**cub_file;
+	void		*mlx;
+	void		*win;
+	t_headers	*headers;
+	t_rgb		floor_color;
+	int			floor_color_hex;
+	t_rgb		ceiling_color;
+	int			ceiling_color_hex;
+	t_img		*img;
+	t_img		textures[4];
+	t_player	*player;
+	t_ray		*ray;
+}	t_game;
+
 
 #endif

@@ -6,7 +6,7 @@
 #    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/04 20:32:40 by jmeirele         ###   ########.fr        #
+#    Updated: 2025/04/05 13:36:41 by jmeirele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,9 @@ INIT_PATH    = ${SRC_PATH}/100_init
 PARSE_PATH   = ${SRC_PATH}/200_parse
 RAYCAST_PATH = ${SRC_PATH}/300_raycasting
 DRAW_PATH    = ${SRC_PATH}/400_draw
-RENDER_PATH  = ${SRC_PATH}/500_rendering
+TEXTURE_PATH = ${SRC_PATH}/500_textures
+RENDER_PATH  = ${SRC_PATH}/600_rendering
+EVENTS_PATH  = ${SRC_PATH}/700_events
 
 UTILS_PATH   = ${SRC_PATH}/800_utils
 CLEANUP_PATH = ${SRC_PATH}/900_cleanup
@@ -95,11 +97,13 @@ SRCS        = ${SRC_PATH}/main.c \
 				${RAYCAST_PATH}/init_raycasting.c \
 				${RAYCAST_PATH}/dda_raycasting.c \
 				${RAYCAST_PATH}/draw_raycasting.c \
-				${DRAW_PATH}/draw_line.c \
+				${DRAW_PATH}/draw.c \
+				${TEXTURE_PATH}/textures.c \
 				${RENDER_PATH}/render.c \
-				${RENDER_PATH}/events.c \
-				${RENDER_PATH}/rotations.c \
-				${RENDER_PATH}/movements.c \
+				${RENDER_PATH}/render_utils.c \
+				${EVENTS_PATH}/events.c \
+				${EVENTS_PATH}/rotations.c \
+				${EVENTS_PATH}/movements.c \
 				${UTILS_PATH}/safe_utils.c \
 				${CLEANUP_PATH}/free.c \
 				${CLEANUP_PATH}/free_utils.c \

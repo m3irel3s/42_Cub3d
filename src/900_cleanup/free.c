@@ -6,13 +6,14 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 16:37:06 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/05 13:38:31 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 static void	ft_clean_map(t_map * map);
+static void	ft_free_textures(t_game *game);
 static void	ft_clean_graphics(t_game *game);
 
 void	ft_cleanup(t_game *game, char *msg, int fd)
@@ -20,10 +21,9 @@ void	ft_cleanup(t_game *game, char *msg, int fd)
 	if (game)
 	{
 		ft_clean_map(game->map);
+		ft_free_textures(game);
 		ft_clean_graphics(game);
 		ft_free(game->map);
-		ft_free(game->textures);
-		ft_free(game->paths);
 		ft_free(game->player);
 		ft_free(game);
 	}
@@ -49,4 +49,16 @@ static void	ft_clean_graphics(t_game *game)
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	ft_free(game->mlx);
+}
+static void	ft_free_textures(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < 6)
+	{
+		if (game->textures[i].mlx_img)
+			mlx_destroy_image(game->mlx, game->textures[i].mlx_img);
+		i++;
+	}
 }
