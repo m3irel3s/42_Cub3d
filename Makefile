@@ -6,7 +6,7 @@
 #    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/07 16:52:08 by jmeirele         ###   ########.fr        #
+#    Updated: 2025/04/07 18:43:41 by jmeirele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,6 +88,7 @@ SRCS        = ${SRC_PATH}/main.c \
 				${PARSE_PATH}/file_path.c \
 				${PARSE_PATH}/cub_file.c \
 				${PARSE_PATH}/map_grid.c \
+				${PARSE_PATH}/map_utils.c \
 				${PARSE_PATH}/headers.c \
 				${PARSE_PATH}/headers_2.c \
 				${PARSE_PATH}/headers_colors.c \

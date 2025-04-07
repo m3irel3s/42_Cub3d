@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 16:04:54 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 20:34:31 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/07 17:13:11 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ static void ft_parse_color(t_game *game, t_rgb *set_color ,char *color)
 	int		blue;
 
 	res = ft_split(color, ',');
-	printf("\n");
-	for (int i = 0; res[i]; i++)
-		printf("res[%d] %s\n", i, res[i]);
-	printf("\n");
+	// printf("\n");
+	// for (int i = 0; res[i]; i++)
+		// printf("res[%d] %s\n", i, res[i]);
+	// printf("\n");
 	if (ft_array_len(res) != 3)
 	{
 		ft_free_arr(res);
@@ -51,9 +51,9 @@ static void ft_parse_color(t_game *game, t_rgb *set_color ,char *color)
 	red = ft_parse_rgb(game, res[0], res);
 	green = ft_parse_rgb(game, res[1], res);
 	blue = ft_parse_rgb(game, res[2], res);
-	printf("red -> %d\n", red);
-	printf("green -> %d\n", green);
-	printf("blue -> %d\n", blue);
+	// printf("red -> %d\n", red);
+	// printf("green -> %d\n", green);
+	// printf("blue -> %d\n", blue);
 	set_color->r = red;
 	set_color->g = green;
 	set_color->b = blue;

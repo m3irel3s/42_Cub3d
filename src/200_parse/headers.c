@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:11:35 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/07 17:01:43 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/07 17:13:53 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ void	ft_parse_headers(t_game *game)
 	ft_check_and_set_headers_colors(game, headers);
 	ft_check_headers_textures(game, headers);
 
-	for (int i = 0; i < 6; i++)
-	{
-		printf("tag > :%s:\n", headers[i].tag_name);
-		printf("value > :%s:\n", headers[i].value);
-		// for (int j = 0; headers[i].value[j]; j++)
-		// {
-		// 	printf("%d -> %c\n", headers[i].value[j], headers[i].value[j]);
-		// }
-	}
+	// for (int i = 0; i < 6; i++)
+	// {
+	// 	printf("tag > :%s:\n", headers[i].tag_name);
+	// 	printf("value > :%s:\n", headers[i].value);
+	// 	// for (int j = 0; headers[i].value[j]; j++)
+	// 	// {
+	// 	// 	printf("%d -> %c\n", headers[i].value[j], headers[i].value[j]);
+	// 	// }
+	// }
 	return ;
 }
 
