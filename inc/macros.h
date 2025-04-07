@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/04 20:30:13 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/07 15:22:26 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@
 # define COLOR_OUT_OF_LIMITS "Error\nColor number was out of limits\n"
 # define INVALID_COLOR_NUMBER "Error\nInvalid color number\n"
 
+# define INVALID_FD_OPEN "Error\nError openning the file descriptor\n"
 
 #endif

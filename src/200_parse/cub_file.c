@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_file.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:24:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 17:37:25 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/07 15:28:20 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_set_cub_file(t_game *game)
 	int		fd;
 	char	*line;
 
-	fd = open(game->file_path, O_RDONLY);
+	fd = ft_valid_fd(game, game->file_path);
 	i = ft_get_cub_file_size(game);
 	game->cub_file = malloc(sizeof(char *) * (i + 1));
 	j = -1;

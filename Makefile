@@ -6,7 +6,7 @@
 #    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/05 13:36:41 by jmeirele         ###   ########.fr        #
+#    Updated: 2025/04/07 16:52:08 by jmeirele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,6 +91,7 @@ SRCS        = ${SRC_PATH}/main.c \
 				${PARSE_PATH}/headers.c \
 				${PARSE_PATH}/headers_2.c \
 				${PARSE_PATH}/headers_colors.c \
+				${PARSE_PATH}/headers_paths.c \
 				${PARSE_PATH}/parse_utils.c \
 				${UTILS_PATH}/utils.c \
 				${RAYCAST_PATH}/raycasting.c \

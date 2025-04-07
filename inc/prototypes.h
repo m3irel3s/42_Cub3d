@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/05 13:36:55 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/07 16:46:33 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ void		ft_set_cub_file(t_game *game);
 
 /* headers_colors.c */
 void		ft_check_and_set_headers_colors(t_game *game, t_headers *headers);
+
+/* headers_paths.c */
+void		ft_check_headers_textures(t_game *game, t_headers *headers);
 
 /* headers.c */
 void		ft_parse_headers(t_game *game);
@@ -108,6 +111,7 @@ int			ft_array_len(char **arr);
 
 /* safe_utils.c */
 void		*ft_safe_malloc(size_t size);
+int			ft_valid_fd(t_game *game, char *path);
 
 //============================================================================//
 //                                CLEANUP                                     //

@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 19:01:37 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/01 11:38:57 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/07 15:26:00 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,14 @@ void	*ft_safe_malloc(size_t size)
 		return (NULL);
 	}
 	return (p);
+}
+
+int	ft_valid_fd(t_game *game, char *path)
+{
+	int	fd;
+	
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+		ft_cleanup(game, INVALID_FD_OPEN, 2);
+	return (fd);
 }

@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:11:35 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/05 13:38:13 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/07 17:01:43 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ void	ft_parse_headers(t_game *game)
 	ft_check_and_set_headers_tags(game, headers);
 	ft_check_headers_values(game, headers);
 	ft_check_and_set_headers_colors(game, headers);
-	// ft_check_headers_textures(game, headers);
-	
-	// go for each tag, if it is texture do ...
+	ft_check_headers_textures(game, headers);
 
 	for (int i = 0; i < 6; i++)
 	{
