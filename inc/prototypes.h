@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/07 16:46:33 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/07 19:32:59 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int			ft_is_empty_line(char *str);
 int			ft_count_occurs(char *str, char c);
 
 /* map_grid.c */
+
+/* map_utils.c */
 
 //============================================================================//
 //                               RAYCASTING                                   //
