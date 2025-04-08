@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:56:43 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/05 16:06:06 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:55:10 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,6 @@ void ft_draw_textured_wall(t_game *game, int x, t_ray *ray)
 
 	texture = &game->textures[ray->wall_side];
 	tex_x = (int)(ray->wall_x * texture->width);
-	if ((ray->side == 0 && ray->ray_dir_x > 0) || (ray->side == 1 && ray->ray_dir_y < 0))
-		tex_x = texture->width - tex_x - 1;
-	if (tex_x < 0)
-		tex_x = 0;
-	else if (tex_x >= texture->width)
-		tex_x = texture->width - 1;
 	step = (double)texture->height / ray->line_height;
 	tex_pos = (ray->draw_start - (SCREEN_HEIGHT / 2 - ray->line_height / 2)) * step;
 
@@ -62,10 +56,6 @@ void ft_draw_textured_wall(t_game *game, int x, t_ray *ray)
 	while (y < ray->draw_end)
 	{
 		int tex_y = (int)tex_pos;
-		if (tex_y < 0)
-			tex_y = 0;
-		else if (tex_y >= texture->height)
-			tex_y = texture->height - 1;
 		color = *(int *)(texture->addr + (tex_y * texture->line_len + tex_x * (texture->bpp / 8)));
 		// Apply fog
 		color = darken_rgb_color3(color, 0.9, times);

@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/05 15:40:32 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:44:06 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,41 +34,109 @@
 
 static void	ft_init_graphics(t_game *game);
 
-	void ft_test(t_game *game)
+void ft_test(t_game *game)
 {
+	int i, j;
+	char orientation;
+
+	// Alocar o player
 	game->player = ft_safe_malloc(sizeof(t_player));
 	if (!game->player)
 		ft_cleanup(game, "Error allocating player", 1);
-	game->player->pos_x = 7;
-	game->player->pos_y = 3.5;
-	game->player->dir_x = -1;
-	game->player->dir_y = 0;
-	game->player->plane_x = 0;    // Explicitly set
-	game->player->plane_y = FOV; // Field of view adjustment
-	/* Map initialization remains the same */
-	game->map->grid = malloc(sizeof(char *) * 8);
+
+	/* Inicializa o mapa manualmente.
+	Neste exemplo, vamos usar 7 linhas e cada linha tem 21 colunas. */
+	game->map->grid = malloc(sizeof(char *) * 8); // 7 linhas + 1 para NULL
 	if (!game->map->grid)
 		ft_cleanup(game, "Error allocating map grid", 1);
-	game->map->grid[0] = "111111111111111111111";
-	game->map->grid[1] = "100000000000000000001";
-	game->map->grid[2] = "111110000000000000011";
-	game->map->grid[3] = "100000000000000000001";
-	game->map->grid[4] = "101010100000000010001";
-	game->map->grid[5] = "111000000000000000001";
-	game->map->grid[6] = "111111111111111111111";
+
+	// Aqui usamos strings literais para exemplo, mas em produção
+	// convém duplicá-las para que possam ser modificadas.
+	game->map->grid[0] = ft_strdup("111111111111111111111");
+	game->map->grid[1] = ft_strdup("100000000000000000001");
+	game->map->grid[2] = ft_strdup("11111000000N000000011");
+	game->map->grid[3] = ft_strdup("100000000000000000001");
+	game->map->grid[4] = ft_strdup("101010100000000010001");
+	game->map->grid[5] = ft_strdup("111000000000000000001");
+	game->map->grid[6] = ft_strdup("111111111111111111111");
 	game->map->grid[7] = NULL;
-	game->map->width = 7;
+
+	// Define a largura e altura do mapa com base no número de colunas e linhas.
+	// Neste exemplo, cada linha tem 21 caracteres e há 7 linhas.
+	game->map->width = 21;
 	game->map->height = 7;
+
+	/*
+	* Procura na grid o carácter de orientação (N, S, E ou W) para definir
+	* a posição inicial e a orientação do jogador.
+	*/
+	for (i = 0; i < (int)game->map->height; i++)
+	{
+		for (j = 0; j < (int)game->map->width; j++)
+		{
+			orientation = game->map->grid[i][j];
+			if (orientation == 'N' || orientation == 'S' ||
+				orientation == 'E' || orientation == 'W')
+			{
+				// Posicionar o jogador no centro da célula
+				game->player->pos_x = j + 0.5;
+				game->player->pos_y = i + 0.5;
+
+				// Definir os vetores de direção e do plano de acordo com a orientação
+				if (orientation == 'N')
+				{
+					game->player->dir_x = 0;
+					game->player->dir_y = -1;
+					game->player->plane_x = 0.66;  // Valor de FOV (exemplo)
+					game->player->plane_y = 0;
+				}
+				else if (orientation == 'S')
+				{
+					game->player->dir_x = 0;
+					game->player->dir_y = 1;
+					game->player->plane_x = -0.66;
+					game->player->plane_y = 0;
+				}
+				else if (orientation == 'E')
+				{
+					game->player->dir_x = 1;
+					game->player->dir_y = 0;
+					game->player->plane_x = 0;
+					game->player->plane_y = 0.66;
+				}
+				else if (orientation == 'W')
+				{
+					game->player->dir_x = -1;
+					game->player->dir_y = 0;
+					game->player->plane_x = 0;
+					game->player->plane_y = -0.66;
+				}
+
+				// Opcional: substituir a célula por um espaço vazio ('0')
+				game->map->grid[i][j] = '0';
+
+				// Encontrado o ponto de partida; podemos sair dos loops.
+				goto end_search;
+			}
+		}
+	}
+end_search:
+	; // Apenas para terminar o goto
+
+	// Se nenhum carácter de orientação for encontrado, podes definir um valor padrão ou lançar erro.
+	// Exemplo: se não tiver sido configurado o player, podes definir valores padrão.
+	// (Neste exemplo, assumimos que sempre haverá um marcador de orientação.)
 }
+
 
 
 int	main(int argc, char **argv)
 {
 	t_game	*game;
 
-	 game = NULL;
-	 if (argc != 2)
-	 	return (ft_putstr_fd("Invalid arguments given\n", 2), FAILURE);
+	game = NULL;
+	if (argc != 2)
+		return (ft_putstr_fd("Invalid arguments given\n", 2), FAILURE);
 	game = ft_init_structs();
 	ft_parse(game, argv);
 	ft_test(game);
