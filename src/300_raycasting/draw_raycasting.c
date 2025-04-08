@@ -6,13 +6,13 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 22:14:50 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/05 14:11:12 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/08 21:49:26 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
-void ft_calc_wall(t_game *game, t_ray *ray)
+void	ft_calc_wall(t_game *game, t_ray *ray)
 {
 	if (ray->side == 0)
 		ray->perp_wall_dist = (ray->map_x - game->player->pos_x +
@@ -47,3 +47,4 @@ void ft_calc_wall(t_game *game, t_ray *ray)
 			ray->wall_side = NORTH;
 	}
 }
+

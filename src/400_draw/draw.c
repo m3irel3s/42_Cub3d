@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:56:43 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/08 20:56:29 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/08 21:56:59 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,58 +31,48 @@ void ft_draw_textured_wall(t_game *game, int x, t_ray *ray)
 	double tex_pos;
 	int y;
 	int color;
+	int times;
 
 	texture = &game->textures[ray->wall_side];
-	tex_x = (int)(ray->wall_x * texture->width);
-	step = (double)texture->height / ray->line_height;
-	tex_pos = (ray->draw_start - (SCREEN_HEIGHT / 2 - ray->line_height / 2)) * step;
 
+	// Calcula a coordenada horizontal da textura
+	tex_x = (int)(ray->wall_x * texture->width);
+
+	// Aplica inversão somente para o lado SOUTH, se desejado.
 	if (ray->wall_side == SOUTH)
 		tex_x = texture->width - tex_x - 1;
-	// else if (ray->side == 1 && ray->ray_dir_y < 0)
-	// 	tex_x = texture->width - tex_x - 1;
 
-	// // Agora, aplicar o efeito mirror somente se for parede NORTH
-	// if (ray->wall_side == NORTH || ray->wall_side == SOUTH)
-	// {
-	// 	if (ray->side == 0 && ray->ray_dir_x < 0)
-	// 		tex_x = texture->width - tex_x - 1;
-	// 	else if (ray->side == 1 && ray->ray_dir_y > 0)
-	// 		tex_x = texture->width - tex_x - 1;
-	// }
-	// else if (ray->wall_side == EAST || ray->wall_side == WEST)
-	// {
-	// 	tex_x = texture->width - tex_x - 1;
-	// }
-	// Se for parede SOUTH, não fazemos nenhuma inversão extra.
-	// (Caso já esteja a ser invertido pelas condições anteriores, poderás testar removendo a inversão geral para as paredes SOUTH.)
-
-	// Garantir que tex_x está dentro dos limites
+	// Garante que tex_x está dentro dos limites
 	if (tex_x < 0)
 		tex_x = 0;
 	else if (tex_x >= texture->width)
 		tex_x = texture->width - 1;
-	// Calculate fog based on distance
-	int times;
+
+	// Calcula o step (passo) para mapear a textura na parede
+	step = (double)texture->height / ray->line_height;
+	tex_pos = (ray->draw_start - (SCREEN_HEIGHT / 2 - ray->line_height / 2)) * step;
+
+	// Calcula o "fog" (escurecimento) baseado na distância
 	if (ray->perp_wall_dist > 4.2)
-		times = 50; // Max darkening (near black)
+		times = 50;
 	else
 	{
 		double distance = 1.0;
 		times = 0;
 		while (distance < ray->perp_wall_dist)
 		{
-			distance += 0.100001; // Incremental step for fog density
+			distance += 0.100001;
 			times++;
 		}
 	}
 
+	// Desenha a parede pixel a pixel
 	y = ray->draw_start;
 	while (y < ray->draw_end)
 	{
 		int tex_y = (int)tex_pos;
 		color = *(int *)(texture->addr + (tex_y * texture->line_len + tex_x * (texture->bpp / 8)));
-		// Apply fog
+		// Aplica o efeito fog
 		color = darken_rgb_color3(color, 0.9, times);
 		ft_mlx_pixel_put_to_image(game, x, y, color);
 		tex_pos += step;
