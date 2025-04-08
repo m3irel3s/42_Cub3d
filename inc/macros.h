@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/07 15:22:26 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:40:00 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@
 # define FOUND_INVALID_COLOR "Error\nColor wasn't given like the subject required\n"
 # define COLOR_OUT_OF_LIMITS "Error\nColor number was out of limits\n"
 # define INVALID_COLOR_NUMBER "Error\nInvalid color number\n"
+# define FOUND_TAB_IN_MAP "Error\nFound a tab in map grid\n"
+# define FOUND_INVALID_CHAR_MAP "Error\nFound an invalid char in map\n"
+# define FOUND_EMPTY_LINE_INSI_MAP "Error\nFound empty line inside map\n"
+# define FOUND_MORE_PLAYERS "Error\nFound more than 1 player\n"
+# define PLAYER_NOT_FOUND "Error\nPlayer not found\n"
 
 # define INVALID_FD_OPEN "Error\nError openning the file descriptor\n"
 

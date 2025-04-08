@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 18:29:06 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 21:13:13 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/08 19:03:12 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,5 @@ static t_map	*ft_init_map(void)
 	map->grid = NULL;
 	map->width = 0;
 	map->height = 0;
-	map->s_pos = NULL;
 	return (map);
 }

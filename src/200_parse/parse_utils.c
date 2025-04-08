@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:42:48 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 16:03:52 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:41:01 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_set_grid_start_index(t_game *game)
 		j = 0;
 		while (ft_strchr(" ", game->cub_file[i][j]))
 			j++;
-		while (ft_strchr("1 ", game->cub_file[i][j]))
+		while (ft_strchr("10 ", game->cub_file[i][j]))
 		{
 			if (!game->cub_file[i][j + 3])
 				return (i);

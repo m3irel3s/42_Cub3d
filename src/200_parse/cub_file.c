@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:24:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/07 17:27:37 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/08 13:09:39 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,5 @@ static void	ft_trim_cub_file(t_game *game)
 		game->cub_file[i] = temp;
 		i++;
 	}
+	game->map->grid_last_index = i;
 }

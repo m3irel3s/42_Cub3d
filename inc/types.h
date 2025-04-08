@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/07 18:36:22 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/08 19:02:43 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,6 @@ typedef struct	s_rgb
 	int		b;
 }	t_rgb;
 
-typedef struct s_headers
-{
-	t_tag	tag;
-	char	*tag_name;
-	char	*value;
-}	t_headers;
-
 typedef struct s_player
 {
 	double	pos_x;
@@ -96,6 +89,13 @@ typedef struct s_img
 	int		height;
 }			t_img;
 
+typedef struct s_headers
+{
+	t_tag	tag;
+	char	*tag_name;
+	char	*value;
+}	t_headers;
+
 typedef struct	s_map
 {
 	char		**grid;
@@ -103,7 +103,9 @@ typedef struct	s_map
 	size_t		height;
 	int			grid_start_index;
 	int			grid_last_index;
-	t_point		*s_pos;
+	int			map_size;
+	t_point		s_pos;
+	char		s_dir;
 }	t_map;
 
 typedef struct s_ray_step

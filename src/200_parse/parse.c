@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:06:31 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/07 19:32:07 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/08 19:03:27 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,12 @@ void	ft_parse(t_game *game, char **argv)
 	for (int i = 0; i < game->map->grid_start_index; i++)
 		ft_printf(1, "%s\n", game->cub_file[i]);
 	printf("\n\n");
-	
 	ft_parse_headers(game);
-	// ft_parse_map_grid(game);
+	ft_parse_map_grid(game);
+	// ft_check_map_closure(game);
+	for (int i = 0; i < game->map->map_size; i++)
+		ft_printf(1, "%s\n", game->map->grid[i]);
+	printf("x-> %d y-> %d\n", game->map->s_pos.x, game->map->s_pos.y);
+	printf("s_dir -> %c\n", game->map->s_dir);
 }
 
