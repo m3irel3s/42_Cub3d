@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:56:43 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/08 17:55:10 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/08 20:56:29 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,31 @@ void ft_draw_textured_wall(t_game *game, int x, t_ray *ray)
 	step = (double)texture->height / ray->line_height;
 	tex_pos = (ray->draw_start - (SCREEN_HEIGHT / 2 - ray->line_height / 2)) * step;
 
+	if (ray->wall_side == SOUTH)
+		tex_x = texture->width - tex_x - 1;
+	// else if (ray->side == 1 && ray->ray_dir_y < 0)
+	// 	tex_x = texture->width - tex_x - 1;
+
+	// // Agora, aplicar o efeito mirror somente se for parede NORTH
+	// if (ray->wall_side == NORTH || ray->wall_side == SOUTH)
+	// {
+	// 	if (ray->side == 0 && ray->ray_dir_x < 0)
+	// 		tex_x = texture->width - tex_x - 1;
+	// 	else if (ray->side == 1 && ray->ray_dir_y > 0)
+	// 		tex_x = texture->width - tex_x - 1;
+	// }
+	// else if (ray->wall_side == EAST || ray->wall_side == WEST)
+	// {
+	// 	tex_x = texture->width - tex_x - 1;
+	// }
+	// Se for parede SOUTH, não fazemos nenhuma inversão extra.
+	// (Caso já esteja a ser invertido pelas condições anteriores, poderás testar removendo a inversão geral para as paredes SOUTH.)
+
+	// Garantir que tex_x está dentro dos limites
+	if (tex_x < 0)
+		tex_x = 0;
+	else if (tex_x >= texture->width)
+		tex_x = texture->width - 1;
 	// Calculate fog based on distance
 	int times;
 	if (ray->perp_wall_dist > 4.2)

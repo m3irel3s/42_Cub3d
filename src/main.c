@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/08 17:44:06 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/08 20:59:53 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ void ft_test(t_game *game)
 	// Aqui usamos strings literais para exemplo, mas em produção
 	// convém duplicá-las para que possam ser modificadas.
 	game->map->grid[0] = ft_strdup("111111111111111111111");
-	game->map->grid[1] = ft_strdup("100000000000000000001");
-	game->map->grid[2] = ft_strdup("11111000000N000000011");
-	game->map->grid[3] = ft_strdup("100000000000000000001");
-	game->map->grid[4] = ft_strdup("101010100000000010001");
-	game->map->grid[5] = ft_strdup("111000000000000000001");
+	game->map->grid[1] = ft_strdup("100000010001000000001");
+	game->map->grid[2] = ft_strdup("11111000000S001110011");
+	game->map->grid[3] = ft_strdup("100000011001000010001");
+	game->map->grid[4] = ft_strdup("101010100001001010001");
+	game->map->grid[5] = ft_strdup("111000000001001010001");
 	game->map->grid[6] = ft_strdup("111111111111111111111");
 	game->map->grid[7] = NULL;
 
@@ -87,14 +87,14 @@ void ft_test(t_game *game)
 				{
 					game->player->dir_x = 0;
 					game->player->dir_y = -1;
-					game->player->plane_x = 0.66;  // Valor de FOV (exemplo)
+					game->player->plane_x = FOV;
 					game->player->plane_y = 0;
 				}
 				else if (orientation == 'S')
 				{
 					game->player->dir_x = 0;
 					game->player->dir_y = 1;
-					game->player->plane_x = -0.66;
+					game->player->plane_x = -FOV;
 					game->player->plane_y = 0;
 				}
 				else if (orientation == 'E')
@@ -102,14 +102,14 @@ void ft_test(t_game *game)
 					game->player->dir_x = 1;
 					game->player->dir_y = 0;
 					game->player->plane_x = 0;
-					game->player->plane_y = 0.66;
+					game->player->plane_y = FOV;
 				}
 				else if (orientation == 'W')
 				{
 					game->player->dir_x = -1;
 					game->player->dir_y = 0;
 					game->player->plane_x = 0;
-					game->player->plane_y = -0.66;
+					game->player->plane_y = -FOV;
 				}
 
 				// Opcional: substituir a célula por um espaço vazio ('0')
