@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:24:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/08 13:09:39 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/09 15:21:45 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ static void	ft_trim_cub_file(t_game *game);
 
 void	ft_set_cub_file(t_game *game)
 {
-	int		i;
 	int		j;
 	int		fd;
 	char	*line;
 
 	fd = ft_valid_fd(game, game->file_path);
-	i = ft_get_cub_file_size(game);
-	game->cub_file = malloc(sizeof(char *) * (i + 1));
+	game->cub_file_size = ft_get_cub_file_size(game);
+	printf("cub file size -> %d\n", game->cub_file_size);
+	game->cub_file = malloc(sizeof(char *) * (game->cub_file_size + 1));
 	j = -1;
-	while(++j < i)
+	while(++j < game->cub_file_size)
 	{
 		line = get_next_line(fd);
 		game->cub_file[j] = ft_strdup(line);
@@ -34,7 +34,8 @@ void	ft_set_cub_file(t_game *game)
 	}
 	game->cub_file[j] = NULL;
 	close(fd);
-	game->map->grid_start_index = ft_set_grid_start_index(game);
+	game->map->grid_start_index = ft_get_grid_start_index(game);
+	game->map->grid_last_index = ft_get_grid_last_index(game);
 	if (game->map->grid_start_index < 6)
 		ft_cleanup(game, INVALID_MAP_GRID, 2);
 	ft_trim_cub_file(game);
@@ -82,5 +83,4 @@ static void	ft_trim_cub_file(t_game *game)
 		game->cub_file[i] = temp;
 		i++;
 	}
-	game->map->grid_last_index = i;
 }

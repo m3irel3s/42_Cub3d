@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/08 19:02:43 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/09 14:09:57 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@ typedef struct s_game
 	t_map		*map;
 	char		*file_path;
 	char		**cub_file;
+	int			cub_file_size;
 	void		*mlx;
 	void		*win;
 	t_headers	*headers;

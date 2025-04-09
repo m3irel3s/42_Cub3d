@@ -6,7 +6,7 @@
 #    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/07 18:43:41 by jmeirele         ###   ########.fr        #
+#    Updated: 2025/04/09 12:20:30 by jmeirele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,13 +87,14 @@ SRCS        = ${SRC_PATH}/main.c \
 				${PARSE_PATH}/parse.c \
 				${PARSE_PATH}/file_path.c \
 				${PARSE_PATH}/cub_file.c \
-				${PARSE_PATH}/map_grid.c \
-				${PARSE_PATH}/map_utils.c \
 				${PARSE_PATH}/headers.c \
 				${PARSE_PATH}/headers_2.c \
 				${PARSE_PATH}/headers_colors.c \
 				${PARSE_PATH}/headers_paths.c \
 				${PARSE_PATH}/parse_utils.c \
+				${PARSE_PATH}/map_grid.c \
+				${PARSE_PATH}/map_utils.c \
+				${PARSE_PATH}/map_closure.c \
 				${UTILS_PATH}/utils.c \
 				${RAYCAST_PATH}/raycasting.c \
 				${RAYCAST_PATH}/init_raycasting.c \
@@ -108,6 +109,7 @@ SRCS        = ${SRC_PATH}/main.c \
 				${EVENTS_PATH}/movements.c \
 				${UTILS_PATH}/safe_utils.c \
 				${CLEANUP_PATH}/free.c \
+				${CLEANUP_PATH}/free_parse.c \
 				${CLEANUP_PATH}/free_utils.c \
 
 OBJS        = $(SRCS:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
@@ -141,7 +143,7 @@ LIBFT_INC   = -I$(LIBFT_PATH) -I$(MINILIBX_PATH)
 MAKE_LIBFT  = $(MAKE) -C $(LIBFT_PATH)
 
 # Valgrind options
-V_ARGS      = --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes --suppressions=readline.supp
+V_ARGS      = --leak-check=full --show-leak-kinds=all --track-fds=yes --track-origins=yes
 
 #------------------------------------------------------------------------------#
 #                                    RULES                                     #
@@ -247,10 +249,7 @@ test: all
 #------------------------------------------------------------------------------#
 
 test1: all
-	./${NAME} maps/valid_maps/subject.cub
-
-test2: all
-	./${NAME} maps/valid_maps/test.cub
+	valgrind ${V_ARGS} ./${NAME} maps/valid_maps/test.cub
 
 #------------------------------------------------------------------------------#
 #                                CLEANING RULES                                #

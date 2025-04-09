@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:42:48 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/08 17:41:01 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/09 15:21:38 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_check_valid_map_chars(char c)
 	return (FAILURE);
 }
 
-int	ft_set_grid_start_index(t_game *game)
+int	ft_get_grid_start_index(t_game *game)
 {
 	int	i;
 	int	j;
@@ -48,6 +48,20 @@ int	ft_set_grid_start_index(t_game *game)
 	i++;
 	}
 	return (ERROR);
+}
+
+int	ft_get_grid_last_index(t_game *game)
+{
+	int	i;
+
+	i = game->map->grid_start_index;
+	while (game->cub_file[i])
+	{
+		if (!game->cub_file[i][2])
+			return (i);
+		i++;
+	}
+	return (i);
 }
 
 int	ft_is_empty_line(char *str)

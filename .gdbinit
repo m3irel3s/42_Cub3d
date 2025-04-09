@@ -22,12 +22,19 @@ set logging file gdb.txt
 # set follow-fork-mode child
 # set detach-on-fork off
 
+define ft_flood_fill
+	disp dup_grid[x][y]
+	disp x
+	disp y
+end
+
 # Load the program
 file cub3d
 
 
 # Set breakpoints
 break main
+break ft_flood_fill
 fs cmd
 
 # Show active breakpoints and watchpoints

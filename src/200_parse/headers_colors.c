@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 16:04:54 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/07 17:13:11 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/09 15:00:58 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ static void ft_parse_color(t_game *game, t_rgb *set_color ,char *color)
 	// for (int i = 0; res[i]; i++)
 		// printf("res[%d] %s\n", i, res[i]);
 	// printf("\n");
-	if (ft_array_len(res) != 3)
+	// printf("array_len -> %d\n", ft_array_len(res));
+	if (ft_array_len(res) != 3 || ft_count_occurs(color, ',') != 2)
 	{
 		ft_free_arr(res);
 		ft_cleanup(game, FOUND_INVALID_COLOR, 2);

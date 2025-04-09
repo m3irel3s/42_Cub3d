@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/08 18:58:38 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/09 14:55:19 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int			ft_count_headers(t_game *game);
 
 /* parse_utils.c */
 int			ft_check_valid_map_chars(char c);
-int			ft_set_grid_start_index(t_game *game);
+int			ft_get_grid_start_index(t_game *game);
+int			ft_get_grid_last_index(t_game *game);
 int			ft_is_empty_line(char *str);
 int			ft_count_occurs(char *str, char c);
 
@@ -58,6 +59,10 @@ void		ft_parse_map_grid(t_game *game);
 /* map_utils.c */
 void		ft_validate_map_chars(t_game *game);
 void		ft_set_player_values(t_game *game);
+
+/* map_closure.c */
+
+void		ft_check_map_closure(t_game *game);
 
 //============================================================================//
 //                               RAYCASTING                                   //
@@ -123,6 +128,9 @@ int			ft_valid_fd(t_game *game, char *path);
 //============================================================================//
 /* free.c */
 void		ft_cleanup(t_game *game, char *msg, int fd);
+
+/* free_parse.c */
+void		ft_free_parse(t_game *game);
 
 /* free_utils.c */
 void		ft_free(void *ptr);
