@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/09 22:21:37 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/09 22:43:49 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ void ft_test(t_game *game)
 
 	// Aqui usamos strings literais para exemplo, mas em produção
 	// convém duplicá-las para que possam ser modificadas.
-	game->map->grid[0] = ft_strdup("111111111111111111111");
-	game->map->grid[1] = ft_strdup("1000000100000000001");
-	game->map->grid[2] = ft_strdup("111110000S001110011");
+	game->map->grid[0] = ft_strdup("    11111111");
+	game->map->grid[1] = ft_strdup("1111000100001");
+	game->map->grid[2] = ft_strdup("1 11110000W001110011");
 	game->map->grid[3] = ft_strdup("10000001100100001001");
 	game->map->grid[4] = ft_strdup("101010100001001010001");
-	game->map->grid[5] = ft_strdup("1110000000 1001010001");
+	game->map->grid[5] = ft_strdup(" 1110000000 1001010001");
 	game->map->grid[6] = ft_strdup("111111111111111111111");
 	game->map->grid[7] = NULL;
 
