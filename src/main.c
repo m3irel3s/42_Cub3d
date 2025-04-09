@@ -6,11 +6,128 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/07 15:26:45 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/09 21:44:35 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
+
+
+// int	main(int argc, char **argv)
+// {
+// 	t_game	*game;
+
+// 	game = NULL;
+// 	if (argc != 2)
+// 		return (ft_putstr_fd("Invalid arguments given\n", 2), FAILURE);
+// 	game = ft_init_structs();
+// 	ft_parse(game, argv);
+// 	ft_cleanup(game, "", 1);
+// 	return (SUCCESS);
+// }
+
+
+#define NO_PATH "textures/no.xpm"
+#define SO_PATH "textures/so.xpm"
+#define WE_PATH "textures/we.xpm"
+#define EA_PATH "textures/ea.xpm"
+
+static void	ft_init_graphics(t_game *game);
+
+void ft_test(t_game *game)
+{
+	int i, j;
+	char orientation;
+
+	// Alocar o player
+	game->player = ft_safe_malloc(sizeof(t_player));
+	if (!game->player)
+		ft_cleanup(game, "Error allocating player", 1);
+
+	/* Inicializa o mapa manualmente.
+	Neste exemplo, vamos usar 7 linhas e cada linha tem 21 colunas. */
+	game->map->grid = malloc(sizeof(char *) * 8); // 7 linhas + 1 para NULL
+	if (!game->map->grid)
+		ft_cleanup(game, "Error allocating map grid", 1);
+
+	// Aqui usamos strings literais para exemplo, mas em produção
+	// convém duplicá-las para que possam ser modificadas.
+	game->map->grid[0] = ft_strdup("111111111111111111111");
+	game->map->grid[1] = ft_strdup("100000010001000000001");
+	game->map->grid[2] = ft_strdup("11111000000S001110011");
+	game->map->grid[3] = ft_strdup("100000011001000010001");
+	game->map->grid[4] = ft_strdup("101010100001001010001");
+	game->map->grid[5] = ft_strdup("111000000001001010001");
+	game->map->grid[6] = ft_strdup("111111111111111111111");
+	game->map->grid[7] = NULL;
+
+	// Define a largura e altura do mapa com base no número de colunas e linhas.
+	// Neste exemplo, cada linha tem 21 caracteres e há 7 linhas.
+	game->map->width = 21;
+	game->map->height = 7;
+
+	/*
+	* Procura na grid o carácter de orientação (N, S, E ou W) para definir
+	* a posição inicial e a orientação do jogador.
+	*/
+	for (i = 0; i < (int)game->map->height; i++)
+	{
+		for (j = 0; j < (int)game->map->width; j++)
+		{
+			orientation = game->map->grid[i][j];
+			if (orientation == 'N' || orientation == 'S' ||
+				orientation == 'E' || orientation == 'W')
+			{
+				// Posicionar o jogador no centro da célula
+				game->player->pos_x = j + 0.5;
+				game->player->pos_y = i + 0.5;
+
+				// Definir os vetores de direção e do plano de acordo com a orientação
+				if (orientation == 'N')
+				{
+					game->player->dir_x = 0;
+					game->player->dir_y = -1;
+					game->player->plane_x = FOV;
+					game->player->plane_y = 0;
+				}
+				else if (orientation == 'S')
+				{
+					game->player->dir_x = 0;
+					game->player->dir_y = 1;
+					game->player->plane_x = -FOV;
+					game->player->plane_y = 0;
+				}
+				else if (orientation == 'E')
+				{
+					game->player->dir_x = 1;
+					game->player->dir_y = 0;
+					game->player->plane_x = 0;
+					game->player->plane_y = FOV;
+				}
+				else if (orientation == 'W')
+				{
+					game->player->dir_x = -1;
+					game->player->dir_y = 0;
+					game->player->plane_x = 0;
+					game->player->plane_y = -FOV;
+				}
+
+				// Opcional: substituir a célula por um espaço vazio ('0')
+				game->map->grid[i][j] = '0';
+
+				// Encontrado o ponto de partida; podemos sair dos loops.
+				goto end_search;
+			}
+		}
+	}
+end_search:
+	; // Apenas para terminar o goto
+
+	// Se nenhum carácter de orientação for encontrado, podes definir um valor padrão ou lançar erro.
+	// Exemplo: se não tiver sido configurado o player, podes definir valores padrão.
+	// (Neste exemplo, assumimos que sempre haverá um marcador de orientação.)
+}
+
 
 
 int	main(int argc, char **argv)
