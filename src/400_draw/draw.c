@@ -6,12 +6,13 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:56:43 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/09 22:50:31 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/09 22:54:03 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
-int ft_darken_rgb_color3(int color, double factor, int times);
+
+int	ft_darken_rgb_color3(int color, double factor, int times);
 
 void	ft_mlx_pixel_put_to_image(t_game *game, int x, int y, int color)
 {
@@ -23,59 +24,64 @@ void	ft_mlx_pixel_put_to_image(t_game *game, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-void ft_draw_textured_wall(t_game *game, int x, t_ray *ray)
+static int	ft_compute_fog(double perp_wall_dist)
 {
-	t_img *texture;
-	int tex_x;
-	double step;
-	double tex_pos;
-	int y;
-	int color;
-	int times;
+	int		times;
+	double	distance;
 
-	texture = &game->textures[ray->wall_side];
-
-	// Calcula a coordenada horizontal da textura
-	tex_x = (int)(ray->wall_x * texture->width);
-
-	// Aplica inversão somente para o lado SOUTH, se desejado.
-	if (ray->wall_side == SOUTH)
-		tex_x = texture->width - tex_x - 1;
-
-	// Garante que tex_x está dentro dos limites
-	if (tex_x < 0)
-		tex_x = 0;
-	else if (tex_x >= texture->width)
-		tex_x = texture->width - 1;
-
-	// Calcula o step (passo) para mapear a textura na parede
-	step = (double)texture->height / ray->line_height;
-	tex_pos = (ray->draw_start - (SCREEN_HEIGHT / 2 - ray->line_height / 2)) * step;
-
-	// Calcula o "fog" (escurecimento) baseado na distância
-	if (ray->perp_wall_dist > 4.2)
-		times = 50;
-	else
+	if (perp_wall_dist > 4.2)
+		return (50);
+	distance = 1.0;
+	times = 0;
+	while (distance < perp_wall_dist)
 	{
-		double distance = 1.0;
-		times = 0;
-		while (distance < ray->perp_wall_dist)
-		{
-			distance += 0.100001;
-			times++;
-		}
+		distance += 0.100001;
+		times++;
 	}
+	return (times);
+}
 
-	// Desenha a parede pixel a pixel
-	y = ray->draw_start;
-	while (y < ray->draw_end)
+static void	ft_draw_textured_wall_loop(t_game *game, int x, t_img *texture,
+		int tex_x, double step, double tex_pos, int draw_start, int draw_end,
+		int fog_times)
+{
+	int	y;
+	int	color;
+	int	tex_y;
+
+	y = draw_start;
+	while (y < draw_end)
 	{
-		int tex_y = (int)tex_pos;
-		color = *(int *)(texture->addr + (tex_y * texture->line_len + tex_x * (texture->bpp / 8)));
-		// Aplica o efeito fog
-		color = ft_darken_rgb_color3(color, 0.9, times);
+		tex_y = (int)tex_pos;
+		color = *(int *)(texture->addr + (tex_y * texture->line_len +
+					tex_x * (texture->bpp / 8)));
+		color = ft_darken_rgb_color3(color, 0.9, fog_times);
 		ft_mlx_pixel_put_to_image(game, x, y, color);
 		tex_pos += step;
 		y++;
 	}
+}
+
+void	ft_draw_textured_wall(t_game *game, int x, t_ray *ray)
+{
+	t_img	*texture;
+	int		tex_x;
+	double	step;
+	double	tex_pos;
+	int		fog_times;
+
+	texture = &game->textures[ray->wall_side];
+	tex_x = (int)(ray->wall_x * texture->width);
+	if (ray->wall_side == SOUTH)
+		tex_x = texture->width - tex_x - 1;
+	if (tex_x < 0)
+		tex_x = 0;
+	else if (tex_x >= texture->width)
+		tex_x = texture->width - 1;
+	step = (double)texture->height / ray->line_height;
+	tex_pos = (ray->draw_start - (SCREEN_HEIGHT / 2 - ray->line_height / 2))
+		* step;
+	fog_times = ft_compute_fog(ray->perp_wall_dist);
+	ft_draw_textured_wall_loop(game, x, texture, tex_x, step, tex_pos,
+		ray->draw_start, ray->draw_end, fog_times);
 }
