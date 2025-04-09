@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/09 21:46:36 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/09 21:50:10 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,10 @@ void	ft_cleanup(t_game *game, char *msg, int fd)
 	if (game)
 	{
 		ft_free_parse(game);
+		// ft_free_textures(game);
+		// if (game->mlx)
+		// ft_clean_graphics(game);
 		ft_free(game->map);
-		if(game->map)
-			ft_clean_map(game->map);
-		if (game->cub_file)
-			ft_free_arr(game->cub_file);
-		ft_free_textures(game);
-		if (game->mlx)
-			ft_clean_graphics(game);
 		ft_free(game->player);
 		ft_free(game);
 	}
