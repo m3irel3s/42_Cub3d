@@ -6,12 +6,12 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:56:43 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/08 21:56:59 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/09 22:50:31 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
-int darken_rgb_color3(int color, double factor, int times);
+int ft_darken_rgb_color3(int color, double factor, int times);
 
 void	ft_mlx_pixel_put_to_image(t_game *game, int x, int y, int color)
 {
@@ -73,7 +73,7 @@ void ft_draw_textured_wall(t_game *game, int x, t_ray *ray)
 		int tex_y = (int)tex_pos;
 		color = *(int *)(texture->addr + (tex_y * texture->line_len + tex_x * (texture->bpp / 8)));
 		// Aplica o efeito fog
-		color = darken_rgb_color3(color, 0.9, times);
+		color = ft_darken_rgb_color3(color, 0.9, times);
 		ft_mlx_pixel_put_to_image(game, x, y, color);
 		tex_pos += step;
 		y++;
