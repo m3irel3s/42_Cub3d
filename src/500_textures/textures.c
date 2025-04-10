@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:44:54 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 17:10:56 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:56:06 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,25 @@ static void ft_load_single_texture(t_game *game, char *path, t_wall_side side);
 
 void	ft_load_textures(t_game *game)
 {
-	int i;
+	int			i;
+	t_tag		tag;
+	t_headers	*headers;
+	char		*value;
 
 	i = 0;
+	headers= game->headers;
 	while (i < 6)
 	{
-		t_headers *header = &game->headers[i];
-		if (header->tag == NO_TAG)
-			ft_load_single_texture(game, header->value, NORTH);
-		else if (header->tag == SO_TAG)
-			ft_load_single_texture(game, header->value, SOUTH);
-		else if (header->tag == EA_TAG)
-			ft_load_single_texture(game, header->value, EAST);
-		else if (header->tag == WE_TAG)
-			ft_load_single_texture(game, header->value, WEST);
+		tag = headers[i].tag;
+		value = headers[i].value;
+		if (tag == NO_TAG)
+			ft_load_single_texture(game, value, NORTH);
+		else if (tag == SO_TAG)
+			ft_load_single_texture(game, value, SOUTH);
+		else if (tag == EA_TAG)
+			ft_load_single_texture(game, value, EAST);
+		else if (tag == WE_TAG)
+			ft_load_single_texture(game, value, WEST);
 		i++;
 	}
 }

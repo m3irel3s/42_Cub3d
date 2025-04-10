@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 16:00:19 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:32:06 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@
 # define INVALID_FD_OPEN "Error\nError openning the file descriptor\n"
 
 /* GAME ERRORS */
-# define INIT_FAILED "Error\nFailed the initialization of structs\n"
+# define STRUCT_INIT_FAILED "Error\nFailed the initialization of structs\n"
 # define MLX_INIT_FAIL "Error\nFailed to allocated memory for MLX\n"
 
 

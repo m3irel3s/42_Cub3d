@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/10 16:57:16 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:54:21 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,8 +148,8 @@ typedef struct s_game
 	int			floor_color_hex;
 	t_rgb		ceiling_color;
 	int			ceiling_color_hex;
-	t_img		*img;
 	t_img		textures[4];
+	t_img		*img;
 	t_player	*player;
 }	t_game;
 

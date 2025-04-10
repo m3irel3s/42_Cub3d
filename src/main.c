@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 17:05:58 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:34:33 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 		return (ft_putstr_fd(INVALID_ARGUMENTS, 2), FAILURE);
 	game = ft_init_structs();
 	if (!game)
-		ft_cleanup(game, INIT_FAILED, 2);
+		ft_cleanup(game, STRUCT_INIT_FAILED, 2);
 	ft_parse(game, argv);
 	ft_init_game(game);
 	mlx_loop(game->mlx);
