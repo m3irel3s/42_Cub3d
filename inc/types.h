@@ -152,7 +152,6 @@ typedef struct s_game
 	t_img		*img;
 	t_img		textures[4];
 	t_player	*player;
-	t_ray		*ray;
 }	t_game;
 
 

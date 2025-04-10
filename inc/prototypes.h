@@ -145,4 +145,9 @@ void		ft_free_parse(t_game *game);
 void		ft_free(void *ptr);
 void		ft_free_arr(char **arr);
 
+/* quit_game.c */
+int         ft_quit_game(t_game *game);
+
+
+
 #endif

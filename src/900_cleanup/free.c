@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/10 15:39:31 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/10 16:03:59 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,17 @@ static void	ft_clean_graphics(t_game *game)
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
+	ft_free(game->mlx);
+}
+
+static void	ft_free_textures(t_game *game)
+{
+	int	i;
+
+	i = -1;
+	while (++i < 4)
+	{
+		if (game->textures[i].mlx_img)
+			mlx_destroy_image(game->mlx, game->textures[i].mlx_img);
+	}
 }
