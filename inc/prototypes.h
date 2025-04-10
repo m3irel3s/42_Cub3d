@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/09 14:55:19 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/10 15:12:42 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,17 @@ void		ft_validate_map_chars(t_game *game);
 void		ft_set_player_values(t_game *game);
 
 /* map_closure.c */
-
 void		ft_check_map_closure(t_game *game);
+
+//============================================================================//
+//                                GAME INIT                                   //
+//============================================================================//
+/* init_game.c */
+void		ft_init_game(t_game *game);
+
+/* init_player.c */
+void		ft_init_player(t_game *game);
+
 
 //============================================================================//
 //                               RAYCASTING                                   //

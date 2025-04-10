@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 18:29:06 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/09 22:16:18 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/10 15:57:07 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,12 @@ t_game	*ft_init_structs(void)
 	game->file_path = NULL;
 	game->mlx = NULL;
 	game->win = NULL;
-	game->img = NULL;
-	game->player = NULL;
+	game->img = ft_safe_malloc(sizeof(t_img));
+	if (!game->img)
+		return (NULL);
+	game->player = ft_safe_malloc(sizeof(t_player));
+	if (!game->player)
+		return (NULL);
 	return (game);
 }
 

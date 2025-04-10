@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/09 21:44:20 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/10 16:00:19 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@
 //                              ERROR MESSAGES                                //
 //============================================================================//
 
+
+/* PARSING ERRORS */
+# define INVALID_ARGUMENTS "Error\nInvalid arguments given\n"
 # define INVALID_MAP_NAME "Error\nInvalid map name given\n"
 # define INVALID_MAP_GRID "Error\nCouldn't find the map grid\n"
 # define INVALID_ELEMENT_FOUND "Error\nFound an element that was not needed\n"
@@ -44,7 +47,11 @@
 # define PLAYER_NOT_FOUND "Error\nPlayer not found\n"
 # define FOUND_SPACE_INSI_MAP "Error\nFound a space inside map\n"
 # define FOUND_UNCLOSED_MAP "Error\nPlayer is not surrounded by walls\n"
-
 # define INVALID_FD_OPEN "Error\nError openning the file descriptor\n"
+
+/* GAME ERRORS */
+# define INIT_FAILED "Error\nFailed the initialization of structs\n"
+# define MLX_INIT_FAIL "Error\nFailed to allocated memory for MLX\n"
+
 
 #endif

@@ -6,7 +6,7 @@
 #    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/09 12:20:30 by jmeirele         ###   ########.fr        #
+#    Updated: 2025/04/10 15:10:52 by jmeirele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,21 +64,21 @@ BYEL        = \033[1;33m
 #                             NAMES AND PATHS                                  #
 #------------------------------------------------------------------------------#
 
-BUILD_PATH   = .build
-SRC_PATH     = src
-INIT_PATH    = ${SRC_PATH}/100_init
-PARSE_PATH   = ${SRC_PATH}/200_parse
-RAYCAST_PATH = ${SRC_PATH}/300_raycasting
-DRAW_PATH    = ${SRC_PATH}/400_draw
-TEXTURE_PATH = ${SRC_PATH}/500_textures
-RENDER_PATH  = ${SRC_PATH}/600_rendering
-EVENTS_PATH  = ${SRC_PATH}/700_events
+BUILD_PATH       = .build
+SRC_PATH         = src
+INIT_PATH        = ${SRC_PATH}/100_init
+PARSE_PATH       = ${SRC_PATH}/200_parse
+INIT_GAME_PATH   = ${SRC_PATH}/300_init_game
+RAYCAST_PATH     = ${SRC_PATH}/300_raycasting
+DRAW_PATH        = ${SRC_PATH}/400_draw
+TEXTURE_PATH     = ${SRC_PATH}/500_textures
+RENDER_PATH      = ${SRC_PATH}/600_rendering
+EVENTS_PATH      = ${SRC_PATH}/700_events
+UTILS_PATH       = ${SRC_PATH}/800_utils
+CLEANUP_PATH     = ${SRC_PATH}/900_cleanup
 
-UTILS_PATH   = ${SRC_PATH}/800_utils
-CLEANUP_PATH = ${SRC_PATH}/900_cleanup
-
-INC_PATH    = inc
-LIBFT_PATH  = 42_Libft
+INC_PATH         = inc
+LIBFT_PATH       = 42_Libft
 
 HEADERS     = $(addprefix $(INC_PATH)/, ansi.h cub3d.h macros.h prototypes.h types.h)
 
@@ -95,7 +95,8 @@ SRCS        = ${SRC_PATH}/main.c \
 				${PARSE_PATH}/map_grid.c \
 				${PARSE_PATH}/map_utils.c \
 				${PARSE_PATH}/map_closure.c \
-				${UTILS_PATH}/utils.c \
+				${INIT_GAME_PATH}/init_game.c \
+				${INIT_GAME_PATH}/init_player.c \
 				${RAYCAST_PATH}/raycasting.c \
 				${RAYCAST_PATH}/init_raycasting.c \
 				${RAYCAST_PATH}/dda_raycasting.c \
@@ -107,6 +108,7 @@ SRCS        = ${SRC_PATH}/main.c \
 				${EVENTS_PATH}/events.c \
 				${EVENTS_PATH}/rotations.c \
 				${EVENTS_PATH}/movements.c \
+				${UTILS_PATH}/utils.c \
 				${UTILS_PATH}/safe_utils.c \
 				${CLEANUP_PATH}/free.c \
 				${CLEANUP_PATH}/free_parse.c \

@@ -6,13 +6,12 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/09 21:50:10 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/10 15:39:31 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	ft_free_textures(t_game *game);
 static void	ft_clean_graphics(t_game *game);
 
 void	ft_cleanup(t_game *game, char *msg, int fd)
@@ -20,7 +19,6 @@ void	ft_cleanup(t_game *game, char *msg, int fd)
 	if (game)
 	{
 		ft_free_parse(game);
-		ft_free_textures(game);
 		if (game->mlx)
 			ft_clean_graphics(game);
 		ft_free(game->map);
@@ -44,16 +42,4 @@ static void	ft_clean_graphics(t_game *game)
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
-}
-
-static void	ft_free_textures(t_game *game)
-{
-	int	i;
-
-	i = -1;
-	while (++i < 6)
-	{
-		if (game->textures[i].mlx_img)
-			mlx_destroy_image(game->mlx, game->textures[i].mlx_img);
-	}
 }
