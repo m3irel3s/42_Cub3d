@@ -6,11 +6,22 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 13:30:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 22:38:07 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/10 22:50:35 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
+
+/**
+ * Handles key press events for the game. Depending on the key pressed,
+ * it performs the appropriate action such as moving the player or rotating
+ * the view. The function supports movement keys (W, A, S, D), rotation keys
+ * (LEFT, RIGHT), and the ESC key to quit the game.
+ *
+ * @param key The key code of the pressed key.
+ * @param game Pointer to the game structure containing game data.
+ * @return Always returns 0.
+ */
 
 int	ft_handle_key(int key, t_game *game)
 {
