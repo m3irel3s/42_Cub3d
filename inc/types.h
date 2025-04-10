@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/10 15:42:00 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/10 16:57:16 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,9 @@ typedef struct s_headers
 typedef struct	s_map
 {
 	char		**grid;
-	size_t		height;
+	int			height;
 	int			grid_start_index;
 	int			grid_last_index;
-	int			map_size;
 	t_point		s_pos;
 	char		s_dir;
 }	t_map;

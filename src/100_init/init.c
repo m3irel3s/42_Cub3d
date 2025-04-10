@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 18:29:06 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/10 16:39:54 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/10 16:56:51 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ static t_map	*ft_init_map(void)
 	if (!map)
 		return (NULL);
 	map->grid = NULL;
-	map->map_size = 0;
+	map->height = 0;
 	return (map);
 }

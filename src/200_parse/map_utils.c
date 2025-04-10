@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 17:58:08 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/10 15:42:31 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/10 16:56:51 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_set_player_values(t_game *game)
 	int	j;
 
 	i = 0;
-	while (i < game->map->map_size)
+	while (i < game->map->height)
 	{
 		j = 0;
 		while (game->map->grid[i][j])
@@ -43,13 +43,13 @@ void	ft_validate_map_chars(t_game *game)
 	int		counter;
 	int		i;
 	int		j;
-	
+
 	i = -1;
-	while (++i < game->map->map_size)
+	while (++i < game->map->height)
 		ft_valid_map_line(game, game->map->grid[i]);
 	i = 0;
 	counter = 0;
-	while (i < game->map->map_size)
+	while (i < game->map->height)
 	{
 		j = 0;
 		while (game->map->grid[i][j])

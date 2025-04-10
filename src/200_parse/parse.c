@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:06:31 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/09 15:41:06 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/10 16:56:51 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_parse(t_game *game, char **argv)
 	ft_parse_map_grid(game);
 	ft_check_map_closure(game);
 	// printf("\n\nORIGINAL\n\n");
-	// for (int i = 0; i < game->map->map_size; i++)
+	// for (int i = 0; i < game->map->height; i++)
 		// ft_printf(1, "%s\n", game->map->grid[i]);
 	// printf("x-> %d y-> %d\n", game->map->s_pos.x, game->map->s_pos.y);
 	// printf("s_dir -> %c\n", game->map->s_dir);

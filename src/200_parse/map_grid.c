@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_grid.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 18:37:57 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/09 15:39:00 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/10 16:56:51 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void	ft_extract_map(t_game *game)
 	j = 0;
 	i = game->map->grid_start_index;
 	l = game->map->grid_last_index;
-	game->map->map_size = l - i;
+	game->map->height = l - i;
 	game->map->grid = ft_safe_malloc(sizeof(char *) * (l - i + 1));
 	while (i < l)
 		game->map->grid[j++] = ft_strdup(game->cub_file[i++]);

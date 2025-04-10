@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_closure.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:40:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/09 15:49:08 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/10 16:56:51 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_check_map_closure(t_game *game)
 
 static void	ft_flood_fill(t_game *game, char **dup_grid, int x, int y)
 {
-	
+
 	if (!dup_grid[x][y])
 	{
 		ft_free_arr(dup_grid);
@@ -62,8 +62,8 @@ static char	**ft_dup_grid(t_game *game)
 
 	i = 0;
 	dup_grid = NULL;
-	dup_grid = ft_safe_malloc(sizeof(char *) * (game->map->map_size + 1));
-	while (i < game->map->map_size)
+	dup_grid = ft_safe_malloc(sizeof(char *) * (game->map->height + 1));
+	while (i < game->map->height)
 	{
 		dup_grid[i] = ft_strdup(game->map->grid[i]);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 22:13:53 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 16:39:54 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/10 16:56:51 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_perform_dda(t_game *game, t_ray *ray)
 			ray->map_y += ray->step.step_y;
 			ray->side = 1;
 		}
-		if (ray->map_y < 0 || ray->map_y >= (int)game->map->map_size)
+		if (ray->map_y < 0 || ray->map_y >= (int)game->map->height)
 		{
 			ray->hit_outside = 1;
 			ray->hit = 1;
