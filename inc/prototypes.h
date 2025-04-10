@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 16:07:36 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:41:48 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void		ft_init_game(t_game *game);
 
 /* init_player.c */
 void		ft_init_player(t_game *game);
-
 
 //============================================================================//
 //                               RAYCASTING                                   //
@@ -146,7 +145,6 @@ void		ft_free(void *ptr);
 void		ft_free_arr(char **arr);
 
 /* quit_game.c */
-int         ft_quit_game(t_game *game);
-
+int			ft_quit_game(t_game *game);
 
 #endif

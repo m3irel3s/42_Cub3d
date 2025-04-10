@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/10 16:57:16 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:41:07 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ typedef struct s_iter
 	size_t	l;
 }	t_iter;
 
-typedef struct	s_point
+typedef struct s_point
 {
 	int		x;
 	int		y;
 }	t_point;
 
-typedef struct	s_rgb
+typedef struct s_rgb
 {
 	int		r;
 	int		g;
@@ -96,7 +96,7 @@ typedef struct s_headers
 	char	*value;
 }	t_headers;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	char		**grid;
 	int			height;
@@ -152,6 +152,5 @@ typedef struct s_game
 	t_img		textures[4];
 	t_player	*player;
 }	t_game;
-
 
 #endif
