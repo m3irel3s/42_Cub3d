@@ -6,7 +6,7 @@
 #    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/10 15:10:52 by jmeirele         ###   ########.fr        #
+#    Updated: 2025/04/10 16:07:54 by jmeirele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,6 +113,7 @@ SRCS        = ${SRC_PATH}/main.c \
 				${CLEANUP_PATH}/free.c \
 				${CLEANUP_PATH}/free_parse.c \
 				${CLEANUP_PATH}/free_utils.c \
+				${CLEANUP_PATH}/quit_game.c \
 
 OBJS        = $(SRCS:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
 

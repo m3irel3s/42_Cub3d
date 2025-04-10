@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 15:12:42 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/10 16:07:36 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,7 +147,6 @@ void		ft_free_arr(char **arr);
 
 /* quit_game.c */
 int         ft_quit_game(t_game *game);
-
 
 
 #endif
