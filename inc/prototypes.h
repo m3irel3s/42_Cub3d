@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 17:41:48 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/10 21:23:00 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void		ft_mlx_pixel_put_to_image(t_game *game, int x, int y, int color);
 //============================================================================//
 /* render.c */
 int			ft_render_next_frame(t_game *game);
+int			ft_darken_rgb_color3(int color, double factor, int times);
 
 /* render_utils.c */
 void		ft_set_floor_n_ceiling(t_game *game);

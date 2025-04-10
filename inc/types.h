@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/10 17:41:07 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/10 21:53:42 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,6 @@ typedef struct s_ray
 	int			map_x;
 	int			map_y;
 	int			hit;
-	int			hit_outside;
 	int			side;
 	double		perp_wall_dist;
 	int			line_height;
@@ -134,6 +133,17 @@ typedef struct s_ray
 	double		wall_x;
 	t_wall_side	wall_side;
 }	t_ray;
+
+typedef struct s_drawdata
+{
+	t_img	*texture;
+	int		tex_x;
+	double	step;
+	double	tex_pos;
+	int		draw_start;
+	int		draw_end;
+	int		fog_times;
+}	t_drawdata;
 
 typedef struct s_game
 {
