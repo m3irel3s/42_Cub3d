@@ -1,11 +1,11 @@
-    
-			F        255,255,255  
-   
-              NO ./textures/no.xpm   
-            C                225,30,0			
-        		EA     ./textures/ea.xpm       		
 
-          SO                 ./textures/so.xpm 
+			F        255,255,255
+
+              NO ./textures/no.xpm
+            C                225,30,0
+        		EA     ./textures/empty.xpm
+
+          SO                 ./textures/so.xpm
 
             WE	./textures/no.xpm
 
@@ -14,4 +14,6 @@
 1000001
 100N001
 1000001
+1    11
+11   11
 1111111

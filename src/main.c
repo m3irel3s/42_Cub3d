@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 16:16:23 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/10 16:39:54 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,13 @@ int	main(int argc, char **argv)
 
 // 	// Define a largura e altura do mapa com base no número de colunas e linhas.
 // 	// Neste exemplo, cada linha tem 21 caracteres e há 7 linhas.
-// 	game->map->height = 7;
+// 	game->map->map_size = 7;
 
 // 	/*
 // 	* Procura na grid o carácter de orientação (N, S, E ou W) para definir
 // 	* a posição inicial e a orientação do jogador.
 // 	*/
-// 	for (i = 0; i < (int)game->map->height; i++)
+// 	for (i = 0; i < (int)game->map->map_size; i++)
 // 	{
 // 		for (j = 0; j < (int)ft_strlen(game->map->grid[i]); j++)
 // 		{
