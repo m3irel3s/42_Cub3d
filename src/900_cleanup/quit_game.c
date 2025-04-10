@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   quit_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/09 21:50:10 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/10 22:31:52 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int ft_quit_game(t_game *game)
+int	ft_quit_game(t_game *game)
 {
 	ft_cleanup(game, "Game exited", 0);
 	return (0);

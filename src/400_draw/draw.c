@@ -6,14 +6,14 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:56:43 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 21:23:27 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/10 22:34:38 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
 static void	ft_draw_textured_wall_loop(t_game *game, int x,
-					t_drawdata *data);
+				t_drawdata *data);
 static int	ft_compute_fog(double perp_wall_dist);
 
 void	ft_draw_textured_wall(t_game *game, int x, t_ray *ray)
@@ -31,8 +31,8 @@ void	ft_draw_textured_wall(t_game *game, int x, t_ray *ray)
 	else if (data.tex_x >= texture->width)
 		data.tex_x = texture->width - 1;
 	data.step = (double)texture->height / ray->line_height;
-	data.tex_pos = (ray->draw_start - (SCREEN_HEIGHT / 2 -
-				ray->line_height / 2)) * data.step;
+	data.tex_pos = (ray->draw_start - (SCREEN_HEIGHT / 2
+				- ray->line_height / 2)) * data.step;
 	data.draw_start = ray->draw_start;
 	data.draw_end = ray->draw_end;
 	data.fog_times = ft_compute_fog(ray->perp_wall_dist);
@@ -45,8 +45,8 @@ void	ft_mlx_pixel_put_to_image(t_game *game, int x, int y, int color)
 
 	if (x < 0 || x >= SCREEN_WIDTH || y < 0 || y >= SCREEN_HEIGHT)
 		return ;
-	dst = game->img->addr + (y * game->img->line_len +
-			x * (game->img->bpp / 8));
+	dst = game->img->addr + (y * game->img->line_len
+			+ x * (game->img->bpp / 8));
 	*(unsigned int *)dst = color;
 }
 
@@ -78,8 +78,8 @@ static void	ft_draw_textured_wall_loop(t_game *game, int x,
 	while (y < data->draw_end)
 	{
 		tex_y = (int)(data->tex_pos);
-		color = *(int *)(data->texture->addr + (tex_y * data->texture->line_len +
-				data->tex_x * (data->texture->bpp / 8)));
+		color = *(int *)(data->texture->addr + (tex_y * data->texture->line_len
+					+ data->tex_x * (data->texture->bpp / 8)));
 		color = ft_darken_rgb_color3(color, 0.9, data->fog_times);
 		ft_mlx_pixel_put_to_image(game, x, y, color);
 		data->tex_pos += data->step;

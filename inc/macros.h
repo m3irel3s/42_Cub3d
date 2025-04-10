@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 17:49:28 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/10 22:37:32 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,24 @@
 # define SCREEN_WIDTH 1920
 # define SCREEN_HEIGHT 1080
 # define FOV 0.90
+
+#ifdef __APPLE__
+# define KEY_ESC 53
+# define KEY_W 13
+# define KEY_S 1
+# define KEY_D 2
+# define KEY_A 0
+# define KEY_LEFT 123
+# define KEY_RIGHT 124
+#elif __linux__
+# define KEY_ESC XK_Escape
+# define KEY_W XK_w
+# define KEY_S XK_s
+# define KEY_A XK_a
+# define KEY_D XK_d
+# define KEY_LEFT XK_Left
+# define KEY_RIGHT XK_Right
+#endif
 
 //============================================================================//
 //                              ERROR MESSAGES                                //
