@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:56:43 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 22:34:38 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/10 22:56:21 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,17 @@ static void	ft_draw_textured_wall_loop(t_game *game, int x,
 				t_drawdata *data);
 static int	ft_compute_fog(double perp_wall_dist);
 
+/**
+ * @brief Draw a textured wall from the given ray.
+ * @param game The game data structure.
+ * @param x The x-coordinate of the ray.
+ * @param ray The ray data structure containing the wall side, wall x, and
+ *            draw start and end.
+ *
+ * This function draws a textured wall from the given ray. It calculates the
+ * texture x-coordinate, step, and texture position, and then calls
+ * ft_draw_textured_wall_loop to draw the wall.
+ */
 void	ft_draw_textured_wall(t_game *game, int x, t_ray *ray)
 {
 	t_img		*texture;
@@ -39,6 +50,16 @@ void	ft_draw_textured_wall(t_game *game, int x, t_ray *ray)
 	ft_draw_textured_wall_loop(game, x, &data);
 }
 
+/**
+ * @brief Put a pixel on the screen at the given coordinates.
+ * @param game The game data structure, which contains the mlx image and window.
+ * @param x The x-coordinate of the pixel.
+ * @param y The y-coordinate of the pixel.
+ * @param color The color of the pixel as an integer.
+ *
+ * This function simply sets the value of the pixel on the screen at the given
+ * coordinates to the given color.
+ */
 void	ft_mlx_pixel_put_to_image(t_game *game, int x, int y, int color)
 {
 	char	*dst;
@@ -50,6 +71,20 @@ void	ft_mlx_pixel_put_to_image(t_game *game, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
+/**
+ * @brief Compute the number of times to darken the color of a ray for
+ * the fog effect.
+ * @param perp_wall_dist The perpendicular distance of the ray to the wall.
+ * @return The number of times to darken the color for the fog effect.
+ *
+ * This function computes the number of times to darken the color of a ray for
+ * the fog effect. The fog effect is a way to simulate the effect of the
+ * atmosphere on the visibility of objects in the game.
+ * The farther away the object is, the darker it should appear. The number
+ * of times to darken the color is computed by dividing the distance of the
+ * ray to the wall by a small value (0.100001).
+ * The result is then rounded up to the nearest integer.
+ */
 static int	ft_compute_fog(double perp_wall_dist)
 {
 	int		times;
@@ -67,6 +102,19 @@ static int	ft_compute_fog(double perp_wall_dist)
 	return (times);
 }
 
+/**
+ * @brief Loops through the ray and draws a textured wall.
+ * @param game The game data structure.
+ * @param x The x-coordinate of the ray.
+ * @param data A structure containing the necessary data to draw the wall.
+ *
+ * This function loops through the ray and draws a textured wall. It uses the
+ * texture, texture position, and fog times from the data structure to draw the
+ * wall. The loop iterates from the start of the wall to the end, and for each
+ * iteration, it calculates the position of the texture on the y-axis, gets the
+ * color from the texture at that position, darkens the color by the fog times,
+ * and then draws the pixel on the screen at the given x and y coordinates.
+ */
 static void	ft_draw_textured_wall_loop(t_game *game, int x,
 					t_drawdata *data)
 {

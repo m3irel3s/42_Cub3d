@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:44:54 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 17:38:37 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/10 22:53:37 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 static void	ft_load_single_texture(t_game *game, char *path, t_wall_side side);
 
+/**
+ * @brief Loads all textures from the header tags and stores them
+ * in game->textures.
+ *
+ * @param game The game struct containing the game state.
+ */
 void	ft_load_textures(t_game *game)
 {
 	int			i;
@@ -34,6 +40,20 @@ void	ft_load_textures(t_game *game)
 		i++;
 	}
 }
+
+/**
+ * Loads a texture image from the specified file path and stores it in the
+ * game's texture array at the designated index.
+ *
+ * This function uses the MiniLibX library to load an XPM image file and
+ * retrieve its memory address. If the image or its address cannot be
+ * obtained, the function triggers cleanup and exits the game.
+ *
+ * @param game The game data structure that contains the texture array.
+ * @param path The file path to the texture image.
+ * @param index The index in the texture array where the loaded texture
+ *              should be stored, corresponding to the wall side.
+ */
 
 static void	ft_load_single_texture(t_game *game, char *path, t_wall_side index)
 {
