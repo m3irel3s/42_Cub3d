@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:20:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/09 22:49:14 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:34:30 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,13 @@ static void	ft_clear_ceiling(t_game *game, int ceiling_color)
 {
 	int	x;
 	int	y;
-	int	stop;
 	int	times;
 	int	new_ceiling;
 
-	stop = (SCREEN_HEIGHT / 2) - 110;
 	y = 0;
 	while (y < SCREEN_HEIGHT / 2)
 	{
-		times = 18 - ((stop - y + 9) / 10);
+		times = 18 - (((SCREEN_HEIGHT / 2) - 110 - y + 9) / 10);
 		if (y >= stop)
 			times = 18;
 		if (times < 0)
@@ -64,20 +62,17 @@ static void	ft_clear_floor(t_game *game, int floor_color)
 {
 	int	x;
 	int	y;
-	int	stop;
-	int	target;
 	int	times;
 	int	new_floor;
 
-	stop = (SCREEN_HEIGHT / 2) + (SCREEN_HEIGHT / 2) / 2;
-	target = stop + 50;
 	y = SCREEN_HEIGHT / 2;
 	while (y < SCREEN_HEIGHT)
 	{
 		times = 0;
-		if (y < target)
+		if (y < ((SCREEN_HEIGHT / 2) + (SCREEN_HEIGHT / 2) / 2) + 50)
 		{
-			times = (target - y + 9) / 10;
+			times = (((SCREEN_HEIGHT / 2) + (SCREEN_HEIGHT / 2) / 2)
+					+ 50 - y + 9) / 10;
 			if (times > 18)
 				times = 18;
 		}
