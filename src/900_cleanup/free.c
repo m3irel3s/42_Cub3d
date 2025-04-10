@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/10 16:25:22 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:08:33 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	ft_cleanup(t_game *game, char *msg, int fd)
 	{
 		ft_free_parse(game);
 		if (game->mlx)
-			ft_clean_graphics(game);
 		ft_free_textures(game);
+		ft_clean_graphics(game);
 		ft_free(game->map);
 		ft_free(game->player);
 		ft_free(game);
@@ -34,27 +34,27 @@ void	ft_cleanup(t_game *game, char *msg, int fd)
 static void	ft_clean_graphics(t_game *game)
 {
 	if (!game || !game->mlx)
-		return;
+	return;
 	if (game->img)
 	{
 		if (game->img->mlx_img)
-			mlx_destroy_image(game->mlx, game->img->mlx_img);
+		mlx_destroy_image(game->mlx, game->img->mlx_img);
 		ft_free(game->img);
 	}
 	if (game->win)
-		mlx_destroy_window(game->mlx, game->win);
-	//mlx_destroy_display(game->mlx);
-	ft_free(game->mlx);
+	mlx_destroy_window(game->mlx, game->win);
+	mlx_destroy_display(game->mlx);
 }
 
 static void	ft_free_textures(t_game *game)
 {
 	int	i;
 
-	i = -1;
-	while (++i < 4)
+	i = 0;
+	while (i < 4)
 	{
 		if (game->textures[i].mlx_img)
 			mlx_destroy_image(game->mlx, game->textures[i].mlx_img);
+		i++;
 	}
 }

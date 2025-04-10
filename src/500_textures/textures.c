@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:44:54 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/04 21:46:35 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:10:56 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ void	ft_load_textures(t_game *game)
 			ft_load_single_texture(game, header->value, WEST);
 		i++;
 	}
-	if (!game->textures[NORTH].mlx_img || !game->textures[SOUTH].mlx_img ||
-		!game->textures[EAST].mlx_img || !game->textures[WEST].mlx_img)
-		ft_cleanup(game, "Missing texture", 1);
 }
 
 static void	ft_load_single_texture(t_game *game, char *path, t_wall_side index)
