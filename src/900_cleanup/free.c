@@ -44,6 +44,7 @@ static void	ft_clean_graphics(t_game *game)
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
+	ft_free(game->mlx);
 }
 
 static void	ft_free_textures(t_game *game)
@@ -51,7 +52,7 @@ static void	ft_free_textures(t_game *game)
 	int	i;
 
 	i = -1;
-	while (++i < 6)
+	while (++i < 4)
 	{
 		if (game->textures[i].mlx_img)
 			mlx_destroy_image(game->mlx, game->textures[i].mlx_img);

@@ -38,6 +38,7 @@ static void	ft_free_cub_file_and_grid(t_game *game)
 		while (game->map->grid[i])
 			ft_free(game->map->grid[i++]);
 		ft_free(game->map->grid);
+		game->map->grid = NULL;
 	}
 	
 }
