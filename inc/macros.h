@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 17:32:06 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/11 16:28:13 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@
 # define FOUND_TAB_IN_MAP "Error\nFound a tab in map grid\n"
 # define FOUND_INVALID_CHAR_MAP "Error\nFound an invalid char in map\n"
 # define FOUND_EMPTY_LINE_INSI_MAP "Error\nFound empty line inside map\n"
+# define COULDNT_FIND_MAP_START "Error\nCouldn't find the map start\n"
+# define INVALID_MAP_SIZE "Error\nInvalid map size\n"
 # define FOUND_MORE_PLAYERS "Error\nFound more than 1 player\n"
 # define PLAYER_NOT_FOUND "Error\nPlayer not found\n"
 # define FOUND_SPACE_INSI_MAP "Error\nFound a space inside map\n"

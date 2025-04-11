@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:24:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/09 15:21:45 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/11 17:02:06 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,28 @@ void	ft_set_cub_file(t_game *game)
 	printf("cub file size -> %d\n", game->cub_file_size);
 	game->cub_file = malloc(sizeof(char *) * (game->cub_file_size + 1));
 	j = -1;
-	while(++j < game->cub_file_size)
+	while (++j < game->cub_file_size)
 	{
 		line = get_next_line(fd);
+		if (!line)
+		{
+			ft_free(line);
+			j--;
+			continue ;
+		}
 		game->cub_file[j] = ft_strdup(line);
 		ft_free(line);
 	}
 	game->cub_file[j] = NULL;
 	close(fd);
 	game->map->grid_start_index = ft_get_grid_start_index(game);
+	if (game->map->grid_start_index == ERROR)
+		ft_cleanup(game, COULDNT_FIND_MAP_START, 2);
+	printf("grid start index %d\n", game->map->grid_start_index);
 	game->map->grid_last_index = ft_get_grid_last_index(game);
+	printf("grid last index %d\n", game->map->grid_last_index);
+	if ((game->map->grid_start_index + 3) > game->map->grid_last_index)
+		ft_cleanup(game, INVALID_MAP_SIZE, 2);
 	if (game->map->grid_start_index < 6)
 		ft_cleanup(game, INVALID_MAP_GRID, 2);
 	ft_trim_cub_file(game);

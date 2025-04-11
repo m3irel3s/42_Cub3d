@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:42:48 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/09 15:21:38 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/11 17:01:57 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,19 @@ int	ft_get_grid_start_index(t_game *game)
 	while (game->cub_file[i])
 	{
 		j = 0;
-		while (ft_strchr(" ", game->cub_file[i][j]))
+		while (game->cub_file[i][j] && ft_strchr(" ", game->cub_file[i][j]))
 			j++;
-		while (ft_strchr("10 ", game->cub_file[i][j]))
+		while (game->cub_file[i][j] && ft_strchr("10NSWE ", game->cub_file[i][j]))
 		{
-			if (!game->cub_file[i][j + 3])
+			if (game->cub_file[i][j + 1] == '\0' || game->cub_file[i][j + 1] == '\r')
 				return (i);
 			j++;
 		}
-	i++;
+		i++;
 	}
 	return (ERROR);
 }
+
 
 int	ft_get_grid_last_index(t_game *game)
 {
@@ -56,11 +57,7 @@ int	ft_get_grid_last_index(t_game *game)
 
 	i = game->map->grid_start_index;
 	while (game->cub_file[i])
-	{
-		if (!game->cub_file[i][2])
-			return (i);
 		i++;
-	}
 	return (i);
 }
 
