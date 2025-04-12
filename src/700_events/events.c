@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 13:30:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/12 21:08:02 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/12 21:29:17 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,10 @@ int	ft_handle_key(int key, t_game *game)
 	return (0);
 }
 
+
 /**
- * Handles key release events for the game. Currently, it does not perform
- * any specific action when a key is released.
+ * Handles key release events for the game. Currently, it only toggles the
+ * show_map flag in the game structure when the M key is released.
  *
  * @param key The key code of the released key.
  * @param game Pointer to the game structure containing game data.

@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/12 20:57:07 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/12 21:29:25 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ void		ft_set_floor_n_ceiling(t_game *game);
 /* events.c */
 int			ft_handle_key(int key, t_game *game);
 int			ft_handle_key_release(int key, t_game *game);
+
 /* movements.c */
 void		ft_move_forward(t_game *game, double move_speed);
 void		ft_move_backward(t_game *game, double move_speed);
