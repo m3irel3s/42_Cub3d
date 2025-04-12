@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 13:30:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/12 10:43:04 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/12 21:08:02 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,21 @@ int	ft_handle_key(int key, t_game *game)
 	else if (key == KEY_RIGHT)
 		ft_rotate_right(game, rot_speed);
 	else if (key == KEY_M)
-		game->map->show_map = !game->map->show_map;
+		game->map->show_map = true;
+	return (0);
+}
+
+/**
+ * Handles key release events for the game. Currently, it does not perform
+ * any specific action when a key is released.
+ *
+ * @param key The key code of the released key.
+ * @param game Pointer to the game structure containing game data.
+ * @return Always returns 0.
+ */
+int	ft_handle_key_release(int key, t_game *game)
+{
+	if (key == KEY_M)
+		game->map->show_map = false;
 	return (0);
 }

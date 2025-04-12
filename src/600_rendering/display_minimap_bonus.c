@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 21:41:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/12 20:52:27 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/12 20:53:37 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,9 @@ static void	ft_draw_grid(t_game *game)
 		{
 			if (game->map->grid[y][x] == '1')
 				ft_draw_cell(game, x, y, WALL);
-			else if (game->map->grid[y][x] == '0')
+			else if (game->map->grid[y][x] == '0' || game->map->grid[y][x] == 'N'
+				|| game->map->grid[y][x] == 'S' || game->map->grid[y][x] == 'E'
+				|| game->map->grid[y][x] == 'W')
 				ft_draw_cell(game, x, y, FLOOR);
 			else if (game->map->grid[y][x] == ' ')
 				ft_draw_cell(game, x, y, EMPTY);
