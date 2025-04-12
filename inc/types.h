@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/11 15:45:56 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/12 16:14:49 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,13 @@ typedef struct s_headers
 	char	*value;
 }	t_headers;
 
+typedef struct s_minimap
+{
+	int		scale;
+	int		start_x;
+	int		start_y;
+}	t_minimap;
+
 typedef struct s_map
 {
 	char		**grid;
@@ -104,6 +111,8 @@ typedef struct s_map
 	int			grid_last_index;
 	t_point		s_pos;
 	char		s_dir;
+	bool		show_map;
+	t_minimap	minimap;
 }	t_map;
 
 typedef struct s_ray_step

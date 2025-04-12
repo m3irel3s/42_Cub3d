@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 13:30:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 22:50:35 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/12 10:43:04 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ int	ft_handle_key(int key, t_game *game)
 		ft_rotate_left(game, rot_speed);
 	else if (key == KEY_RIGHT)
 		ft_rotate_right(game, rot_speed);
+	else if (key == KEY_M)
+		game->map->show_map = !game->map->show_map;
 	return (0);
 }

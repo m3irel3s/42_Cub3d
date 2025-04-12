@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:20:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 22:52:03 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/12 10:45:03 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,8 @@ int	ft_render_next_frame(t_game *game)
 	ft_set_floor_n_ceiling(game);
 	ft_clear_image(game, game->ceiling_color_hex, game->floor_color_hex);
 	ft_cast_rays(game);
+	if (game->map->show_map)
+		ft_display_minimap(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img->mlx_img, 0, 0);
 	return (0);
 }

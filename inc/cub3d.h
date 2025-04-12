@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:30 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/11 15:45:36 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/12 10:47:19 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # include <math.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
+# include <stdbool.h>
 
 # include "macros.h"
 # include "types.h"

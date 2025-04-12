@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macros_bonus.h                                     :+:      :+:    :+:   */
+/*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/11 15:44:55 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/12 10:41:36 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 #  define KEY_A 0
 #  define KEY_LEFT 123
 #  define KEY_RIGHT 124
+#  define KEY_M 46
 # elif __linux__
 #  define KEY_ESC XK_Escape
 #  define KEY_W XK_w
@@ -47,6 +48,7 @@
 #  define KEY_D XK_d
 #  define KEY_LEFT XK_Left
 #  define KEY_RIGHT XK_Right
+#  define KEY_M XK_m
 # endif
 
 //============================================================================//

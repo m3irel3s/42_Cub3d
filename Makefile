@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
+#    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/10 16:07:54 by jmeirele         ###   ########.fr        #
+#    Updated: 2025/04/12 10:55:26 by meferraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,9 +114,9 @@ SRCS        = ${SRC_PATH}/main.c \
 				${CLEANUP_PATH}/free_parse.c \
 				${CLEANUP_PATH}/free_utils.c \
 				${CLEANUP_PATH}/quit_game.c \
+				${RENDER_PATH}/display_minimap_bonus.c \
 
 OBJS        = $(SRCS:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
-
 #------------------------------------------------------------------------------#
 #                             FLAGS & COMMANDS                                 #
 #------------------------------------------------------------------------------#
