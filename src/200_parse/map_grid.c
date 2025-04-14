@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 18:37:57 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/14 16:15:03 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:03:59 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ static void	ft_find_holes(t_game *game);
 
 void	ft_parse_map_grid(t_game *game)
 {
-	printf("start index -> %d\n", game->map->grid_start_index);
-	printf("last index -> %d\n", game->map->grid_last_index);
 	ft_extract_map(game);
 	ft_find_holes(game);
 	ft_validate_map_chars(game);
@@ -63,5 +61,3 @@ static void	ft_extract_map(t_game *game)
 		game->map->grid[j++] = ft_strdup(game->cub_file[i++]);
 	game->map->grid[j] = NULL;
 }
-
-

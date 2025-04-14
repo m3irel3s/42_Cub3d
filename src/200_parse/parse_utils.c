@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:42:48 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/14 16:47:44 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:16:07 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,3 @@ int	ft_count_occurs(char *str, char c)
 	}
 	return (counter);
 }
-
-
-

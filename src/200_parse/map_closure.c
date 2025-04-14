@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:40:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/14 17:31:09 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:04:17 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,25 @@ static void	ft_flood_fill(t_game *game, char **dup_grid, int x, int y);
 
 void	ft_check_map_closure(t_game *game)
 {
+	int		x;
+	int		y;
 	char	**dup_grid;
-	int	x;
-	int	y;
 
 	x = game->map->s_pos.x;
 	y = game->map->s_pos.y;
 	dup_grid = NULL;
 	dup_grid = ft_dup_grid(game);
 	ft_flood_fill(game, dup_grid, x, y);
-	printf("\n\nFLOOD FILL\n\n");
-	for (int i = 0; dup_grid[i]; i++)
-		printf("%s\n", dup_grid[i]);
 	ft_free_arr(dup_grid);
 }
 
 static void	ft_flood_fill(t_game *game, char **dup_grid, int x, int y)
 {
-
 	if (!dup_grid[x][y])
 	{
 		ft_free_arr(dup_grid);
 		ft_cleanup(game, FOUND_UNCLOSED_MAP, 2);
 	}
-	// if (dup_grid[x][y] == ' ')
-	// {
-	// 	ft_free_arr(dup_grid);
-	// 	ft_cleanup(game, FOUND_SPACE_INSI_MAP, 2);
-	// }
 	if (dup_grid[x][y] == '1' || dup_grid[x][y] == '+')
 		return ;
 	if (dup_grid[x][y] == '0' || dup_grid[x][y] == ' ')

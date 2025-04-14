@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 17:58:08 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/14 16:54:06 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:01:51 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,5 @@ static int	ft_valid_map_line(t_game *game, char *line)
 static int	ft_are_valid_map_chars(char c)
 {
 	return (c == '0' || c == '1' || c == 'N' || c == 'S'
-				|| c == 'E' || c == 'W' || c == ' ');
+		|| c == 'E' || c == 'W' || c == ' ');
 }

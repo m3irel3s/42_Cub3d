@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 14:35:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/14 18:57:56 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:04:36 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	ft_count_headers(t_game *game)
 			counter++;
 		i++;
 	}
-	return counter;
+	return (counter);
 }
 
 static int	ft_check_single_word(char *str)

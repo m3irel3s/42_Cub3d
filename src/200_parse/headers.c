@@ -6,14 +6,11 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:11:35 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/14 18:13:13 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:03:48 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-// check for duplicates
-// iterate till 11111 (check if all elements are given)
 
 static t_headers	*ft_headers(t_game *game);
 static void			ft_parse_header_line(t_headers *headers, char *line);
@@ -28,17 +25,6 @@ void	ft_parse_headers(t_game *game)
 	ft_check_headers_values(game, headers);
 	ft_check_and_set_headers_colors(game, headers);
 	ft_check_headers_textures(game, headers);
-
-	// for (int i = 0; i < 6; i++)
-	// {
-	// 	printf("tag > :%s:\n", headers[i].tag_name);
-	// 	printf("value > :%s:\n", headers[i].value);
-	// 	// for (int j = 0; headers[i].value[j]; j++)
-	// 	// {
-	// 	// 	printf("%d -> %c\n", headers[i].value[j], headers[i].value[j]);
-	// 	// }
-	// }
-	return ;
 }
 
 static t_headers	*ft_headers(t_game *game)
@@ -51,7 +37,6 @@ static t_headers	*ft_headers(t_game *game)
 	i = 0;
 	k = 0;
 	headers_size = ft_count_headers(game);
-	printf("header size -> %d\n", headers_size);
 	if (headers_size != 6)
 		ft_cleanup(game, FOUND_INVALID_N_HEADERS, 2);
 	headers = ft_safe_malloc(sizeof(t_headers) * (headers_size + 1));
@@ -60,7 +45,7 @@ static t_headers	*ft_headers(t_game *game)
 		if (ft_is_empty_line(game->cub_file[i]) == SUCCESS)
 		{
 			i++;
-			continue;
+			continue ;
 		}
 		ft_parse_header_line(&headers[k], game->cub_file[i]);
 		k++;
@@ -68,13 +53,13 @@ static t_headers	*ft_headers(t_game *game)
 	}
 	headers[k].tag_name = NULL;
 	headers[k].value = NULL;
-	return headers;
+	return (headers);
 }
 
 static void	ft_parse_header_line(t_headers *headers, char *line)
 {
-	int j;
-	int z;
+	int	j;
+	int	z;
 
 	j = 0;
 	while (line[j] && !ft_is_space(line[j]))
@@ -87,4 +72,3 @@ static void	ft_parse_header_line(t_headers *headers, char *line)
 		j++;
 	headers->value = ft_substr(line, z, j - z);
 }
-
