@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:42:48 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/11 17:01:57 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/14 16:47:44 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,21 @@ int	ft_get_grid_start_index(t_game *game)
 	return (ERROR);
 }
 
-
 int	ft_get_grid_last_index(t_game *game)
 {
 	int	i;
+	int	j;
 
 	i = game->map->grid_start_index;
 	while (game->cub_file[i])
+	{
+		j = 0;
+		if (!ft_strchr("10NSWE ", game->cub_file[i][j]))
+			return (i);
+		while (game->cub_file[i][j] && ft_strchr("10NSWE ", game->cub_file[i][j]))
+			j++;
 		i++;
+	}
 	return (i);
 }
 

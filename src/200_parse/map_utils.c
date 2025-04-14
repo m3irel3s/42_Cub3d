@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 17:58:08 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/10 16:56:51 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/14 16:54:06 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	ft_validate_map_chars(t_game *game)
 	int		i;
 	int		j;
 
-	i = -1;
-	while (++i < game->map->height)
-		ft_valid_map_line(game, game->map->grid[i]);
+	i = game->map->grid_start_index;
+	while (++i < game->cub_file_size)
+		ft_valid_map_line(game, game->cub_file[i]);
 	i = 0;
 	counter = 0;
 	while (i < game->map->height)
@@ -73,6 +73,8 @@ static int	ft_valid_map_line(t_game *game, char *line)
 
 	i = 0;
 	has_valid_char = 0;
+	if (!line)
+		return (SUCCESS);
 	while (line[i])
 	{
 		if (line[i] == '\t')
