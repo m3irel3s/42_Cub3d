@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:24:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/14 17:23:35 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/14 18:57:45 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static int	ft_get_cub_file_size(t_game *game);
 static void	ft_trim_cub_file(t_game *game);
+static void	ft_set_grid_indexs(t_game *game);
 
 void	ft_set_cub_file(t_game *game)
 {
@@ -21,11 +22,10 @@ void	ft_set_cub_file(t_game *game)
 	int		fd;
 	char	*line;
 
+	j = 0;
 	fd = ft_valid_fd(game, game->file_path);
 	game->cub_file_size = ft_get_cub_file_size(game);
-	printf("cub file size -> %d\n", game->cub_file_size);
 	game->cub_file = malloc(sizeof(char *) * (game->cub_file_size + 1));
-	j = 0;
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -35,18 +35,20 @@ void	ft_set_cub_file(t_game *game)
 	}
 	game->cub_file[j] = NULL;
 	close(fd);
+	ft_set_grid_indexs(game);
+	ft_trim_cub_file(game);
+}
+
+static void	ft_set_grid_indexs(t_game *game)
+{
 	game->map->grid_start_index = ft_get_grid_start_index(game);
 	if (game->map->grid_start_index == ERROR)
 		ft_cleanup(game, COULDNT_FIND_MAP_START, 2);
-	printf("grid start index %d\n", game->map->grid_start_index);
 	game->map->grid_last_index = ft_get_grid_last_index(game);
-	printf("grid last index %d\n", game->map->grid_last_index);
 	if ((game->map->grid_start_index + 3) > game->map->grid_last_index)
 		ft_cleanup(game, INVALID_MAP_SIZE, 2);
 	if (game->map->grid_start_index < 6)
 		ft_cleanup(game, INVALID_MAP_GRID, 2);
-	ft_trim_cub_file(game);
-	return ;
 }
 
 static int	ft_get_cub_file_size(t_game *game)

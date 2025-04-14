@@ -2,7 +2,7 @@
 			F        255   ,   255   ,    255
 
               NO ./textures/no.xpm 
-            C        225,30 ,0
+         C        225,    30 ,   0
         		EA     ./textures/ea.xpm
 
           SO                 ./textures/so.xpm
