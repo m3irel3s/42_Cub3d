@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_closure.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:40:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/10 16:56:51 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:31:09 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ static void	ft_flood_fill(t_game *game, char **dup_grid, int x, int y)
 		ft_free_arr(dup_grid);
 		ft_cleanup(game, FOUND_UNCLOSED_MAP, 2);
 	}
-	if (dup_grid[x][y] == ' ')
-	{
-		ft_free_arr(dup_grid);
-		ft_cleanup(game, FOUND_SPACE_INSI_MAP, 2);
-	}
+	// if (dup_grid[x][y] == ' ')
+	// {
+	// 	ft_free_arr(dup_grid);
+	// 	ft_cleanup(game, FOUND_SPACE_INSI_MAP, 2);
+	// }
 	if (dup_grid[x][y] == '1' || dup_grid[x][y] == '+')
 		return ;
-	if (dup_grid[x][y] == '0')
+	if (dup_grid[x][y] == '0' || dup_grid[x][y] == ' ')
 		dup_grid[x][y] = '+';
 	ft_flood_fill(game, dup_grid, x - 1, y);
 	ft_flood_fill(game, dup_grid, x + 1, y);

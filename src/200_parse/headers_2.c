@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 14:35:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/14 17:08:40 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/14 18:22:35 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,11 @@ void	ft_check_headers_values(t_game *game, t_headers *headers)
 	i = 0;
 	while (i < 6)
 	{
-		if (ft_check_single_word(headers[i].value) == FAILURE)
-			ft_cleanup(game, FOUND_INVALID_VALUE, 2);
+		if (headers[i].tag != C_TAG && headers[i].tag != F_TAG)
+		{
+			if (ft_check_single_word(headers[i].value) == FAILURE)
+				ft_cleanup(game, FOUND_INVALID_VALUE, 2);
+		}
 		i++;
 	}
 	return ;

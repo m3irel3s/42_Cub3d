@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:11:35 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/09 13:49:59 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/14 18:13:13 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static void	ft_parse_header_line(t_headers *headers, char *line)
 	while (line[j] && !ft_is_space(line[j]))
 		j++;
 	headers->tag_name = ft_substr(line, 0, j);
-	while (ft_is_space(line[j]))
+	while (line[j] == ' ')
 		j++;
 	z = j;
 	while (line[j])

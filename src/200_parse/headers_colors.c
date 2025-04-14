@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 16:04:54 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/09 15:00:58 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/14 18:23:57 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ static void ft_parse_color(t_game *game, t_rgb *set_color ,char *color)
 	int		blue;
 
 	res = ft_split(color, ',');
+	if (!res)
+		ft_cleanup(game, ERROR_SPLITTING_COLOR, 2);
 	// printf("\n");
 	// for (int i = 0; res[i]; i++)
-		// printf("res[%d] %s\n", i, res[i]);
+	// 	printf("res[%d] :%s:\n", i, res[i]);
 	// printf("\n");
 	// printf("array_len -> %d\n", ft_array_len(res));
 	if (ft_array_len(res) != 3 || ft_count_occurs(color, ',') != 2)
@@ -49,6 +51,11 @@ static void ft_parse_color(t_game *game, t_rgb *set_color ,char *color)
 		ft_free_arr(res);
 		ft_cleanup(game, FOUND_INVALID_COLOR, 2);
 	}
+	// printf("\n");
+	// for (int i = 0; res[i]; i++)
+	// 	printf("res[%d] :%s:\n", i, res[i]);
+	// printf("\n");
+	// printf("array_len -> %d\n", ft_array_len(res));
 	red = ft_parse_rgb(game, res[0], res);
 	green = ft_parse_rgb(game, res[1], res);
 	blue = ft_parse_rgb(game, res[2], res);
@@ -63,14 +70,19 @@ static void ft_parse_color(t_game *game, t_rgb *set_color ,char *color)
 
 static int	ft_parse_rgb(t_game *game, char *str, char **res)
 {
-	int	number;
+	int		number;
+	char	*temp;
 
-	if (ft_check_number(str) != SUCCESS)
+	temp = NULL;
+	temp = ft_strtrim(str, " ");
+	if (ft_check_number(temp) != SUCCESS)
 	{
 		ft_free_arr(res);
+		ft_free(temp);
 		ft_cleanup(game, INVALID_COLOR_NUMBER, 2);
 	}
-	number = ft_atoi(str);
+	number = ft_atoi(temp);
+	ft_free(temp);
 	if (number < 0 || number > 255)
 	{
 		ft_free_arr(res);
