@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycasting.c                                       :+:      :+:    :+:   */
+/*   display_gates.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/01 14:00:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/13 21:29:13 by meferraz         ###   ########.fr       */
+/*   Created: 2025/04/14 16:51:29 by meferraz          #+#    #+#             */
+/*   Updated: 2025/04/14 17:17:36 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
-void	ft_cast_rays(t_game *game)
+void	ft_update_gates(t_game *game)
 {
-	int		x;
-	t_ray	ray;
+	int			i;
+	t_door_data	*door;
 
-	x = 0;
-	while (x < SCREEN_WIDTH)
+	i = -1;
+	while (++i < game->map->num_gates)
 	{
-		ft_init_ray(game, x, &ray);
-		ft_perform_dda(game, &ray);
-		if (ray.hit)
+		door = &game->map->gates[i];
+		if (door->state == DOOR_OPENING && ++door->frame_count >= 5)
 		{
-			ft_calc_wall(game, &ray);
-			if (ray.gate)
-				ft_draw_gate(game, x, &ray);
-			else
-				ft_draw_textured_wall(game, x, &ray);
+			door->frame_count = 0;
+			if (++door->frame >= 7)
+				door->state = DOOR_OPEN;
 		}
-		x++;
+		else if (door->state == DOOR_CLOSING && ++door->frame_count >= 5)
+		{
+			door->frame_count = 0;
+			if (--door->frame <= 0)
+				door->state = DOOR_CLOSED;
+		}
 	}
 }

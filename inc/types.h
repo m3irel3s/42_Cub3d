@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/12 23:00:50 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/14 16:56:04 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,14 @@ typedef enum e_wall_side
 	EAST,
 	WEST
 }	t_wall_side;
+
+typedef enum e_door
+{
+	DOOR_CLOSED,
+	DOOR_OPEN,
+	DOOR_CLOSING,
+	DOOR_OPENING
+}	t_door;
 
 //============================================================================//
 //                                STRUCTURES                                  //
@@ -103,6 +111,14 @@ typedef struct s_minimap
 	int		start_y;
 }	t_minimap;
 
+typedef struct s_door_data
+{
+	t_door state;
+	int		frame;
+	int		frame_count;
+	t_point		pos;
+} t_door_data;
+
 typedef struct s_map
 {
 	char		**grid;
@@ -112,6 +128,8 @@ typedef struct s_map
 	t_point		s_pos;
 	char		s_dir;
 	bool		show_map;
+	t_door_data	*gates;
+	int			num_gates;
 	t_minimap	minimap;
 }	t_map;
 
@@ -133,6 +151,8 @@ typedef struct s_ray
 	int			map_x;
 	int			map_y;
 	int			hit;
+	int			gate;
+	int			gate_index;
 	int			side;
 	double		perp_wall_dist;
 	int			line_height;
@@ -169,6 +189,7 @@ typedef struct s_game
 	int			ceiling_color_hex;
 	t_img		*img;
 	t_img		textures[4];
+	t_img		gate_textures[8];
 	t_player	*player;
 }	t_game;
 

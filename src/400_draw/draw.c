@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:56:43 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 22:56:21 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:38:21 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_draw_textured_wall_loop(t_game *game, int x,
 				t_drawdata *data);
-static int	ft_compute_fog(double perp_wall_dist);
+int	ft_compute_fog(double perp_wall_dist);
 
 /**
  * @brief Draw a textured wall from the given ray.
@@ -85,7 +85,7 @@ void	ft_mlx_pixel_put_to_image(t_game *game, int x, int y, int color)
  * ray to the wall by a small value (0.100001).
  * The result is then rounded up to the nearest integer.
  */
-static int	ft_compute_fog(double perp_wall_dist)
+int	ft_compute_fog(double perp_wall_dist)
 {
 	int		times;
 	double	distance;

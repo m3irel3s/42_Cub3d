@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/12 10:41:36 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/13 21:05:27 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@
 #  define KEY_LEFT 123
 #  define KEY_RIGHT 124
 #  define KEY_M 46
+#  define KEY_G 5
 # elif __linux__
 #  define KEY_ESC XK_Escape
 #  define KEY_W XK_w
@@ -49,6 +50,7 @@
 #  define KEY_LEFT XK_Left
 #  define KEY_RIGHT XK_Right
 #  define KEY_M XK_m
+#  define KEY_G XK_g
 # endif
 
 //============================================================================//

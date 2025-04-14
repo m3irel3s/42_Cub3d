@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/12 21:29:25 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:44:35 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,9 @@ void		ft_init_game(t_game *game);
 /* init_player.c */
 void		ft_init_player(t_game *game);
 
+/* init_gates.c */
+void		ft_init_gates(t_game *game);
+
 //============================================================================//
 //                               RAYCASTING                                   //
 //============================================================================//
@@ -89,7 +92,10 @@ void		ft_calc_wall(t_game *game, t_ray *ray);
 //============================================================================//
 /* draw.c */
 void		ft_draw_textured_wall(t_game *game, int x, t_ray *ray);
+int			ft_compute_fog(double perp_wall_dist);
 void		ft_mlx_pixel_put_to_image(t_game *game, int x, int y, int color);
+/* draw_gate.c */
+void		ft_draw_gate(t_game *game, int x, t_ray *ray);
 
 //============================================================================//
 //                              RENDERING                                     //
@@ -100,6 +106,12 @@ int			ft_darken_rgb_color3(int color, double factor, int times);
 
 /* render_utils.c */
 void		ft_set_floor_n_ceiling(t_game *game);
+
+/* display_door_animation.c */
+void		ft_update_gates(t_game *game);
+
+/* display_minimap_bonus.c */
+void	ft_display_minimap(t_game *game);
 
 //============================================================================//
 //                                EVENTS                                      //
@@ -117,11 +129,17 @@ void		ft_move_right(t_game *game, double move_speed);
 void		ft_rotate_left(t_game *game, double rot_speed);
 void		ft_rotate_right(t_game *game, double rot_speed);
 
+/* door_animation.c */
+void		ft_handle_gate_animation(t_game *game);
+
+/* door_colision.c */
+bool		ft_handle_door_collision(t_game *game, double new_x, double new_y);
 //============================================================================//
 //                              TEXTURES                                      //
 //============================================================================//
 /* textures.c */
 void		ft_load_textures(t_game *game);
+void		ft_load_gate_textures(t_game *game);
 
 //============================================================================//
 //                                  UTILS                                     //
@@ -150,6 +168,5 @@ void		ft_free_arr(char **arr);
 /* quit_game.c */
 int			ft_quit_game(t_game *game);
 
-void	ft_display_minimap(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/12 10:55:26 by meferraz         ###   ########.fr        #
+#    Updated: 2025/04/14 17:42:53 by meferraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,25 +96,30 @@ SRCS        = ${SRC_PATH}/main.c \
 				${PARSE_PATH}/map_utils.c \
 				${PARSE_PATH}/map_closure.c \
 				${INIT_GAME_PATH}/init_game.c \
+				${INIT_GAME_PATH}/init_gates.c \
 				${INIT_GAME_PATH}/init_player.c \
 				${RAYCAST_PATH}/raycasting.c \
 				${RAYCAST_PATH}/init_raycasting.c \
 				${RAYCAST_PATH}/dda_raycasting.c \
 				${RAYCAST_PATH}/draw_raycasting.c \
 				${DRAW_PATH}/draw.c \
+				${DRAW_PATH}/draw_gate.c \
 				${TEXTURE_PATH}/textures.c \
 				${RENDER_PATH}/render.c \
 				${RENDER_PATH}/render_utils.c \
+				${RENDER_PATH}/display_minimap_bonus.c \
+				${RENDER_PATH}/display_gates.c \
 				${EVENTS_PATH}/events.c \
 				${EVENTS_PATH}/rotations.c \
 				${EVENTS_PATH}/movements.c \
+				${EVENTS_PATH}/door_animation.c \
+				${EVENTS_PATH}/door_colision.c \
 				${UTILS_PATH}/utils.c \
 				${UTILS_PATH}/safe_utils.c \
 				${CLEANUP_PATH}/free.c \
 				${CLEANUP_PATH}/free_parse.c \
 				${CLEANUP_PATH}/free_utils.c \
 				${CLEANUP_PATH}/quit_game.c \
-				${RENDER_PATH}/display_minimap_bonus.c \
 
 OBJS        = $(SRCS:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
 #------------------------------------------------------------------------------#

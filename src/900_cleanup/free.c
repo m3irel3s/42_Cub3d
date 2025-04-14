@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/11 15:48:11 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:46:20 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	ft_cleanup(t_game *game, char *msg, int fd)
 		ft_free_textures(game);
 		if (game->mlx)
 			ft_clean_graphics(game);
+		if (game->map->gates)
+			ft_free(game->map->gates);
 		ft_free(game->map);
 		ft_free(game->player);
 		ft_free(game);
@@ -55,6 +57,13 @@ static void	ft_free_textures(t_game *game)
 	{
 		if (game->textures[i].mlx_img)
 			mlx_destroy_image(game->mlx, game->textures[i].mlx_img);
+		i++;
+	}
+	i = 0;
+	while (i < 8)
+	{
+		if (game->gate_textures[i].mlx_img)
+			mlx_destroy_image(game->mlx, game->gate_textures[i].mlx_img);
 		i++;
 	}
 }
