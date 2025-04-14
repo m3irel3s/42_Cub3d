@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 17:58:08 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/12 20:46:13 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/14 21:40:53 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,5 @@ static int	ft_valid_map_line(t_game *game, char *line)
 static int	ft_are_valid_map_chars(char c)
 {
 	return (c == '0' || c == '1' || c == 'N' || c == 'S'
-				|| c == 'E' || c == 'W' || c == ' ');
+				|| c == 'E' || c == 'W' || c == ' ' || c == 'D');
 }

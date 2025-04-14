@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:44:54 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/14 17:11:10 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/14 21:46:34 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,11 @@ static void	ft_load_single_texture(t_game *game, char *path, t_wall_side index)
 void	ft_load_gate_textures(t_game *game)
 {
 	int		i;
-	char	*path[8];
+	char	**path;
 
+	path = ft_safe_malloc(sizeof(char *) * 8);
+	if (!path)
+		ft_cleanup(game, "Error\nAllocating path array", 1);
 	ft_set_path_arr(path);
 	i = 0;
 	while (i < 8)
