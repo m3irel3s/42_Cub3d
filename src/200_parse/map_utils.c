@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 17:58:08 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/14 19:01:51 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/15 15:43:47 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	ft_set_player_values(t_game *game)
 		{
 			if (ft_strchr("NSWE", game->map->grid[i][j]))
 			{
-				game->map->s_pos.x = i;
-				game->map->s_pos.y = j;
+				game->map->s_pos.x = j;
+				game->map->s_pos.y = i;
 				game->map->s_dir = game->map->grid[i][j];
 			}
 			j++;
