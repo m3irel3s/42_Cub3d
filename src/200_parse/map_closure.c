@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:40:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/14 19:04:17 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/15 13:18:16 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,14 @@ static void	ft_flood_fill(t_game *game, char **dup_grid, int x, int y)
 		ft_free_arr(dup_grid);
 		ft_cleanup(game, FOUND_UNCLOSED_MAP, 2);
 	}
+	if (dup_grid[x][y] == ' ')
+	{
+		ft_free_arr(dup_grid);
+		ft_cleanup(game, FOUND_SPACE_INSI_MAP, 2);
+	}
 	if (dup_grid[x][y] == '1' || dup_grid[x][y] == '+')
 		return ;
-	if (dup_grid[x][y] == '0' || dup_grid[x][y] == ' ')
+	if (dup_grid[x][y] == '0')
 		dup_grid[x][y] = '+';
 	ft_flood_fill(game, dup_grid, x - 1, y);
 	ft_flood_fill(game, dup_grid, x + 1, y);
