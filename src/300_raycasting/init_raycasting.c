@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 12:30:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/09 22:16:30 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/10 21:53:19 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	ft_init_ray(t_game *game, int x, t_ray *ray)
 	ray->map_x = (int)game->player->pos_x;
 	ray->map_y = (int)game->player->pos_y;
 	ray->hit = 0;
-	ray->hit_outside = 0;
 	ray->step.delta_dist_x = (ray->ray_dir_x == 0) ? 1e30 : fabs(1 / ray->ray_dir_x);
 	ray->step.delta_dist_y = (ray->ray_dir_y == 0) ? 1e30 : fabs(1 / ray->ray_dir_y);
 	ft_init_step_x(game, ray);

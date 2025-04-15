@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/14 16:38:27 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/15 15:32:08 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ void		ft_init_game(t_game *game);
 /* init_player.c */
 void		ft_init_player(t_game *game);
 
-
 //============================================================================//
 //                               RAYCASTING                                   //
 //============================================================================//
@@ -97,6 +96,7 @@ void		ft_mlx_pixel_put_to_image(t_game *game, int x, int y, int color);
 //============================================================================//
 /* render.c */
 int			ft_render_next_frame(t_game *game);
+int			ft_darken_rgb_color3(int color, double factor, int times);
 
 /* render_utils.c */
 void		ft_set_floor_n_ceiling(t_game *game);
@@ -146,7 +146,6 @@ void		ft_free(void *ptr);
 void		ft_free_arr(char **arr);
 
 /* quit_game.c */
-int         ft_quit_game(t_game *game);
-
+int			ft_quit_game(t_game *game);
 
 #endif

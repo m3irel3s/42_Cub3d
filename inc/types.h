@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/10 17:54:21 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/15 15:32:11 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ typedef struct s_iter
 	size_t	l;
 }	t_iter;
 
-typedef struct	s_point
+typedef struct s_point
 {
 	int		x;
 	int		y;
 }	t_point;
 
-typedef struct	s_rgb
+typedef struct s_rgb
 {
 	int		r;
 	int		g;
@@ -96,7 +96,7 @@ typedef struct s_headers
 	char	*value;
 }	t_headers;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	char		**grid;
 	int			height;
@@ -124,7 +124,6 @@ typedef struct s_ray
 	int			map_x;
 	int			map_y;
 	int			hit;
-	int			hit_outside;
 	int			side;
 	double		perp_wall_dist;
 	int			line_height;
@@ -134,6 +133,17 @@ typedef struct s_ray
 	double		wall_x;
 	t_wall_side	wall_side;
 }	t_ray;
+
+typedef struct s_drawdata
+{
+	t_img	*texture;
+	int		tex_x;
+	double	step;
+	double	tex_pos;
+	int		draw_start;
+	int		draw_end;
+	int		fog_times;
+}	t_drawdata;
 
 typedef struct s_game
 {
@@ -152,6 +162,5 @@ typedef struct s_game
 	t_img		*img;
 	t_player	*player;
 }	t_game;
-
 
 #endif

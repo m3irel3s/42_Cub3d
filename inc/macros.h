@@ -6,12 +6,16 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/15 13:18:54 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/15 15:32:04 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MACROS_H
 # define MACROS_H
+
+//============================================================================//
+//                                 GENERAL CONSTANTS                          //
+//============================================================================//
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -24,9 +28,30 @@
 # define FOV 0.90
 
 //============================================================================//
-//                              ERROR MESSAGES                                //
+//                             PLATFORM KEYS MACROS                           //
 //============================================================================//
 
+# ifdef __APPLE__
+#  define KEY_ESC 53
+#  define KEY_W 13
+#  define KEY_S 1
+#  define KEY_D 2
+#  define KEY_A 0
+#  define KEY_LEFT 123
+#  define KEY_RIGHT 124
+# elif __linux__
+#  define KEY_ESC XK_Escape
+#  define KEY_W XK_w
+#  define KEY_S XK_s
+#  define KEY_A XK_a
+#  define KEY_D XK_d
+#  define KEY_LEFT XK_Left
+#  define KEY_RIGHT XK_Right
+# endif
+
+//============================================================================//
+//                              ERROR MESSAGES                                //
+//============================================================================//
 
 /* PARSING ERRORS */
 # define INVALID_ARGUMENTS "Error\nInvalid arguments given\n"
@@ -55,6 +80,5 @@
 /* GAME ERRORS */
 # define STRUCT_INIT_FAILED "Error\nFailed the initialization of structs\n"
 # define MLX_INIT_FAIL "Error\nFailed to allocated memory for MLX\n"
-
 
 #endif
