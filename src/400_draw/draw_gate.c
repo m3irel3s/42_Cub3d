@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 21:29:43 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/14 17:42:30 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/18 22:01:35 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void ft_draw_gate(t_game *game, int x, t_ray *ray)
 	door = &game->map->gates[ray->gate_index];
 	data.texture = &game->gate_textures[door->frame];
 	data.tex_x = (int)(ray->wall_x * (double)data.texture->width);
+	data.draw_end = ray->draw_end;
+	data.draw_start = ray->draw_start;
 	if (ray->side == 0 && ray->ray_dir_x > 0)
 		data.tex_x = data.texture->width - data.tex_x - 1;
 	if (ray->side == 1 && ray->ray_dir_y < 0)
@@ -46,8 +48,8 @@ static void	ft_draw_gate_loop(t_game *game, int x, t_drawdata *data, double perp
 		if (color != 0x000000)
 		{
 			fog_color = ft_compute_fog(perp_wall_dist);
-			color = (color & 0xFEFEFE) >> 1; // Optional: darken color for distance
-			ft_mlx_pixel_put_to_image(game, x, y, color + fog_color);
+			color = ft_darken_rgb_color3(color, 0.9, fog_color);
+			ft_mlx_pixel_put_to_image(game, x, y, color);
 		}
 		y++;
 	}

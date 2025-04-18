@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:44:54 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/14 21:46:34 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/18 21:54:55 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	ft_load_gate_textures(t_game *game)
 			ft_cleanup(game, "Error\nGetting gate texture address", 1);
 		i++;
 	}
-	ft_free_arr(path);
+	//ft_free_arr(path);
 }
 
 void	ft_set_path_arr(char **path)
