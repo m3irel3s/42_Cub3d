@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/14 17:44:35 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/18 22:43:12 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,7 @@ void		ft_handle_gate_animation(t_game *game);
 
 /* door_colision.c */
 bool		ft_handle_door_collision(t_game *game, double new_x, double new_y);
+int			ft_find_gate_index(t_game *game, int x, int y);
 //============================================================================//
 //                              TEXTURES                                      //
 //============================================================================//

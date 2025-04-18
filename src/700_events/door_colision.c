@@ -6,13 +6,13 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 17:23:37 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/14 17:27:06 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/18 22:43:33 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
-static int	ft_find_gate_index(t_game *game, int x, int y)
+int	ft_find_gate_index(t_game *game, int x, int y)
 {
 	int	i;
 
