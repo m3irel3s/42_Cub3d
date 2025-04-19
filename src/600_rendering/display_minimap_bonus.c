@@ -6,17 +6,19 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 21:41:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/12 20:53:37 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/19 09:55:38 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
 #define MINIMAP_RATIO 0.3
-#define CELL_BORDER 0x0000000
-#define COLOR_WALL 0x1a1a1c
-#define COLOR_FLOOR 0xffd1ad
-#define COLOR_PLAYER 0x681c2c
+#define CELL_BORDER   0x0d0d0d  // Soft black for cell outlines
+#define COLOR_WALL    0x1e1e24  // Dark slate for walls
+#define COLOR_FLOOR   0xdcbfa6  // Muted beige for floors
+#define COLOR_PLAYER  0x8b2e38  // Bordeaux red for the player
+#define COLOR_DOOR    0x9e5a44  // Warm burnt clay for doors
+#define COLOR_EMPTY   0x9f8672
 
 static void	ft_calc_minimap_scale(t_game *game);
 static void	ft_draw_cell(t_game *game, int map_x, int map_y, t_cell type);
@@ -114,6 +116,8 @@ static void	ft_draw_grid(t_game *game)
 				ft_draw_cell(game, x, y, FLOOR);
 			else if (game->map->grid[y][x] == ' ')
 				ft_draw_cell(game, x, y, EMPTY);
+			else if (game->map->grid[y][x] == 'D')
+				ft_draw_cell(game, x, y, DOOR);
 			x++;
 		}
 		y++;
@@ -134,6 +138,10 @@ static void	ft_draw_cell(t_game *game, int map_x, int map_y, t_cell type)
 		color = COLOR_WALL;
 	else if (type == FLOOR)
 		color = COLOR_FLOOR;
+	else if (type == EMPTY)
+		color = COLOR_EMPTY;
+	else if (type == DOOR)
+		color = COLOR_DOOR;
 	y = 0;
 	while (y < game->map->minimap.scale)
 	{
