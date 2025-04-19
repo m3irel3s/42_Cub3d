@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/19 09:48:33 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/19 16:27:15 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,21 @@ typedef struct s_drawdata
 	int		fog_times;
 }	t_drawdata;
 
+typedef struct s_animation
+{
+	t_img		*frames;
+	int			frame_count;
+	int			current_frame;
+	double		frame_duration;
+	double		last_update;
+}	t_animation;
+
+typedef struct s_intro
+{
+	t_animation	animation;
+	bool		active;
+} t_intro;
+
 typedef struct s_game
 {
 	t_map		*map;
@@ -192,6 +207,7 @@ typedef struct s_game
 	t_img		textures[4];
 	t_img		gate_textures[8];
 	t_player	*player;
+	t_intro		*intro;
 }	t_game;
 
 #endif

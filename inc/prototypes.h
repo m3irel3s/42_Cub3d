@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/18 22:43:12 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/19 16:24:19 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,6 @@ int			ft_find_gate_index(t_game *game, int x, int y);
 //============================================================================//
 /* textures.c */
 void		ft_load_textures(t_game *game);
-void		ft_load_gate_textures(t_game *game);
 
 //============================================================================//
 //                                  UTILS                                     //

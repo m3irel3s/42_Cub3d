@@ -6,12 +6,14 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:20:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/14 21:49:51 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/19 16:49:46 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
+static void	ft_render_intro(t_game *game);
+int	ft_get_time_ms(void);
 /**
  * Darkens an RGB color by applying a factor multiple times.
  *
@@ -152,18 +154,45 @@ void	ft_clear_image(t_game *game, int ceiling_color, int floor_color)
  */
 int	ft_render_next_frame(t_game *game)
 {
+	if (game->intro->active)
+		ft_render_intro(game);
+	else
+	{
+		if (game->img->mlx_img)
+			mlx_destroy_image(game->mlx, game->img->mlx_img);
+		game->img->mlx_img = mlx_new_image(game->mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
+		game->img->addr = mlx_get_data_addr(game->img->mlx_img, &game->img->bpp,
+				&game->img->line_len, &game->img->endian);
+		ft_memset(game->img->addr, 0, SCREEN_HEIGHT * game->img->line_len);
+		ft_set_floor_n_ceiling(game);
+		ft_clear_image(game, game->ceiling_color_hex, game->floor_color_hex);
+		ft_cast_rays(game);
+		if (game->map->show_map)
+			ft_display_minimap(game);
+		ft_update_gates(game);
+		mlx_put_image_to_window(game->mlx, game->win, game->img->mlx_img, 0, 0);
+	}
+	return (0);
+}
+
+static void	ft_render_intro(t_game *game)
+{
+	double	current_time;
+
+	current_time = ft_get_time_ms();
+	if (current_time - game->intro->animation.last_update >= game->intro->animation.frame_duration) {
+		game->intro->animation.current_frame =
+			(game->intro->animation.current_frame + 1) % game->intro->animation.frame_count;
+		game->intro->animation.last_update = current_time;
+	}
+	t_img *current = &game->intro->animation.frames[game->intro->animation.current_frame];
+	int x = (SCREEN_WIDTH - current->width) / 2;
+	int y = (SCREEN_HEIGHT - current->height) / 2;
 	if (game->img->mlx_img)
 		mlx_destroy_image(game->mlx, game->img->mlx_img);
 	game->img->mlx_img = mlx_new_image(game->mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
 	game->img->addr = mlx_get_data_addr(game->img->mlx_img, &game->img->bpp,
 			&game->img->line_len, &game->img->endian);
 	ft_memset(game->img->addr, 0, SCREEN_HEIGHT * game->img->line_len);
-	ft_set_floor_n_ceiling(game);
-	ft_clear_image(game, game->ceiling_color_hex, game->floor_color_hex);
-	ft_cast_rays(game);
-	if (game->map->show_map)
-		ft_display_minimap(game);
-	ft_update_gates(game);
-	mlx_put_image_to_window(game->mlx, game->win, game->img->mlx_img, 0, 0);
-	return (0);
+	mlx_put_image_to_window(game->mlx, game->win, current->mlx_img, x, y);
 }

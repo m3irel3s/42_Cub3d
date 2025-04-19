@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 18:29:06 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/14 17:35:46 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/19 16:40:15 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,15 @@ t_game	*ft_init_structs(void)
 	game->mlx = NULL;
 	game->win = NULL;
 	game->player = ft_safe_malloc(sizeof(t_player));
+	if (!game->player)
+	return (NULL);
 	game->textures[0].mlx_img = NULL;
 	game->textures[1].mlx_img = NULL;
 	game->textures[2].mlx_img = NULL;
 	game->textures[3].mlx_img = NULL;
 	ft_init_gate_textures(game);
-	if (!game->player)
+	game->intro = ft_safe_malloc(sizeof(t_intro));
+	if (!game->intro)
 		return (NULL);
 	return (game);
 }
