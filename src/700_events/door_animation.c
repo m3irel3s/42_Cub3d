@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:09:46 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/18 22:17:34 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/19 09:41:46 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,26 @@
 
 static bool	ft_is_facing_door(t_game *game, t_door_data *door)
 {
-	double	px;
-	double	py;
+	double	player_angle;
+	double	target_angle;
+	double	angle_diff;
 	double	dx;
 	double	dy;
-	double	dot;
 
-	px = game->player->pos_x;
-	py = game->player->pos_y;
-	dx = door->pos.x + 0.5 - px;
-	dy = door->pos.y + 0.5 - py;
-	if (dx < -2.0 || dx > 2.0 || dy < -2.0 || dy > 2.0)
+	dx = door->pos.x + 0.5 - game->player->pos_x;
+	dy = door->pos.y + 0.5 - game->player->pos_y;
+	if (dx * dx + dy * dy > 4.0)
 		return (false);
-	dot = dx * game->player->dir_x + dy * game->player->dir_y;
-	if (dot > 0.0)
-		return (true);
-	return (false);
+	player_angle = atan2(game->player->dir_y, game->player->dir_x);
+	target_angle = atan2(dy, dx);
+	angle_diff = target_angle - player_angle;
+	while (angle_diff > M_PI)
+		angle_diff -= 2 * M_PI;
+	while (angle_diff < -M_PI)
+		angle_diff += 2 * M_PI;
+	return (fabs(angle_diff) <= FOV_ANGLE);
 }
+
 
 void	ft_handle_gate_animation(t_game *game)
 {

@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/13 21:05:27 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/19 09:41:56 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define SCREEN_WIDTH 1920
 # define SCREEN_HEIGHT 1080
 # define FOV 0.90
+# define FOV_ANGLE (M_PI / 6)
 
 //============================================================================//
 //                             PLATFORM KEYS MACROS                           //

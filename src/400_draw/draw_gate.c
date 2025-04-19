@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 21:29:43 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/18 22:24:20 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/19 09:14:04 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ void ft_draw_gate(t_game *game, int x, t_ray *ray)
 	door = &game->map->gates[ray->gate_index];
 	data.texture = &game->gate_textures[door->frame];
 	data.tex_x = (int)(ray->wall_x * (double)data.texture->width);
-	if ((ray->side == 0 && ray->ray_dir_x > 0) ||
-		(ray->side == 1 && ray->ray_dir_y < 0))
-		data.tex_x = data.texture->width - data.tex_x - 1;
+	data.tex_x = data.texture->width - data.tex_x - 1;
 	data.draw_end = ray->draw_end;
 	data.draw_start = ray->draw_start;
 	if (ray->side == 0 && ray->ray_dir_x > 0)
