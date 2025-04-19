@@ -163,13 +163,10 @@ static void	ft_draw_cell(t_game *game, int map_x, int map_y, t_cell type)
 
 static void	ft_draw_direction(t_game *game, t_point center)
 {
-	t_point	end;
 	double	scale;
 	int		i;
 
 	scale = game->map->minimap.scale * 1.5;
-	end.x = center.x + (game->player->dir_x * scale);
-	end.y = center.y + (game->player->dir_y * scale);
 	i = -1;
 	while (++i < (int)scale)
 	{
