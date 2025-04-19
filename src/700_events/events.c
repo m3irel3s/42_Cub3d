@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 13:30:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/14 17:43:08 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/19 16:52:06 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ int	ft_handle_key(int key, t_game *game)
 
 	move_speed = 0.2;
 	rot_speed = 0.1;
+	if (game->intro->active)
+	{
+		if (key == KEY_ENTER)
+			game->intro->active = false;
+		return (0);
+	}
 	if (key == KEY_ESC)
 		ft_quit_game(game);
 	else if (key == KEY_W)
