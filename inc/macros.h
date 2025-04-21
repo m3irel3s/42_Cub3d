@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/21 17:38:37 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/21 17:51:08 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MACROS_H
 
 //============================================================================//
-//                                 GENERAL CONSTANTS                          //
+// ⬤  GENERAL CONSTANTS                                                      //
 //============================================================================//
 
 # define SUCCESS 0
@@ -28,7 +28,7 @@
 # define FOV 0.90
 
 //============================================================================//
-//                             PLATFORM KEYS MACROS                           //
+// ⬤  PLATFORM KEYS MACROS                                                   //
 //============================================================================//
 
 # ifdef __APPLE__
@@ -50,7 +50,7 @@
 # endif
 
 //============================================================================//
-//                              ERROR MESSAGES                                //
+// ⬤  ERROR MESSAGES                                                         //
 //============================================================================//
 
 /* PARSING ERRORS */
@@ -78,8 +78,11 @@ required\n"
 # define FOUND_UNCLOSED_MAP "Error\nPlayer is not surrounded by walls\n"
 # define INVALID_FD_OPEN "Error\nError openning the file descriptor\n"
 
+/* Texture Errors */
 # define ERR_TEXTURE "Error\nLoading texture"
 # define ERR_TEXTURE_ADDR "Error\nGetting texture address"
+
+/* Quit Game */
 # define QUIT_GAME_MSG "Thank you for playing!\n Exiting game...\n"
 
 /* GAME ERRORS */
