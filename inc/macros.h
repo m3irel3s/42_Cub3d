@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/21 15:31:11 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/21 17:38:37 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,10 @@ required\n"
 # define FOUND_SPACE_INSI_MAP "Error\nFound a space inside map\n"
 # define FOUND_UNCLOSED_MAP "Error\nPlayer is not surrounded by walls\n"
 # define INVALID_FD_OPEN "Error\nError openning the file descriptor\n"
+
+# define ERR_TEXTURE "Error\nLoading texture"
+# define ERR_TEXTURE_ADDR "Error\nGetting texture address"
+# define QUIT_GAME_MSG "Thank you for playing!\n Exiting game...\n"
 
 /* GAME ERRORS */
 # define STRUCT_INIT_FAILED "Error\nFailed the initialization of structs\n"

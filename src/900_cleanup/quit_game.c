@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/10 22:31:52 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/21 17:38:54 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	ft_quit_game(t_game *game)
 {
-	ft_cleanup(game, "Game exited", 0);
+	ft_cleanup(game, QUIT_GAME_MSG, 0);
 	return (0);
 }
