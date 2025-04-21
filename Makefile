@@ -6,7 +6,7 @@
 #    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/21 17:43:56 by meferraz         ###   ########.fr        #
+#    Updated: 2025/04/21 17:46:51 by meferraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,7 @@ INIT_GAME_PATH   = ${SRC_PATH}/300_init_game
 RAYCAST_PATH     = ${SRC_PATH}/430_raycasting
 DRAW_PATH        = ${SRC_PATH}/440_draw
 TEXTURE_PATH     = ${SRC_PATH}/410_textures
-RENDER_PATH      = ${SRC_PATH}/400_rendering
+RENDER_PATH      = ${SRC_PATH}/420_rendering
 EVENTS_PATH      = ${SRC_PATH}/500_events
 UTILS_PATH       = ${SRC_PATH}/600_utils
 CLEANUP_PATH     = ${SRC_PATH}/700_cleanup
