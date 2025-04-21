@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
+#    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/14 17:24:39 by jmeirele         ###   ########.fr        #
+#    Updated: 2025/04/21 17:43:56 by meferraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,13 +69,13 @@ SRC_PATH         = src
 INIT_PATH        = ${SRC_PATH}/100_init
 PARSE_PATH       = ${SRC_PATH}/200_parse
 INIT_GAME_PATH   = ${SRC_PATH}/300_init_game
-RAYCAST_PATH     = ${SRC_PATH}/300_raycasting
-DRAW_PATH        = ${SRC_PATH}/400_draw
-TEXTURE_PATH     = ${SRC_PATH}/500_textures
-RENDER_PATH      = ${SRC_PATH}/600_rendering
-EVENTS_PATH      = ${SRC_PATH}/700_events
-UTILS_PATH       = ${SRC_PATH}/800_utils
-CLEANUP_PATH     = ${SRC_PATH}/900_cleanup
+RAYCAST_PATH     = ${SRC_PATH}/430_raycasting
+DRAW_PATH        = ${SRC_PATH}/440_draw
+TEXTURE_PATH     = ${SRC_PATH}/410_textures
+RENDER_PATH      = ${SRC_PATH}/400_rendering
+EVENTS_PATH      = ${SRC_PATH}/500_events
+UTILS_PATH       = ${SRC_PATH}/600_utils
+CLEANUP_PATH     = ${SRC_PATH}/700_cleanup
 
 INC_PATH         = inc
 LIBFT_PATH       = 42_Libft
