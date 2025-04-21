@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 15:12:01 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/21 17:07:51 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/21 22:03:39 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,28 @@
 
 static void	ft_init_graphics(t_game *game);
 
+/**
+ * @brief Initializes all game's components and player
+ *
+ * @param game The game struct to be initialized
+ */
 void	ft_init_game(t_game *game)
 {
 	ft_init_player(game);
 	ft_init_graphics(game);
 }
 
+/**
+ * @brief Initializes the graphics components of the game.
+ *
+ * This function sets up the MLX graphics library, allocates memory for the
+ * image structure, creates a new window, and initializes a new image for
+ * rendering. It also loads textures and sets up hooks for rendering frames
+ * and handling user input events. If any initialization fails, the function
+ * cleans up and exits.
+ *
+ * @param game The game struct containing all necessary game data.
+ */
 static void	ft_init_graphics(t_game *game)
 {
 	game->mlx = mlx_init();

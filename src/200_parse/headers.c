@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   headers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:11:35 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/14 19:03:48 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/21 21:57:47 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,17 @@
 static t_headers	*ft_headers(t_game *game);
 static void			ft_parse_header_line(t_headers *headers, char *line);
 
+/**
+ * @brief Parses the headers from the .cub file and stores them in the game structure.
+ *
+ * This function initializes the headers, checks and sets their tags, validates
+ * their values, processes color headers for floor and ceiling, and verifies
+ * texture headers. It ensures that the headers are correctly parsed and set
+ * within the game structure.
+ *
+ * @param game A pointer to the central game structure containing game state
+ *             and data.
+ */
 void	ft_parse_headers(t_game *game)
 {
 	t_headers	*headers;
@@ -27,6 +38,18 @@ void	ft_parse_headers(t_game *game)
 	ft_check_headers_textures(game, headers);
 }
 
+/**
+ * @brief Allocates and populates the headers array from the .cub file's lines.
+ *
+ * This function allocates memory for the headers array, counts the number of
+ * valid lines above the map, and parses each line to set the header's tag and
+ * value. It handles empty lines and ensures there are exactly 6 headers.
+ *
+ * @param game A pointer to the central game structure containing game state
+ *             and data.
+ *
+ * @return A pointer to the newly created headers array.
+ */
 static t_headers	*ft_headers(t_game *game)
 {
 	int			i;
@@ -56,6 +79,19 @@ static t_headers	*ft_headers(t_game *game)
 	return (headers);
 }
 
+/**
+ * @brief Parses a single line of the .cub file and sets the tag_name and value
+ *        fields of a t_headers struct.
+ *
+ * This function takes a string line from the .cub file and a pointer to a
+ * t_headers structure. It extracts the tag name and value from the line,
+ * using space as a delimiter, and sets the tag_name and value fields of the
+ * t_headers structure to the extracted values. It ignores empty lines and
+ * lines with leading spaces.
+ *
+ * @param headers A pointer to the t_headers structure to be populated.
+ * @param line The string line from the .cub file to be parsed.
+ */
 static void	ft_parse_header_line(t_headers *headers, char *line)
 {
 	int	j;

@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 18:29:06 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/21 21:35:58 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/21 21:54:50 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 static void		ft_init_textures(t_game *game);
 static t_map	*ft_init_map(void);
 
+/**
+ * @brief Initializes all game's structs and sets them to their default values
+ *
+ * @return A pointer to the newly created game struct
+ */
 t_game	*ft_init_structs(void)
 {
 	t_game	*game;
@@ -35,6 +40,11 @@ t_game	*ft_init_structs(void)
 	return (game);
 }
 
+/**
+ * @brief Initializes all textures in the game struct to NULL
+ *
+ * @param game The game struct containing the textures to be initialized
+ */
 static void	ft_init_textures(t_game *game)
 {
 	game->textures[0].mlx_img = NULL;
@@ -43,6 +53,12 @@ static void	ft_init_textures(t_game *game)
 	game->textures[3].mlx_img = NULL;
 }
 
+/**
+ * @brief Allocates memory for a new t_map struct and initializes it to default
+ * values
+ *
+ * @return A pointer to the newly allocated t_map struct
+ */
 static t_map	*ft_init_map(void)
 {
 	t_map	*map;

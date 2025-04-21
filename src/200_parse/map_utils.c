@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 17:58:08 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/15 15:43:47 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/21 22:00:16 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 static int	ft_valid_map_line(t_game *game, char *line);
 static int	ft_are_valid_map_chars(char c);
 
+/**
+ * @brief Finds the player's initial position and direction from the map grid.
+ *
+ * This function iterates through the map grid and finds the first occurrence of
+ * a player character ('N', 'S', 'E', or 'W'). It then sets the player position
+ * and direction in the game structure.
+ *
+ * @param game The game structure containing the game state and data.
+ */
 void	ft_set_player_values(t_game *game)
 {
 	int	i;
@@ -38,6 +47,19 @@ void	ft_set_player_values(t_game *game)
 	}
 }
 
+/**
+ * @brief Validates the characters used in the map grid.
+ *
+ * This function iterates through the map grid and checks that each line is
+ * valid, and that there is exactly one player character ('N', 'S', 'E', or 'W')
+ * in the map. If there is more than one player character, it triggers a cleanup
+ * with an error code indicating that multiple players were found. If there is
+ * no player character, it triggers a cleanup with an error code indicating
+ * that no player was found.
+ *
+ * @param game A pointer to the central game structure containing game state
+ *             and data.
+ */
 void	ft_validate_map_chars(t_game *game)
 {
 	int		counter;
@@ -66,6 +88,19 @@ void	ft_validate_map_chars(t_game *game)
 		ft_cleanup(game, PLAYER_NOT_FOUND, 2);
 }
 
+/**
+ * @brief Validates a single line of the map for correct characters and formatting.
+ *
+ * This function checks each character in the provided map line to ensure that
+ * only valid map characters ('0', '1', 'N', 'S', 'E', 'W', or space) are present.
+ * It flags lines containing tabs as invalid and triggers cleanup. It also verifies
+ * that at least one valid character is present in the line. If the line is valid,
+ * the function returns SUCCESS; otherwise, it returns FAILURE.
+ *
+ * @param game Pointer to the game structure containing the game state.
+ * @param line The line from the map to be validated.
+ * @return SUCCESS if the line is valid, FAILURE otherwise.
+ */
 static int	ft_valid_map_line(t_game *game, char *line)
 {
 	int	i;
@@ -94,6 +129,17 @@ static int	ft_valid_map_line(t_game *game, char *line)
 	return (FAILURE);
 }
 
+/**
+ * @brief Checks if a character is a valid map character.
+ *
+ * This function checks whether the given character is one of the valid
+ * characters allowed in the map grid, which includes '0', '1', 'N', 'S',
+ * 'E', 'W', or a space. It returns a non-zero value if the character is
+ * valid, and zero otherwise.
+ *
+ * @param c The character to be checked.
+ * @return Non-zero if the character is valid, zero otherwise.
+ */
 static int	ft_are_valid_map_chars(char c)
 {
 	return (c == '0' || c == '1' || c == 'N' || c == 'S'

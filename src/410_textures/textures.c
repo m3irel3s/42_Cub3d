@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:44:54 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/21 17:37:41 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/21 22:04:26 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	ft_load_textures(t_game *game)
  * @param index The index in the texture array where the loaded texture
  *              should be stored, corresponding to the wall side.
  */
-
 static void	ft_load_single_texture(t_game *game, char *path, t_wall_side index)
 {
 	game->textures[index].mlx_img = mlx_xpm_file_to_image(game->mlx, path,

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_grid.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 18:37:57 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/14 19:03:59 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/21 21:59:29 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 static void	ft_extract_map(t_game *game);
 static void	ft_find_holes(t_game *game);
 
+/**
+ * @brief Parses the map grid from the cub file and validates its structure.
+ *
+ * This function extracts the map grid from the cub file, detects any holes
+ * or empty lines within the grid, validates the characters used in the map,
+ * and sets the player's initial position and direction based on the map.
+ *
+ * @param game A pointer to the central game structure containing game state
+ *             and data.
+ */
 void	ft_parse_map_grid(t_game *game)
 {
 	ft_extract_map(game);
@@ -23,6 +33,18 @@ void	ft_parse_map_grid(t_game *game)
 	ft_set_player_values(game);
 }
 
+/**
+ * @brief Detects empty lines within the map grid and triggers cleanup if necessary.
+ *
+ * This function iterates through the map grid lines in the cub file starting
+ * from the grid start index. It checks for empty lines and sets a flag if any
+ * are found. If non-empty lines follow an empty line, it triggers a cleanup
+ * with an error indicating that an empty line was found inside the map,
+ * ensuring the map's integrity.
+ *
+ * @param game A pointer to the central game structure containing game state
+ *             and data.
+ */
 static void	ft_find_holes(t_game *game)
 {
 	int	i;
@@ -46,6 +68,16 @@ static void	ft_find_holes(t_game *game)
 	}
 }
 
+/**
+ * @brief Extracts the map grid from the cub file and allocates memory for it.
+ *
+ * This function initializes the map height and allocates memory for the map
+ * grid based on the start and end indices. It then duplicates each relevant
+ * line from the cub file into the map grid.
+ *
+ * @param game A pointer to the central game structure containing game state
+ *             and data.
+ */
 static void	ft_extract_map(t_game *game)
 {
 	int	i;

@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 15:07:22 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/21 15:39:55 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/21 22:04:08 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 static void	ft_set_n_or_s_values(t_game *game, char dir);
 static void	ft_set_e_or_w_values(t_game *game, char dir);
 
+/**
+ * @brief Initializes the player's position and direction from the map.
+ *
+ * Checks the character that represents the player's position in the map and
+ * sets the player's direction and position accordingly.
+ *
+ * @param game A pointer to the central game structure containing game state
+ *             and data.
+ */
 void	ft_init_player(t_game *game)
 {
 	char	dir;
@@ -29,6 +38,16 @@ void	ft_init_player(t_game *game)
 	return ;
 }
 
+/**
+ * @brief Sets the player's direction and plane when facing North or South.
+ *
+ * Based on the given direction character, sets the player's direction and plane
+ * vectors accordingly.
+ *
+ * @param game A pointer to the central game structure containing game state
+ *             and data.
+ * @param dir The character representing the player's direction: 'N' or 'S'.
+ */
 static void	ft_set_n_or_s_values(t_game *game, char dir)
 {
 	if (dir == 'N')
@@ -47,6 +66,16 @@ static void	ft_set_n_or_s_values(t_game *game, char dir)
 	}
 }
 
+/**
+ * @brief Sets the player's direction and plane when facing East or West.
+ *
+ * Based on the given direction character, sets the player's direction and plane
+ * vectors accordingly.
+ *
+ * @param game A pointer to the central game structure containing game state
+ *             and data.
+ * @param dir The character representing the player's direction: 'E' or 'W'.
+ */
 static void	ft_set_e_or_w_values(t_game *game, char dir)
 {
 	if (dir == 'E')

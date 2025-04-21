@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   headers_colors.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 16:04:54 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/14 19:03:15 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/21 21:57:45 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,17 @@
 static void	ft_parse_color(t_game *game, t_rgb *set_color, char *color);
 static int	ft_parse_rgb(t_game *game, char *str, char **res);
 static int	ft_check_number(char *str);
+
+/**
+ * @brief Checks and sets the floor and ceiling colors from the headers.
+ *
+ * This function iterates through the headers to find the ones with F_TAG
+ * and C_TAG, which represent the floor and ceiling colors, respectively.
+ * It then parses the color values and sets them in the provided game structure.
+ *
+ * @param game The game struct containing the game state.
+ * @param headers An array of headers to check for the color tags.
+ */
 
 void	ft_check_and_set_headers_colors(t_game *game, t_headers *headers)
 {
@@ -31,6 +42,16 @@ void	ft_check_and_set_headers_colors(t_game *game, t_headers *headers)
 	return ;
 }
 
+/**
+ * @brief Parses a color from a string and sets the given t_rgb struct.
+ *
+ * Given a string in the format "R,G,B", this function parses the color and
+ * sets the corresponding values of the given t_rgb struct.
+ *
+ * @param game The game struct containing the game state.
+ * @param set_color The t_rgb struct to set.
+ * @param color The string containing the color to parse.
+ */
 static void	ft_parse_color(t_game *game, t_rgb *set_color, char *color)
 {
 	char	**res;
@@ -55,6 +76,20 @@ static void	ft_parse_color(t_game *game, t_rgb *set_color, char *color)
 	ft_free_arr(res);
 }
 
+/**
+ * @brief Checks if the given RGB color is valid and returns its value.
+ *
+ * The given string is trimmed of its spaces and then checked if it is a valid
+ * number. If it is not, an error message is printed and the game is exited.
+ * If the number is out of the valid color range, an error message is printed
+ * and the game is exited.
+ *
+ * @param game The game structure containing the game state.
+ * @param str The string containing the RGB value to parse.
+ * @param res The array of strings containing the RGB values.
+ *
+ * @return The parsed RGB value.
+ */
 static int	ft_parse_rgb(t_game *game, char *str, char **res)
 {
 	int		number;
@@ -77,6 +112,18 @@ static int	ft_parse_rgb(t_game *game, char *str, char **res)
 	}
 	return (number);
 }
+
+/**
+ * @brief Checks if the given string represents a valid non-negative integer.
+ *
+ * This function verifies if the input string is a valid representation of a
+ * non-negative integer. The string can optionally have a leading '+' sign.
+ * If the string contains only digit characters (with an optional leading '+'),
+ * the function returns SUCCESS; otherwise, it returns ERROR.
+ *
+ * @param str The input string to be checked.
+ * @return SUCCESS if the string is a valid non-negative integer, otherwise ERROR.
+ */
 
 static int	ft_check_number(char *str)
 {
