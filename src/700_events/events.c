@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 13:30:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 22:50:35 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/21 16:41:31 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_handle_key(int key, t_game *game)
 	double	rot_speed;
 
 	move_speed = 0.2;
-	rot_speed = 0.1;
+	rot_speed = 0.2;
 	if (key == KEY_ESC)
 		ft_quit_game(game);
 	else if (key == KEY_W)

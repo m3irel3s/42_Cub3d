@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 15:12:01 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/21 15:40:36 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/21 17:07:51 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	ft_init_game(t_game *game)
 static void	ft_init_graphics(t_game *game)
 {
 	game->mlx = mlx_init();
-	printf("player pos x %f.2\n", game->player->pos_x);
-	printf("player pos y %f.2\n", game->player->pos_y);
 	if (!game->mlx)
 		ft_cleanup(game, MLX_INIT_FAIL, 2);
 	game->img = ft_safe_malloc(sizeof(t_img));
