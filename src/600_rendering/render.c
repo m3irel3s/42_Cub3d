@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:20:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/19 16:49:46 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:21:32 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,6 +178,7 @@ int	ft_render_next_frame(t_game *game)
 static void	ft_render_intro(t_game *game)
 {
 	double	current_time;
+	t_img *current;
 
 	current_time = ft_get_time_ms();
 	if (current_time - game->intro->animation.last_update >= game->intro->animation.frame_duration) {
@@ -185,14 +186,12 @@ static void	ft_render_intro(t_game *game)
 			(game->intro->animation.current_frame + 1) % game->intro->animation.frame_count;
 		game->intro->animation.last_update = current_time;
 	}
-	t_img *current = &game->intro->animation.frames[game->intro->animation.current_frame];
-	int x = (SCREEN_WIDTH - current->width) / 2;
-	int y = (SCREEN_HEIGHT - current->height) / 2;
-	if (game->img->mlx_img)
-		mlx_destroy_image(game->mlx, game->img->mlx_img);
-	game->img->mlx_img = mlx_new_image(game->mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
-	game->img->addr = mlx_get_data_addr(game->img->mlx_img, &game->img->bpp,
-			&game->img->line_len, &game->img->endian);
-	ft_memset(game->img->addr, 0, SCREEN_HEIGHT * game->img->line_len);
-	mlx_put_image_to_window(game->mlx, game->win, current->mlx_img, x, y);
+	current = &game->intro->animation.frames[game->intro->animation.current_frame];
+	mlx_put_image_to_window(
+		game->mlx,
+		game->win,
+		current->mlx_img,
+		(SCREEN_WIDTH - current->width) / 2,
+		(SCREEN_HEIGHT - current->height) / 2
+	);
 }

@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 13:30:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/19 16:52:06 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:15:09 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	ft_handle_key(int key, t_game *game)
 	{
 		if (key == KEY_ENTER)
 			game->intro->active = false;
+		else if (key == KEY_ESC)
+			ft_quit_game(game);
 		return (0);
 	}
 	if (key == KEY_ESC)
