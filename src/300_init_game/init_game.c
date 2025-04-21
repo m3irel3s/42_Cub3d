@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 15:12:01 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/10 18:00:33 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:40:36 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ static void	ft_init_graphics(t_game *game)
 	ft_load_textures(game);
 	mlx_loop_hook(game->mlx, ft_render_next_frame, game);
 	mlx_hook(game->win, 2, 1L << 0, ft_handle_key, game);
-	mlx_hook(game->win, 17, 1L<<17, &ft_quit_game, game);
+	mlx_hook(game->win, 17, 1L << 17, &ft_quit_game, game);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_parse.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 12:18:14 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/09 15:43:38 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:33:18 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ static void	ft_free_cub_file_and_grid(t_game *game)
 		ft_free(game->map->grid);
 		game->map->grid = NULL;
 	}
-	
 }
 
 static void	ft_free_headers(t_game *game)

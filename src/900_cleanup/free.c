@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/15 15:33:10 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:32:57 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_cleanup(t_game *game, char *msg, int fd)
 static void	ft_clean_graphics(t_game *game)
 {
 	if (!game || !game->mlx)
-	return;
+		return ;
 	if (game->img)
 	{
 		if (game->img->mlx_img)

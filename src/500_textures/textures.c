@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:44:54 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/15 15:32:46 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:30:32 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_load_textures(t_game *game)
 	char		*value;
 
 	i = 0;
-	headers= game->headers;
+	headers = game->headers;
 	while (i < 6)
 	{
 		tag = headers[i].tag;

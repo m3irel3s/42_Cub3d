@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/15 15:32:04 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:31:11 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@
 # define FOUND_INVALID_N_HEADERS "Error\nFound invalid number of headers\n"
 # define FOUND_INVALID_VALUE "Error\nFound invalid value for tag\n"
 # define ERROR_SPLITTING_COLOR "Error\nError splitting the color\n"
-# define FOUND_INVALID_COLOR "Error\nColor wasn't given like the subject required\n"
+# define FOUND_INVALID_COLOR "Error\nColor wasn't given like the subject \
+required\n"
 # define COLOR_OUT_OF_LIMITS "Error\nColor number was out of limits\n"
 # define INVALID_COLOR_NUMBER "Error\nInvalid color number\n"
 # define FOUND_TAB_IN_MAP "Error\nFound a tab in map grid\n"

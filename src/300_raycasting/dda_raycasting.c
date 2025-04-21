@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda_raycasting.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 22:13:53 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/15 15:36:34 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:38:27 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ void	ft_perform_dda(t_game *game, t_ray *ray)
 			ray->map_y += ray->step.step_y;
 			ray->side = 1;
 		}
-		if (ray->map_y < 0 || ray->map_y >= game->map->height ||
-			ray->map_x < 0 || ray->map_x >= (int)ft_strlen(game->map->grid[ray->map_y]))
+		if (ray->map_y < 0 || ray->map_y >= game->map->height
+			|| ray->map_x < 0
+			|| ray->map_x >= (int)ft_strlen(game->map->grid[ray->map_y]))
 		{
 			ray->hit = 1;
-			break;
+			break ;
 		}
 		if (game->map->grid[ray->map_y][ray->map_x] == '1')
 			ray->hit = 1;
