@@ -1,0 +1,210 @@
+warning: Currently logging to gdb.txt.  Turn the logging off and on to make the new setting effective.
+warning: Currently logging to gdb.txt.  Turn the logging off and on to make the new setting effective.
+Breakpoint 1 at 0x402576: file src/main.c, line 40.
+Breakpoint 2 at 0x404236: file src/200_parse/map_closure.c, line 57.
+Focus set to cmd window.
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x0000000000402576 in main at src/main.c:40
+2       breakpoint     keep y   0x0000000000404236 in ft_flood_fill at src/200_parse/map_closure.c:57
+No watchpoints.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffde28) at src/main.c:40
+Starting program: /home/meferraz/Projects/42_cub3d/cub3d maps/valid_maps/test.cub
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffde28) at src/main.c:40
+Breakpoint 3 at 0x40438c: file src/300_init_game/init_game.c, line 24.
+Focus set to cmd window.
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=3) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=3) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=0, y=3) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=3) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=3) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=3) at src/200_parse/map_closure.c:73
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=2) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=0, y=2) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=2) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=2) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=2) at src/200_parse/map_closure.c:73
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=1) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=0, y=1) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=1) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=1) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=1) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=1) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=1) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=1) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=1) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=1) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=1) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=1) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=5, y=1) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=1) at src/200_parse/map_closure.c:73
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=0) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=1) at src/200_parse/map_closure.c:74
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=2) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=1) at src/200_parse/map_closure.c:73
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=0) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=1) at src/200_parse/map_closure.c:74
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=2) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=2) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=2) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=2) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=2) at src/200_parse/map_closure.c:73
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=1) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=2) at src/200_parse/map_closure.c:74
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=3) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=3) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=3) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=3) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=3) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=3) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=5, y=3) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=3) at src/200_parse/map_closure.c:73
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=2) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=3) at src/200_parse/map_closure.c:74
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=4) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=4) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=4) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=4) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=4) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=4) at src/200_parse/map_closure.c:73
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=3) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=4) at src/200_parse/map_closure.c:74
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=5) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=4) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=5, y=4) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=4) at src/200_parse/map_closure.c:73
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=3) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=4) at src/200_parse/map_closure.c:74
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=5) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=5) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=5) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=5, y=5) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=5) at src/200_parse/map_closure.c:73
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=4) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=5) at src/200_parse/map_closure.c:74
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=6) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=3) at src/200_parse/map_closure.c:73
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=2) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=2) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=2) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=2) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=2) at src/200_parse/map_closure.c:73
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=1) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=2) at src/200_parse/map_closure.c:74
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=3) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=3) at src/200_parse/map_closure.c:74
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=4) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=1) at src/200_parse/map_closure.c:73
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=0) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=1) at src/200_parse/map_closure.c:74
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=2) at src/200_parse/map_closure.c:57
+Continuing.
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=0) at src/200_parse/map_closure.c:57
+Note: breakpoint 1 also set at pc 0x402576.
+Breakpoint 4 at 0x402576: file src/main.c, line 40.
+Starting program: /home/meferraz/Projects/42_cub3d/cub3d maps/valid_maps/test.cub
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffde28) at src/main.c:40
+Note: breakpoint 3 also set at pc 0x40438c.
+Breakpoint 5 at 0x40438c: file src/300_init_game/init_game.c, line 24.
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=3) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=3) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=0, y=3) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=3) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=3) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=3) at src/200_parse/map_closure.c:73
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=2) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=0, y=2) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=2) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=2) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=2) at src/200_parse/map_closure.c:73
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=1) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=0, y=1) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=1) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=1) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=1, y=1) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=1) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=1) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=2, y=1) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=1) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=1) at src/200_parse/map_closure.c:57
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=3, y=1) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=1) at src/200_parse/map_closure.c:72
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=5, y=1) at src/200_parse/map_closure.c:57
+ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=1) at src/200_parse/map_closure.c:73
+
+Breakpoint 2, ft_flood_fill (game=0x4172a0, dup_grid=0x417640, x=4, y=0) at src/200_parse/map_closure.c:57

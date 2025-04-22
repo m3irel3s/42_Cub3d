@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 12:30:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 11:56:22 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 13:49:36 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	ft_init_ray(t_game *game, int x, t_ray *ray)
 	ray->map_x = (int)game->player->pos_x;
 	ray->map_y = (int)game->player->pos_y;
 	ray->hit = 0;
+	ray->gate_index = -1;
+	ray->gate = 0;
 	if (ray->ray_dir_x == 0)
 		ray->step.delta_dist_x = 1e30;
 	else

@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 22:13:53 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 11:56:34 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 13:45:24 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	ft_perform_dda(t_game *game, t_ray *ray)
 		}
 		if (game->map->grid[(int)game->player->pos_y]
 			[(int)game->player->pos_x] == '1'
+			|| game->map->grid[(int)game->player->pos_y]
+			[(int)game->player->pos_x] == 'D'
 			|| game->map->grid[ray->map_y][ray->map_x] == '1'
 			|| ray->map_y < 0 || ray->map_y >= game->map->height
 			|| ray->map_x < 0
@@ -62,7 +64,7 @@ void	ft_perform_dda(t_game *game, t_ray *ray)
 					game->map->gates[i].pos.y == ray->map_y)
 				{
 					ray->gate_index = i;
-					break;
+					break ;
 				}
 				i++;
 			}

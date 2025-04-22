@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 18:29:06 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 11:37:47 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 13:43:39 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_game	*ft_init_structs(void)
 	game->headers = NULL;
 	game->file_path = NULL;
 	game->mlx = NULL;
+	game->img = NULL;
 	game->win = NULL;
 	game->player = ft_safe_malloc(sizeof(t_player));
 	if (!game->player)
