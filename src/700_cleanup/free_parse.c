@@ -6,11 +6,11 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 12:18:14 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/21 15:33:18 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:04:49 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../../inc/cub3d.h"
 
 static void	ft_free_headers(t_game *game);
 static void	ft_free_cub_file_and_grid(t_game *game);

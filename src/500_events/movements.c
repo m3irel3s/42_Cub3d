@@ -6,11 +6,11 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 13:00:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/10 22:50:38 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:03:56 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include "../../inc/cub3d.h"
 
 /**
  * @brief Move the player forward by the given move speed

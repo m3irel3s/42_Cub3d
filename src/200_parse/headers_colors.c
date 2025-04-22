@@ -6,11 +6,11 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 16:04:54 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 10:55:46 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:01:23 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../../inc/cub3d.h"
 
 static void	ft_parse_color(t_game *game, t_rgb *set_color, char *color);
 static int	ft_parse_rgb(t_game *game, char *str, char **res);

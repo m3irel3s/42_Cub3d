@@ -6,11 +6,11 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:40:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 10:57:18 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:01:37 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../../inc/cub3d.h"
 
 static char	**ft_dup_grid(t_game *game);
 static void	ft_flood_fill(t_game *game, char **dup_grid, int x, int y);

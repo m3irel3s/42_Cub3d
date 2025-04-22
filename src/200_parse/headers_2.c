@@ -6,11 +6,11 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 14:35:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 10:56:24 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:01:15 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../../inc/cub3d.h"
 
 static int	ft_check_single_word(char *str);
 

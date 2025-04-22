@@ -6,11 +6,11 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 15:38:43 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/21 21:57:46 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:01:27 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../../inc/cub3d.h"
 
 /**
  * @brief Checks the paths of the textures in the headers.

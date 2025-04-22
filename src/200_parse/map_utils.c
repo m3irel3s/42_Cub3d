@@ -6,11 +6,11 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 17:58:08 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 10:58:33 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:01:52 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../../inc/cub3d.h"
 
 static int	ft_valid_map_line(t_game *game, char *line);
 static int	ft_are_valid_map_chars(char c);

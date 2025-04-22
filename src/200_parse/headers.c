@@ -6,11 +6,11 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:11:35 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 10:55:10 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:01:31 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../../inc/cub3d.h"
 
 static t_headers	*ft_headers(t_game *game);
 static void			ft_parse_header_line(t_headers *headers, char *line);

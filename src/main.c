@@ -3,15 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/15 15:32:21 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:06:38 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
+/**
+ * Main function to start the game loop.
+ *
+ * It takes 2 arguments:
+ * 	- argc: the number of command line arguments
+ * 	- argv: an array of strings containing the command line arguments
+ *
+ * It first checks if the number of arguments is correct (only 1 argument, the
+ * .cub file path).
+ * Then it initializes the game structure, parses the .cub file, initializes
+ * the game, and starts the game loop.
+ *
+ * If any error occurs, it prints the error message and exits the program with
+ * the error code.
+ *
+ * @param argc number of command line arguments
+ * @param argv an array of strings containing the command line arguments
+ * @return 0 if the program runs without errors, 1 otherwise
+ */
 int	main(int argc, char **argv)
 {
 	t_game	*game;

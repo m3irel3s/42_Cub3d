@@ -6,12 +6,23 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 22:13:53 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/21 17:13:16 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:02:32 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include "../../inc/cub3d.h"
 
+/**
+ * @brief Perform the Digital Differential Analyzer (DDA) raycasting algorithm.
+ * @param game The game data structure.
+ * @param ray The ray data structure containing the ray direction, side
+ *            distance, delta distance, step, and wall hit information.
+ *
+ * This function performs the DDA algorithm to determine when a ray hits a wall.
+ * It iterates through the map, checking if the ray has hit a wall or if the ray
+ * is outside the map. When a wall is hit or the ray is outside the map, the
+ * function sets the ray->hit variable to 1 and breaks out of the loop.
+ */
 void	ft_perform_dda(t_game *game, t_ray *ray)
 {
 	while (ray->hit == 0)

@@ -6,11 +6,11 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:06:31 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/21 22:02:41 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:02:00 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../../inc/cub3d.h"
 
 /**
  * @brief Parses the .cub file and its contents.

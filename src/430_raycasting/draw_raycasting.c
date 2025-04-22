@@ -6,13 +6,25 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 22:14:50 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/21 16:42:57 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:08:47 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
-#include <math.h>
+#include "../../inc/cub3d.h"
 
+/**
+ * @brief Calculates the perpendicular wall distance from the ray.
+ * @param game The game data structure.
+ * @param ray The ray data structure containing the ray direction
+ * and map position.
+ *
+ * This function calculates the perpendicular wall distance
+ * from the ray. It first calculates the perpendicular wall
+ * distance in the x or y direction, depending on which side the
+ * ray hit. Then, it calculates the line height and draw start
+ * and end positions. The draw start and end positions are adjusted to be within
+ * the screen height.
+ */
 static void	ft_calc_wall_dist(t_game *game, t_ray *ray)
 {
 	if (ray->side == 0)
@@ -30,6 +42,18 @@ static void	ft_calc_wall_dist(t_game *game, t_ray *ray)
 		ray->draw_end = SCREEN_HEIGHT - 1;
 }
 
+/**
+ * @brief Calculates the wall x side from the ray.
+ * @param game The game data structure.
+ * @param ray The ray data structure containing the ray
+ * direction and map position.
+ *
+ * This function calculates the wall x side from the ray. It first calculates the
+ * wall x side by adding the perpendicular wall distance to the player's x or y
+ * position, depending on which side the ray hit. It then subtracts the floor of
+ * the wall x side to get the wall x side. Finally, it sets the wall side of the
+ * ray to either EAST, WEST, NORTH, or SOUTH, depending on the ray direction.
+ */
 static void	ft_calc_wall_x_side(t_game *game, t_ray *ray)
 {
 	if (ray->side == 0)
@@ -55,6 +79,15 @@ static void	ft_calc_wall_x_side(t_game *game, t_ray *ray)
 	}
 }
 
+/**
+ * @brief Calculates the wall data from the ray.
+ * @param game The game data structure.
+ * @param ray The ray data structure containing the ray
+ * direction and map position.
+ *
+ * This function calculates the wall data from the ray. It first calculates the
+ * perpendicular wall distance and line height, then calculates the wall x side.
+ */
 void	ft_calc_wall(t_game *game, t_ray *ray)
 {
 	ft_calc_wall_dist(game, ray);

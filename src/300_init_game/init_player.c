@@ -6,11 +6,11 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 15:07:22 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/21 22:04:08 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:02:11 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../../inc/cub3d.h"
 
 static void	ft_set_n_or_s_values(t_game *game, char dir);
 static void	ft_set_e_or_w_values(t_game *game, char dir);

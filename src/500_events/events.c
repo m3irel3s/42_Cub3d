@@ -6,11 +6,11 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 13:30:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/21 16:41:31 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:03:47 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include "../../inc/cub3d.h"
 
 /**
  * Handles key press events for the game. Depending on the key pressed,
@@ -22,7 +22,6 @@
  * @param game Pointer to the game structure containing game data.
  * @return Always returns 0.
  */
-
 int	ft_handle_key(int key, t_game *game)
 {
 	double	move_speed;
