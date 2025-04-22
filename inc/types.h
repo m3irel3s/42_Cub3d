@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/19 16:27:15 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:56:10 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 //                                  ENUMS                                     //
 //============================================================================//
 
+/**
+ * @brief Enum for identifying texture or color types in map headers.
+ */
 typedef enum e_tag
 {
 	SO_TAG,
@@ -28,6 +31,9 @@ typedef enum e_tag
 	UNKNOWN
 }	t_tag;
 
+/**
+ * @brief Enum representing map cell types.
+ */
 typedef enum e_cell
 {
 	EMPTY,
@@ -36,6 +42,9 @@ typedef enum e_cell
 	DOOR
 }	t_cell;
 
+/**
+ * @brief Enum representing the wall direction hit by the ray.
+ */
 typedef enum e_wall_side
 {
 	NORTH,
@@ -53,9 +62,12 @@ typedef enum e_door
 }	t_door;
 
 //============================================================================//
-//                                STRUCTURES                                  //
+//                                BASIC STRUCTS                               //
 //============================================================================//
 
+/**
+ * @brief Generic iteration counters.
+ */
 typedef struct s_iter
 {
 	size_t	i;
@@ -64,29 +76,32 @@ typedef struct s_iter
 	size_t	l;
 }	t_iter;
 
+/**
+ * @brief 2D coordinate point.
+ */
 typedef struct s_point
 {
-	int		x;
-	int		y;
+	int	x;
+	int	y;
 }	t_point;
 
+/**
+ * @brief RGB color structure.
+ */
 typedef struct s_rgb
 {
-	int		r;
-	int		g;
-	int		b;
+	int	r;
+	int	g;
+	int	b;
 }	t_rgb;
 
-typedef struct s_player
-{
-	double	pos_x;
-	double	pos_y;
-	double	dir_x;
-	double	dir_y;
-	double	plane_x;
-	double	plane_y;
-}	t_player;
+//============================================================================//
+//                            GRAPHICS STRUCTURES                             //
+//============================================================================//
 
+/**
+ * @brief Image buffer structure.
+ */
 typedef struct s_img
 {
 	void	*mlx_img;
@@ -96,14 +111,48 @@ typedef struct s_img
 	int		endian;
 	int		width;
 	int		height;
-}			t_img;
+}	t_img;
 
+/**
+ * @brief Rendering information for a vertical slice of a wall.
+ */
+typedef struct s_drawdata
+{
+	t_img	*texture;
+	int		tex_x;
+	double	step;
+	double	tex_pos;
+	int		draw_start;
+	int		draw_end;
+	int		fog_times;
+}	t_drawdata;
+
+//============================================================================//
+//                               GAME STRUCTURES                              //
+//============================================================================//
+
+/**
+ * @brief Structure holding metadata from the map file header.
+ */
 typedef struct s_headers
 {
 	t_tag	tag;
 	char	*tag_name;
 	char	*value;
 }	t_headers;
+
+/**
+ * @brief Player position, direction, and camera plane.
+ */
+typedef struct s_player
+{
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+}	t_player;
 
 typedef struct s_minimap
 {
@@ -120,6 +169,9 @@ typedef struct s_door_data
 	t_point		pos;
 } t_door_data;
 
+/**
+ * @brief 2D Map structure with grid and player start info.
+ */
 typedef struct s_map
 {
 	char		**grid;
@@ -134,6 +186,13 @@ typedef struct s_map
 	t_minimap	minimap;
 }	t_map;
 
+//============================================================================//
+//                            RAYCASTING STRUCTURES                           //
+//============================================================================//
+
+/**
+ * @brief Holds step direction and distances for ray traversal.
+ */
 typedef struct s_ray_step
 {
 	int		step_x;
@@ -144,6 +203,9 @@ typedef struct s_ray_step
 	double	delta_dist_y;
 }	t_ray_step;
 
+/**
+ * @brief Raycasting data for each column rendered.
+ */
 typedef struct s_ray
 {
 	double		camera_x;
@@ -164,16 +226,9 @@ typedef struct s_ray
 	t_wall_side	wall_side;
 }	t_ray;
 
-typedef struct s_drawdata
-{
-	t_img	*texture;
-	int		tex_x;
-	double	step;
-	double	tex_pos;
-	int		draw_start;
-	int		draw_end;
-	int		fog_times;
-}	t_drawdata;
+//============================================================================//
+//                                  GAME STATE                                //
+//============================================================================//
 
 typedef struct s_animation
 {
@@ -190,6 +245,9 @@ typedef struct s_intro
 	bool		active;
 } t_intro;
 
+/**
+ * @brief Central game structure holding all necessary state and pointers.
+ */
 typedef struct s_game
 {
 	t_map		*map;
@@ -203,9 +261,9 @@ typedef struct s_game
 	int			floor_color_hex;
 	t_rgb		ceiling_color;
 	int			ceiling_color_hex;
-	t_img		*img;
 	t_img		textures[4];
 	t_img		gate_textures[8];
+	t_img		*img;
 	t_player	*player;
 	t_intro		*intro;
 }	t_game;

@@ -6,11 +6,11 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 13:00:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/18 22:42:25 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:57:08 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include "../../inc/cub3d.h"
 
 static bool	ft_is_open_door(t_game *game, int x, int y)
 {

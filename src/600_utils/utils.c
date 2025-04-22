@@ -3,20 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:13:47 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/07 15:23:54 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:44:03 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include "../../inc/cub3d.h"
 
+/**
+ * @brief Checks if a character is a whitespace.
+ *
+ * This function takes a single character as input and checks if it is a
+ * whitespace. If the character is a whitespace, the function returns 1;
+ * otherwise, it returns 0.
+ *
+ * @param c The character to check.
+ * @return 1 if the character is a whitespace, 0 otherwise.
+ */
 int	ft_is_space(char c)
 {
 	return (c == ' ' || (c >= 9 && c <= 13));
 }
 
+/**
+ * @brief Counts the number of strings in a NULL-terminated array of strings.
+ *
+ * This function takes a NULL-terminated array of strings as input and
+ * returns the number of strings in the array.
+ *
+ * @param arr The array of strings to count.
+ * @return The number of strings in the array.
+ */
 int	ft_array_len(char **arr)
 {
 	int	i;

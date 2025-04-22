@@ -6,14 +6,19 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 15:12:01 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/19 16:40:59 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:40:53 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../../inc/cub3d.h"
 
 static void	ft_init_graphics(t_game *game);
 
+/**
+ * @brief Initializes all game's components and player
+ *
+ * @param game The game struct to be initialized
+ */
 void	ft_init_game(t_game *game)
 {
 	ft_init_player(game);
@@ -21,11 +26,20 @@ void	ft_init_game(t_game *game)
 	ft_init_graphics(game);
 }
 
+/**
+ * @brief Initializes the graphics components of the game.
+ *
+ * This function sets up the MLX graphics library, allocates memory for the
+ * image structure, creates a new window, and initializes a new image for
+ * rendering. It also loads textures and sets up hooks for rendering frames
+ * and handling user input events. If any initialization fails, the function
+ * cleans up and exits.
+ *
+ * @param game The game struct containing all necessary game data.
+ */
 static void	ft_init_graphics(t_game *game)
 {
 	game->mlx = mlx_init();
-	printf("player pos x %f.2\n", game->player->pos_x);
-	printf("player pos y %f.2\n", game->player->pos_y);
 	if (!game->mlx)
 		ft_cleanup(game, MLX_INIT_FAIL, 2);
 	game->img = ft_safe_malloc(sizeof(t_img));
@@ -40,5 +54,5 @@ static void	ft_init_graphics(t_game *game)
 	mlx_loop_hook(game->mlx, ft_render_next_frame, game);
 	mlx_hook(game->win, KeyPress, KeyPressMask, ft_handle_key, game);
 	mlx_hook(game->win, KeyRelease, KeyReleaseMask, ft_handle_key_release, game);
-	mlx_hook(game->win, 17, 1L<<17, &ft_quit_game, game);
+	mlx_hook(game->win, 17, 1L << 17, &ft_quit_game, game);
 }

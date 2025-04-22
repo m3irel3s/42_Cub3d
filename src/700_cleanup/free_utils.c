@@ -6,11 +6,21 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:38:34 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/10 22:32:06 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:05:27 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../../inc/cub3d.h"
+
+/**
+ * Frees a pointer if it is not NULL.
+ *
+ * This function checks if the given pointer is not NULL and frees the
+ * allocated memory pointed to by the pointer. It is a safe wrapper around
+ * the standard `free` function to ensure that only valid pointers are freed.
+ *
+ * @param ptr - the pointer to the memory to free
+ */
 
 void	ft_free(void *ptr)
 {
@@ -18,6 +28,11 @@ void	ft_free(void *ptr)
 		free(ptr);
 }
 
+/**
+ * Frees a 2D array of strings.
+ *
+ * @param arr - the 2D array of strings to free
+ */
 void	ft_free_arr(char **arr)
 {
 	int	i;

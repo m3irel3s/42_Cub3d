@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_header_2.c                                     :+:      :+:    :+:   */
+/*   headers_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 14:35:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/04 19:24:00 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:38:16 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../../inc/cub3d.h"
 
 static int	ft_check_single_word(char *str);
 
+/**
+ * @brief Checks and sets the tags of the headers.
+ *
+ * This function takes a t_headers array and iterates over its elements. It
+ * checks if the tag is valid and if there are no duplicate tags. If the tag is
+ * not valid or if there are duplicate tags, the function calls ft_cleanup with
+ * the corresponding error message.
+ *
+ * @param game The game struct containing the game state.
+ * @param headers The t_headers array containing the headers.
+ */
 void	ft_check_and_set_headers_tags(t_game *game, t_headers *headers)
 {
 	int		i;
@@ -37,6 +48,17 @@ void	ft_check_and_set_headers_tags(t_game *game, t_headers *headers)
 	}
 }
 
+/**
+ * @brief Checks if the value of a header is a single word.
+ *
+ * This function takes a t_headers array and iterates over its elements. If the
+ * tag is not equal to C_TAG or F_TAG, it checks if the value is a single word.
+ * If the value is not a single word, the function calls ft_cleanup with the
+ * error message FOUND_INVALID_VALUE.
+ *
+ * @param game The game struct containing the game state.
+ * @param headers The t_headers array to be checked.
+ */
 void	ft_check_headers_values(t_game *game, t_headers *headers)
 {
 	int	i;
@@ -44,12 +66,28 @@ void	ft_check_headers_values(t_game *game, t_headers *headers)
 	i = 0;
 	while (i < 6)
 	{
-		if (ft_check_single_word(headers[i].value) == FAILURE)
-			ft_cleanup(game, FOUND_INVALID_VALUE, 2);
+		if (headers[i].tag != C_TAG && headers[i].tag != F_TAG)
+		{
+			if (ft_check_single_word(headers[i].value) == FAILURE)
+				ft_cleanup(game, FOUND_INVALID_VALUE, 2);
+		}
 		i++;
 	}
 	return ;
 }
+
+/**
+ * @brief Compares a string to known header tags and returns
+ * the corresponding tag enum.
+ *
+ * This function takes a string representation of a header tag and checks it
+ * against the predefined tags ("SO", "NO", "EA", "WE", "F", "C"). If a match
+ * is found, the corresponding tag enum is returned. If no match is found,
+ * the function returns UNKNOWN.
+ *
+ * @param str The string representation of a header tag.
+ * @return The corresponding t_tag enum value, or UNKNOWN if no match is found.
+ */
 
 t_tag	ft_compare_tags(char *str)
 {
@@ -68,6 +106,18 @@ t_tag	ft_compare_tags(char *str)
 	return (UNKNOWN);
 }
 
+/**
+ * @brief Counts the number of non-empty header lines in the .cub file.
+ *
+ * This function iterates through the lines of the cub_file up to the start
+ * index of the map grid, counting the number of non-empty lines which are
+ * considered headers.
+ *
+ * @param game A pointer to the central game structure containing game state
+ *             and data, including the cub_file and map grid information.
+ * @return The total number of non-empty header lines.
+ */
+
 int	ft_count_headers(t_game *game)
 {
 	int		i;
@@ -81,9 +131,19 @@ int	ft_count_headers(t_game *game)
 			counter++;
 		i++;
 	}
-	return counter;
+	return (counter);
 }
 
+/**
+ * @brief Checks if a string consists of a single word without any spaces.
+ *
+ * This function takes a string and checks if it consists of a single word
+ * without any spaces. If a space is found, the function returns FAILURE.
+ * Otherwise, it returns SUCCESS.
+ *
+ * @param str The string to check.
+ * @return SUCCESS if the string is a single word, FAILURE otherwise.
+ */
 static int	ft_check_single_word(char *str)
 {
 	int	i;
