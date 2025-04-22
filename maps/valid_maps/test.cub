@@ -1,18 +1,17 @@
+     			F 0,   10,        10		
 
-			F        255   ,  255   ,    255
+NO ./textures/no.xpm
+SO ./textures/so.xpm
+WE       ./textures/we.xpm
+			C 50,0,10
 
-              NO               ./textures/no.xpm 
-         C        225,    30 ,   0
-        		EA     ./textures/ea.xpm
 
-          SO                 ./textures/so.xpm
+     		EA ./textures/ea.xpm		
 
-            WE      ./textures/no.xpm
 
 111111
-1N1
-11  1
-111111
-
-
-
+100011
+10N0001
+100001
+1111
+1

@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:24:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/14 18:57:45 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/22 13:28:27 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ static void	ft_set_grid_indexs(t_game *game)
 	if (game->map->grid_start_index == ERROR)
 		ft_cleanup(game, COULDNT_FIND_MAP_START, 2);
 	game->map->grid_last_index = ft_get_grid_last_index(game);
+	printf("start index -> %d\n", game->map->grid_start_index);
+	printf("last index -> %d\n", game->map->grid_last_index);
 	if ((game->map->grid_start_index + 3) > game->map->grid_last_index)
 		ft_cleanup(game, INVALID_MAP_SIZE, 2);
 	if (game->map->grid_start_index < 6)

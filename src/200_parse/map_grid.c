@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 18:37:57 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/14 19:03:59 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/22 16:15:11 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	ft_extract_map(t_game *game);
 static void	ft_find_holes(t_game *game);
+static void ft_get_map_width(t_game *game);
 
 void	ft_parse_map_grid(t_game *game)
 {
@@ -21,6 +22,26 @@ void	ft_parse_map_grid(t_game *game)
 	ft_find_holes(game);
 	ft_validate_map_chars(game);
 	ft_set_player_values(game);
+	ft_get_map_width(game);
+	printf("width -> %d\n", game->map->width);
+}
+
+static void ft_get_map_width(t_game *game)
+{
+	int	i;
+	int	max_width;
+	int	row_width;
+
+	i = 0;
+	max_width = 0;
+	while (game->map->grid[i])
+	{
+		row_width = ft_strlen(game->map->grid[i]);
+		if (row_width > max_width)
+			max_width = row_width;
+		i++;
+	}
+	game->map->width = max_width;
 }
 
 static void	ft_find_holes(t_game *game)

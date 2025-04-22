@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:40:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/15 13:18:16 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/22 16:32:18 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,20 @@ void	ft_check_map_closure(t_game *game)
 	y = game->map->s_pos.y;
 	dup_grid = NULL;
 	dup_grid = ft_dup_grid(game);
+	for (int i = 0; dup_grid[i]; i++)
+		printf("%s\n", dup_grid[i]);
 	ft_flood_fill(game, dup_grid, x, y);
 	ft_free_arr(dup_grid);
 }
 
 static void	ft_flood_fill(t_game *game, char **dup_grid, int x, int y)
 {
-	if (!dup_grid[x][y])
+	if (!dup_grid[x][y] || dup_grid[x][y] == '#')
+	{
+		ft_free_arr(dup_grid);
+		ft_cleanup(game, FOUND_UNCLOSED_MAP, 2);
+	}
+	if ((x == 0 || x == game->map->height - 1 || y == 0) && dup_grid[x][y] == '0')
 	{
 		ft_free_arr(dup_grid);
 		ft_cleanup(game, FOUND_UNCLOSED_MAP, 2);
@@ -54,16 +61,22 @@ static void	ft_flood_fill(t_game *game, char **dup_grid, int x, int y)
 static char	**ft_dup_grid(t_game *game)
 {
 	char	**dup_grid;
+	int		width;
+	int		len;
 	int		i;
 
-	i = 0;
-	dup_grid = NULL;
+	width = game->map->width;
 	dup_grid = ft_safe_malloc(sizeof(char *) * (game->map->height + 1));
+	i = 0;
 	while (i < game->map->height)
 	{
-		dup_grid[i] = ft_strdup(game->map->grid[i]);
+		len = ft_strlen(game->map->grid[i]);
+		dup_grid[i] = ft_calloc(width + 1, sizeof(char));
+		ft_memset(dup_grid[i], '#', width);
+		ft_memcpy(dup_grid[i], game->map->grid[i], len);
 		i++;
 	}
 	dup_grid[i] = NULL;
 	return (dup_grid);
 }
+

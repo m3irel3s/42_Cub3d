@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/10 17:54:21 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/22 16:14:35 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ typedef struct	s_map
 {
 	char		**grid;
 	int			height;
+	int			width;
 	int			grid_start_index;
 	int			grid_last_index;
 	t_point		s_pos;
