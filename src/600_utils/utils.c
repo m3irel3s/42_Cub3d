@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:13:47 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 11:44:03 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 16:21:16 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,22 @@ int	ft_array_len(char **arr)
 	while (arr[i])
 		i++;
 	return (i);
+}
+
+
+/**
+ * @brief Returns the current time in milliseconds.
+ *
+ * This function uses the gettimeofday function to get the current time in
+ * seconds and microseconds. It then multiplies the seconds by 1000 and adds
+ * the microseconds divided by 1000 to return the current time in milliseconds.
+ *
+ * @return The current time in milliseconds.
+ */
+int	ft_get_time_ms(void)
+{
+	struct timeval	tv;
+
+	gettimeofday(&tv, NULL);
+	return (tv.tv_sec * 1000 + tv.tv_usec / 1000);
 }

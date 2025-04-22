@@ -6,12 +6,25 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:09:46 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/19 09:41:46 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 16:27:45 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
+/**
+ * @brief Checks if the player is facing a specific door.
+ *
+ * This function calculates the angle between the player's current direction and
+ * the direction towards a given door. It determines if the player is within a
+ * certain field of view (FOV) angle of the door, allowing for potential
+ * interaction.
+ *
+ * @param game Pointer to the game structure.
+ * @param door Pointer to the door data structure.
+ * @return true if the player is facing the door within the FOV angle,
+ * false otherwise.
+ */
 static bool	ft_is_facing_door(t_game *game, t_door_data *door)
 {
 	double	player_angle;
@@ -34,7 +47,16 @@ static bool	ft_is_facing_door(t_game *game, t_door_data *door)
 	return (fabs(angle_diff) <= FOV_ANGLE);
 }
 
-
+/**
+ * @brief Updates the state of gates based on the player's position and
+ * direction.
+ *
+ * This function loops through all gates in the game map and checks if the
+ * player is facing the gate. If the player is facing the gate, the function
+ * either opens or closes the gate based on its current state.
+ *
+ * @param game Pointer to the game structure.
+ */
 void	ft_handle_gate_animation(t_game *game)
 {
 	int				i;

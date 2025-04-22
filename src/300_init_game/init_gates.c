@@ -6,39 +6,51 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:33:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/14 17:16:21 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 16:11:02 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include "../../inc/cub3d.h"
 
-void	ft_init_gates(t_game *game)
+/**
+ * @brief Counts the number of doors ('D') in the map.
+ *
+ * @param game Pointer to the game structure.
+ * @return The number of doors found.
+ */
+static int	ft_count_doors(t_game *game)
 {
 	int	i;
 	int	j;
-	int	index;
-	int	door_count;
+	int	count;
 
 	i = 0;
-	j = 0;
-	door_count = 0;
+	count = 0;
 	while (i < game->map->height)
 	{
 		j = 0;
 		while (j < (int)ft_strlen(game->map->grid[i]))
 		{
 			if (game->map->grid[i][j] == 'D')
-				door_count++;
+				count++;
 			j++;
 		}
 		i++;
 	}
-	game->map->num_gates = door_count;
-	game->map->gates = ft_safe_malloc(sizeof(t_door_data) * door_count);
-	if (!game->map->gates)
-		ft_cleanup(game, "Memory allocation failed", 1);
+	return (count);
+}
+
+/**
+ * @brief Initializes each door's position and default state.
+ * @param game Pointer to the game structure.
+ */
+static void	ft_setup_doors(t_game *game)
+{
+	int	i;
+	int	j;
+	int	index;
+
 	i = 0;
-	j = 0;
 	index = 0;
 	while (i < game->map->height)
 	{
@@ -58,4 +70,19 @@ void	ft_init_gates(t_game *game)
 		}
 		i++;
 	}
+}
+
+/**
+ * @brief Initializes all doors ('D') in the map, allocating memory and
+ *        storing their position/state.
+ * @param game Pointer to the t_game struct with the map loaded.
+ */
+void	ft_init_gates(t_game *game)
+{
+	game->map->num_gates = ft_count_doors(game);
+	game->map->gates = ft_safe_malloc(sizeof(t_door_data)
+			* game->map->num_gates);
+	if (!game->map->gates)
+		ft_cleanup(game, "Memory allocation failed", 1);
+	ft_setup_doors(game);
 }

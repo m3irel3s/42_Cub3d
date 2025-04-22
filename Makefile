@@ -6,7 +6,7 @@
 #    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/22 11:51:04 by meferraz         ###   ########.fr        #
+#    Updated: 2025/04/22 16:21:53 by meferraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,6 +105,8 @@ SRCS        = ${SRC_PATH}/main.c \
 				${DRAW_PATH}/draw.c \
 				${DRAW_PATH}/draw_gate.c \
 				${TEXTURE_PATH}/textures.c \
+				${TEXTURE_PATH}/textures_gates.c \
+				${TEXTURE_PATH}/textures_intro.c \
 				${RENDER_PATH}/render_frame.c \
 				${RENDER_PATH}/render_utils.c \
 				${RENDER_PATH}/display_minimap_bonus.c \

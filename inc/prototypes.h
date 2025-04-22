@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 11:52:07 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 16:20:13 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,6 +164,12 @@ int			ft_find_gate_index(t_game *game, int x, int y);
 /* textures.c */
 void		ft_load_textures(t_game *game);
 
+/* textures_gates.c */
+void		ft_load_gate_textures(t_game *game);
+
+/* textures_intro.c */
+void		ft_load_and_init_intro_textures(t_game *game);
+
 //============================================================================//
 // ⬤  600_UTILS: Helper Functions                                            //
 //============================================================================//
@@ -171,6 +177,7 @@ void		ft_load_textures(t_game *game);
 /* utils.c */
 int			ft_is_space(char c);
 int			ft_array_len(char **arr);
+int			ft_get_time_ms(void);
 
 /* safe_utils.c */
 void		*ft_safe_malloc(size_t size);
