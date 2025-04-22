@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 11:57:54 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 14:28:21 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	ft_cleanup(t_game *game, char *msg, int fd)
 			ft_clean_graphics(game);
 		if (game->map->gates)
 			ft_free(game->map->gates);
+		if (game->intro && game->intro->animation.frames)
+			ft_free(game->intro->animation.frames);
 		ft_free(game->map);
 		ft_free(game->player);
 		ft_free(game->intro);

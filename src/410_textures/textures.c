@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:44:54 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 14:04:02 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 14:33:54 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static void	ft_load_gate_textures(t_game *game)
 	int		i;
 	char	**path;
 
-	path = ft_safe_malloc(sizeof(char *) * 8);
+	path = ft_safe_malloc(sizeof(char *) * 9);
 	if (!path)
 		ft_cleanup(game, "Error\nAllocating path array", 1);
 	ft_set_path_arr(path);
@@ -104,7 +104,7 @@ static void	ft_load_gate_textures(t_game *game)
 			ft_cleanup(game, "Error\nGetting gate texture address", 1);
 		i++;
 	}
-	//ft_free_arr(path);
+	ft_free_arr(path);
 }
 
 static void	ft_set_path_arr(char **path)
@@ -117,6 +117,7 @@ static void	ft_set_path_arr(char **path)
 	path[5] = ft_strdup("./textures/door6.xpm");
 	path[6] = ft_strdup("./textures/door7.xpm");
 	path[7] = ft_strdup("./textures/door8.xpm");
+	path[8] = NULL;
 }
 
 static void	ft_load_and_init_intro_textures(t_game *game)

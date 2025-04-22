@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 18:29:06 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 13:43:39 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 14:28:17 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,15 @@ t_game	*ft_init_structs(void)
 	game->player = ft_safe_malloc(sizeof(t_player));
 	if (!game->player)
 		return (NULL);
+	game->intro = ft_safe_malloc(sizeof(t_intro));  // Allocate intro
+	if (!game->intro)
+		return (NULL);
+	game->intro->active = false;
+	game->intro->animation.frames = NULL;
+	game->intro->animation.frame_count = 0;
+	game->intro->animation.current_frame = 0;
+	game->intro->animation.frame_duration = 0;
+	game->intro->animation.last_update = 0;
 	ft_init_textures(game);
 	ft_init_gate_textures(game);
 	return (game);
