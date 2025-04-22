@@ -6,11 +6,11 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:51:29 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 16:29:42 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 21:44:01 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include "../../inc/cub3d.h"
 
 /**
  * @brief Updates the state of all gates in the game.

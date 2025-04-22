@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 11:54:24 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 21:50:05 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,17 @@ required\n"
 # define MAX_BRIGHTNESS 0
 # define MAX_DARKENING_STEPS 18
 # define DARKEN_FACTOR 0.9
+
+//============================================================================//
+// ⬤  MINIMAP                                                                //
+//============================================================================//
+
+#define MINIMAP_RATIO 0.3
+#define CELL_BORDER   0x0d0d0d
+#define COLOR_WALL    0x1e1e24
+#define COLOR_FLOOR   0xdcbfa6
+#define COLOR_PLAYER  0x8b2e38
+#define COLOR_DOOR    0x9e5a44
+#define COLOR_EMPTY   0x9f8672
 
 #endif

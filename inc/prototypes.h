@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 16:20:13 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 22:08:58 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,13 @@ int			ft_compute_fog(double perp_wall_dist);
 void		ft_mlx_pixel_put_to_image(t_game *game, int x, int y, int color);
 /* draw_gate.c */
 void		ft_draw_gate(t_game *game, int x, t_ray *ray);
+
+/* draw_minimap.c */
+void		ft_draw_grid(t_game *game);
+void		ft_draw_player(t_game *game);
+
+/* draw_minimap_utils.c */
+void		ft_draw_cell(t_game *game, int map_x, int map_y, t_cell type);
 
 //============================================================================//
 // ⬤  420_RENDERING: Render Logic                                            //
