@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 21:41:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/19 09:55:38 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 15:54:40 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	ft_display_minimap(t_game *game)
 	int		orig_width;
 	int		orig_height;
 
+	if (game->img->mlx_img)
+			mlx_destroy_image(game->mlx, game->img->mlx_img);
 	orig_img = mlx_xpm_file_to_image(game->mlx, "./textures/minimap.xpm",
 			&orig_width, &orig_height);
 	if (!orig_img)
