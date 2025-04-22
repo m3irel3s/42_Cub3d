@@ -6,12 +6,19 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 10:38:45 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 10:48:22 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:15:56 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
+/**
+ * @brief Set the floor and ceiling colors in hexadecimal format.
+ *
+ * This function converts the rgb struct values to hexadecimal format.
+ *
+ * @param game The game struct containing the game state.
+ */
 void	ft_set_floor_n_ceiling(t_game *game)
 {
 	t_rgb	f;

@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 10:39:53 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:15:46 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,5 @@ required\n"
 # define MAX_BRIGHTNESS 0
 # define MAX_DARKENING_STEPS 18
 # define DARKEN_FACTOR 0.9
-# define CEILING_GRADIENT_START (SCREEN_HEIGHT / 2 - 110)
-# define FLOOR_GRADIENT_END ((SCREEN_HEIGHT / 2) + (SCREEN_HEIGHT / 4) + 50)
 
 #endif

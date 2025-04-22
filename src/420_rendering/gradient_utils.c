@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 10:44:06 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 10:59:10 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:16:19 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,12 @@ static int	ft_floor_gradient_step(int y)
 {
 	int	diff;
 	int	steps;
+	int	floor_gradient_end;
 
-	if (y < FLOOR_GRADIENT_END)
+	floor_gradient_end = (SCREEN_HEIGHT / 2) + (SCREEN_HEIGHT / 4) + 50;
+	if (y < floor_gradient_end)
 	{
-		diff = FLOOR_GRADIENT_END - y;
+		diff = floor_gradient_end - y;
 		steps = (diff + 9) / 10;
 		if (steps > MAX_DARKENING_STEPS)
 			steps = MAX_DARKENING_STEPS;
