@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 14:28:21 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 15:38:48 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,10 @@ void	ft_cleanup(t_game *game, char *msg, int fd)
 			ft_clean_graphics(game);
 		if (game->map->gates)
 			ft_free(game->map->gates);
-		if (game->intro && game->intro->animation.frames)
-			ft_free(game->intro->animation.frames);
 		ft_free(game->map);
 		ft_free(game->player);
 		ft_free(game->intro);
+		ft_free(game->img);
 		ft_free(game);
 	}
 	ft_printf(fd, "%s\n", msg);
@@ -61,15 +60,24 @@ static void	ft_clean_graphics(t_game *game)
 {
 	if (!game || !game->mlx)
 		return ;
+	if (game->intro && game->intro->animation.frames)
+	{
+		for (int i = 0; i < game->intro->animation.frame_count; i++)
+		{
+			if (game->intro->animation.frames[i].mlx_img)
+				mlx_destroy_image(game->mlx, game->intro->animation.frames[i].mlx_img);
+		}
+		ft_free(game->intro->animation.frames);
+	}
 	if (game->img)
 	{
 		if (game->img->mlx_img)
 			mlx_destroy_image(game->mlx, game->img->mlx_img);
-		ft_free(game->img);
 	}
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
+	ft_free(game->mlx);
 }
 
 /**
@@ -99,4 +107,5 @@ static void	ft_free_textures(t_game *game)
 			mlx_destroy_image(game->mlx, game->gate_textures[i].mlx_img);
 		i++;
 	}
+	i = 0;
 }
