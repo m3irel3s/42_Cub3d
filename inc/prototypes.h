@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/21 17:46:37 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 10:49:22 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,12 +103,23 @@ void		ft_mlx_pixel_put_to_image(t_game *game, int x, int y, int color);
 // ⬤  420_RENDERING: Render Logic                                            //
 //============================================================================//
 
-/* render.c */
+/* render_frame.c */
 int			ft_render_next_frame(t_game *game);
-int			ft_darken_rgb_color3(int color, double factor, int times);
+void		ft_clear_image(t_game *game, int ceiling_color, int floor_color);
+
+/* render_gradient.c */
+void		ft_clear_ceiling(t_game *game, int ceiling_color);
+void		ft_clear_floor(t_game *game, int floor_color);
 
 /* render_utils.c */
 void		ft_set_floor_n_ceiling(t_game *game);
+
+/* color_utils.c */
+int			ft_rgb_to_hex(int r, int g, int b);
+int			ft_darken_rgb_color3(int color, double factor, int times);
+
+/* gradient_utils.c */
+int			ft_gradient_step(int y, int start_y, int is_ceiling);
 
 //============================================================================//
 // ⬤  500_EVENTS: User Input & Event Handling                                //

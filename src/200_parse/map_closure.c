@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:40:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/21 21:58:54 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 10:57:18 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ static char	**ft_dup_grid(t_game *game);
 static void	ft_flood_fill(t_game *game, char **dup_grid, int x, int y);
 
 /**
- * @brief Checks if the map is closed by performing a flood fill from the player position.
+ * @brief Checks if the map is closed by performing a flood
+ * fill from the player position.
  *
  * This function creates a duplicate of the map grid and then performs a flood
  * fill from the player position. It checks if the '0' characters are all
@@ -72,6 +73,7 @@ static void	ft_flood_fill(t_game *game, char **dup_grid, int x, int y)
 	ft_flood_fill(game, dup_grid, x, y - 1);
 	ft_flood_fill(game, dup_grid, x, y + 1);
 }
+
 /**
  * @brief Duplicates the map grid and allocates memory for it.
  *

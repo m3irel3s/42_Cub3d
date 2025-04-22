@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 17:58:08 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/21 22:00:16 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 10:58:33 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,16 @@ void	ft_validate_map_chars(t_game *game)
 }
 
 /**
- * @brief Validates a single line of the map for correct characters and formatting.
+ * @brief Validates a single line of the map for correct
+ * characters and formatting.
  *
  * This function checks each character in the provided map line to ensure that
- * only valid map characters ('0', '1', 'N', 'S', 'E', 'W', or space) are present.
- * It flags lines containing tabs as invalid and triggers cleanup. It also verifies
- * that at least one valid character is present in the line. If the line is valid,
- * the function returns SUCCESS; otherwise, it returns FAILURE.
+ * only valid map characters ('0', '1', 'N', 'S', 'E', 'W', or
+ * space) are present.
+ * It flags lines containing tabs as invalid and triggers
+ * cleanup. It also verifies that at least one valid character
+ * is present in the line. If the line is valid, the function
+ * returns SUCCESS; otherwise, it returns FAILURE.
  *
  * @param game Pointer to the game structure containing the game state.
  * @param line The line from the map to be validated.

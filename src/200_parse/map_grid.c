@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 18:37:57 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/21 21:59:29 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 10:57:41 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	ft_parse_map_grid(t_game *game)
 }
 
 /**
- * @brief Detects empty lines within the map grid and triggers cleanup if necessary.
+ * @brief Detects empty lines within the map grid and triggers
+ * cleanup if necessary.
  *
  * This function iterates through the map grid lines in the cub file starting
  * from the grid start index. It checks for empty lines and sets a flag if any

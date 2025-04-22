@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/21 15:42:57 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 10:59:40 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	ft_clean_graphics(t_game *game)
 	}
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
-	//mlx_destroy_display(game->mlx);
+	mlx_destroy_display(game->mlx);
 }
 
 static void	ft_free_textures(t_game *game)

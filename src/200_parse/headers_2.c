@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 14:35:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/21 21:57:43 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 10:56:24 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ void	ft_check_headers_values(t_game *game, t_headers *headers)
 }
 
 /**
- * @brief Compares a string to known header tags and returns the corresponding tag enum.
+ * @brief Compares a string to known header tags and returns
+ * the corresponding tag enum.
  *
  * This function takes a string representation of a header tag and checks it
  * against the predefined tags ("SO", "NO", "EA", "WE", "F", "C"). If a match

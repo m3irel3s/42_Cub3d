@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:11:35 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/21 21:57:47 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 10:55:10 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ static t_headers	*ft_headers(t_game *game);
 static void			ft_parse_header_line(t_headers *headers, char *line);
 
 /**
- * @brief Parses the headers from the .cub file and stores them in the game structure.
+ * @brief Parses the headers from the .cub file and stores
+ * them in the game structure.
  *
  * This function initializes the headers, checks and sets their tags, validates
  * their values, processes color headers for floor and ceiling, and verifies

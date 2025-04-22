@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/21 17:51:08 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 10:39:53 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,20 @@ required\n"
 # define ERR_TEXTURE_ADDR "Error\nGetting texture address"
 
 /* Quit Game */
-# define QUIT_GAME_MSG "Thank you for playing!\n Exiting game...\n"
+# define QUIT_GAME_MSG "Thank you for playing!\nExiting game...\n"
 
 /* GAME ERRORS */
 # define STRUCT_INIT_FAILED "Error\nFailed the initialization of structs\n"
 # define MLX_INIT_FAIL "Error\nFailed to allocated memory for MLX\n"
+
+//============================================================================//
+// ⬤  RENDERING HELPERS                                                      //
+//============================================================================//
+
+# define MAX_BRIGHTNESS 0
+# define MAX_DARKENING_STEPS 18
+# define DARKEN_FACTOR 0.9
+# define CEILING_GRADIENT_START (SCREEN_HEIGHT / 2 - 110)
+# define FLOOR_GRADIENT_END ((SCREEN_HEIGHT / 2) + (SCREEN_HEIGHT / 4) + 50)
 
 #endif

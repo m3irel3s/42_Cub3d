@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 16:04:54 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/21 21:57:45 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/22 10:55:46 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,8 @@ static int	ft_parse_rgb(t_game *game, char *str, char **res)
  * the function returns SUCCESS; otherwise, it returns ERROR.
  *
  * @param str The input string to be checked.
- * @return SUCCESS if the string is a valid non-negative integer, otherwise ERROR.
+ * @return SUCCESS if the string is a valid non-negative
+ * integer, otherwise ERROR.
  */
 
 static int	ft_check_number(char *str)

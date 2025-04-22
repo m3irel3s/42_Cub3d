@@ -6,7 +6,7 @@
 #    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/21 21:48:04 by meferraz         ###   ########.fr        #
+#    Updated: 2025/04/22 10:48:02 by meferraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,8 +103,11 @@ SRCS        = ${SRC_PATH}/main.c \
 				${RAYCAST_PATH}/draw_raycasting.c \
 				${DRAW_PATH}/draw.c \
 				${TEXTURE_PATH}/textures.c \
-				${RENDER_PATH}/render.c \
+				${RENDER_PATH}/render_frame.c \
 				${RENDER_PATH}/render_utils.c \
+				${RENDER_PATH}/render_gradient.c \
+				${RENDER_PATH}/color_utils.c \
+				${RENDER_PATH}/gradient_utils.c \
 				${EVENTS_PATH}/events.c \
 				${EVENTS_PATH}/rotations.c \
 				${EVENTS_PATH}/movements.c \
