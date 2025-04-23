@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 10:38:45 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 11:46:55 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 16:28:33 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,3 @@ void	ft_set_floor_n_ceiling(t_game *game)
 	f = game->ceiling_color;
 	game->ceiling_color_hex = ft_rgb_to_hex(f.r, f.g, f.b);
 }
-

@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 12:18:14 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 11:44:03 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 16:25:04 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,17 @@ void	ft_free_parse(t_game *game)
 }
 
 /**
- * @brief Frees the memory allocated for the cub_file and map grid in the game structure.
+ * @brief Frees the memory allocated for the cub_file and map grid in the game
+ * structure.
  *
  * This function iterates over the cub_file array, freeing each line, and then
  * frees the array itself. It also iterates over the map grid, freeing each line,
- * and finally frees the grid, setting the pointer to NULL to prevent dangling references.
+ * and finally frees the grid, setting the pointer to NULL to prevent dangling
+ * references.
  *
- * @param game A pointer to the game structure containing the cub_file and map grid.
+ * @param game A pointer to the game structure containing the cub_file and map
+ * grid.
  */
-
 static void	ft_free_cub_file_and_grid(t_game *game)
 {
 	int	i;

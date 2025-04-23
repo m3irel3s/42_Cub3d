@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/23 15:59:48 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/23 16:36:12 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,18 @@ void	ft_cleanup(t_game *game, char *msg, int fd, int status)
  */
 static void	ft_clean_graphics(t_game *game)
 {
+	int	i;
+
+	i = -1;
 	if (!game || !game->mlx)
 		return ;
 	if (game->intro && game->intro->animation.frames)
 	{
-		for (int i = 0; i < game->intro->animation.frame_count; i++)
+		while (++i < game->intro->animation.frame_count)
 		{
 			if (game->intro->animation.frames[i].mlx_img)
-				mlx_destroy_image(game->mlx, game->intro->animation.frames[i].mlx_img);
+				mlx_destroy_image(game->mlx,
+					game->intro->animation.frames[i].mlx_img);
 		}
 		ft_free(game->intro->animation.frames);
 	}

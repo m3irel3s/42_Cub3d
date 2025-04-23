@@ -6,14 +6,14 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:20:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 15:54:19 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 16:28:11 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
 static void	ft_render_intro(t_game *game);
-int	ft_get_time_ms(void);
+int			ft_get_time_ms(void);
 
 /**
  * @brief Clears the image to be rendered by filling it with the given
@@ -52,7 +52,8 @@ int	ft_render_next_frame(t_game *game)
 	{
 		if (game->img->mlx_img)
 			mlx_destroy_image(game->mlx, game->img->mlx_img);
-		game->img->mlx_img = mlx_new_image(game->mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
+		game->img->mlx_img = mlx_new_image(game->mlx,
+				SCREEN_WIDTH, SCREEN_HEIGHT);
 		game->img->addr = mlx_get_data_addr(game->img->mlx_img, &game->img->bpp,
 				&game->img->line_len, &game->img->endian);
 		ft_memset(game->img->addr, 0, SCREEN_HEIGHT * game->img->line_len);
@@ -67,24 +68,37 @@ int	ft_render_next_frame(t_game *game)
 	return (0);
 }
 
-
+/**
+ * @brief Renders the intro animation in the game window.
+ *
+ * This function renders the intro animation by selecting the current frame
+ * based on the current time and the frame duration. It increments the current
+ * frame index and updates the last update time when the frame duration has
+ * passed. It then renders the current frame in the game window.
+ *
+ * @param game The game struct containing the intro animation data.
+ */
 static void	ft_render_intro(t_game *game)
 {
 	double	current_time;
-	t_img *current;
+	t_img	*current;
 
 	current_time = ft_get_time_ms();
-	if (current_time - game->intro->animation.last_update >= game->intro->animation.frame_duration) {
-		game->intro->animation.current_frame =
-			(game->intro->animation.current_frame + 1) % game->intro->animation.frame_count;
+	if (current_time - game->intro->animation.last_update
+		>= game->intro->animation.frame_duration)
+	{
+		game->intro->animation.current_frame
+			= (game->intro->animation.current_frame + 1)
+			% game->intro->animation.frame_count;
 		game->intro->animation.last_update = current_time;
 	}
-	current = &game->intro->animation.frames[game->intro->animation.current_frame];
+	current = &game->intro->animation.frames
+	[game->intro->animation.current_frame];
 	mlx_put_image_to_window(
 		game->mlx,
 		game->win,
 		current->mlx_img,
 		(SCREEN_WIDTH - current->width) / 2,
 		(SCREEN_HEIGHT - current->height) / 2
-	);
+		);
 }
