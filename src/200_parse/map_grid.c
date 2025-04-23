@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   map_grid.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 18:37:57 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 11:01:43 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:31:00 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../../inc/cub3d.h"
 
 static void	ft_extract_map(t_game *game);
 static void	ft_find_holes(t_game *game);
+static void	ft_get_map_width(t_game *game);
 
 /**
  * @brief Parses the map grid from the cub file and validates its structure.
@@ -31,6 +33,25 @@ void	ft_parse_map_grid(t_game *game)
 	ft_find_holes(game);
 	ft_validate_map_chars(game);
 	ft_set_player_values(game);
+	ft_get_map_width(game);
+}
+
+static void	ft_get_map_width(t_game *game)
+{
+	int	i;
+	int	max_width;
+	int	row_width;
+
+	i = 0;
+	max_width = 0;
+	while (game->map->grid[i])
+	{
+		row_width = ft_strlen(game->map->grid[i]);
+		if (row_width > max_width)
+			max_width = row_width;
+		i++;
+	}
+	game->map->width = max_width;
 }
 
 /**

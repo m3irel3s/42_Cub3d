@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   safe_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 19:01:37 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 11:04:26 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:31:33 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	*ft_safe_malloc(size_t size)
 	p = malloc(size);
 	if (!p)
 	{
-		ft_printf(2, "Error\nmalloc failed\n");
+		ft_printf(2, "Err malloc failed\n");
+		//fix here LMAO
 		return (NULL);
 	}
 	return (p);

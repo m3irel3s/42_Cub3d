@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:42:48 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 11:01:56 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:31:19 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ int	ft_get_grid_start_index(t_game *game)
 		while (game->cub_file[i][j] && ft_strchr("10NSWE ",
 				game->cub_file[i][j]))
 		{
-			if (game->cub_file[i][j + 1] == '\0' ||
-					game->cub_file[i][j + 1] == '\r')
+			if (game->cub_file[i][j + 1] == '\0' || game->cub_file[i][j + 1] == '\r'
+			|| game->cub_file[i][j + 1] == '\n')
 				return (i);
 			j++;
 		}
