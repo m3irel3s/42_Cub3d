@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures_gates.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 16:16:29 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 16:21:16 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 16:02:42 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_load_gate_textures(t_game *game)
 
 	path = ft_safe_malloc(sizeof(char *) * 9);
 	if (!path)
-		ft_cleanup(game, "Error\nAllocating path array", 1);
+		ft_cleanup(game, MALLOC_FAILED, 2, EXIT_FAILURE);
 	ft_set_path_arr(path);
 	i = 0;
 	while (i < 8)
@@ -42,14 +42,14 @@ void	ft_load_gate_textures(t_game *game)
 		game->gate_textures[i].mlx_img = mlx_xpm_file_to_image(game->mlx, path[i],
 				&game->gate_textures[i].width, &game->gate_textures[i].height);
 		if (!game->gate_textures[i].mlx_img)
-			ft_cleanup(game, "Error\nLoading gate texture", 1);
+			ft_cleanup(game, ERR_TEXTURE, 2, EXIT_FAILURE);
 		game->gate_textures[i].addr = mlx_get_data_addr(
 				game->gate_textures[i].mlx_img,
 				&game->gate_textures[i].bpp,
 				&game->gate_textures[i].line_len,
 				&game->gate_textures[i].endian);
 		if (!game->gate_textures[i].addr)
-			ft_cleanup(game, "Error\nGetting gate texture address", 1);
+			ft_cleanup(game, ERR_TEXTURE_ADDR, 2, EXIT_FAILURE);
 		i++;
 	}
 	ft_free_arr(path);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   headers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:11:35 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 11:01:31 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:51:46 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static t_headers	*ft_headers(t_game *game)
 	k = 0;
 	headers_size = ft_count_headers(game);
 	if (headers_size != 6)
-		ft_cleanup(game, FOUND_INVALID_N_HEADERS, 2);
+		ft_cleanup(game, FOUND_INVALID_N_HEADERS, 2, EXIT_FAILURE);
 	headers = ft_safe_malloc(sizeof(t_headers) * (headers_size + 1));
 	while (i < game->map->grid_start_index)
 	{

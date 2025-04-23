@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 17:58:08 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 11:39:14 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:59:27 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ void	ft_validate_map_chars(t_game *game)
 		i++;
 	}
 	if (counter > 1)
-		ft_cleanup(game, FOUND_MORE_PLAYERS, 2);
+		ft_cleanup(game, FOUND_MORE_PLAYERS, 2, EXIT_FAILURE);
 	if (counter == 0)
-		ft_cleanup(game, PLAYER_NOT_FOUND, 2);
+		ft_cleanup(game, PLAYER_NOT_FOUND, 2, EXIT_FAILURE);
 }
 
 /**
@@ -116,7 +116,7 @@ static int	ft_valid_map_line(t_game *game, char *line)
 	while (line[i])
 	{
 		if (line[i] == '\t')
-			ft_cleanup(game, FOUND_TAB_IN_MAP, 2);
+			ft_cleanup(game, FOUND_TAB_IN_MAP, 2, EXIT_FAILURE);
 		else if (ft_is_space(line[i]))
 			i++;
 		else if (ft_are_valid_map_chars(line[i]))
@@ -125,7 +125,7 @@ static int	ft_valid_map_line(t_game *game, char *line)
 			i++;
 		}
 		else
-			ft_cleanup(game, FOUND_INVALID_CHAR_MAP, 2);
+			ft_cleanup(game, FOUND_INVALID_CHAR_MAP, 2, EXIT_FAILURE);
 	}
 	if (has_valid_char)
 		return (SUCCESS);

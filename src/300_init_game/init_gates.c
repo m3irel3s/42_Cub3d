@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_gates.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:33:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 16:11:02 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 16:01:14 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,6 @@ void	ft_init_gates(t_game *game)
 	game->map->gates = ft_safe_malloc(sizeof(t_door_data)
 			* game->map->num_gates);
 	if (!game->map->gates)
-		ft_cleanup(game, "Memory allocation failed", 1);
+		ft_cleanup(game, MALLOC_FAILED, 2, EXIT_FAILURE);
 	ft_setup_doors(game);
 }

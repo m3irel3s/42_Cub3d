@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_minimap_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 21:41:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 22:06:22 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 16:04:47 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_display_minimap(t_game *game)
 	orig_img = mlx_xpm_file_to_image(game->mlx, "./textures/minimap.xpm",
 			&orig_width, &orig_height);
 	if (!orig_img)
-		ft_cleanup(game, "Error\nMinimap background failed", 2);
+		ft_cleanup(game, ERR_TEXTURE, 2, EXIT_FAILURE);
 	ft_scale_minimap(game, orig_img, orig_width, orig_height);
 	mlx_destroy_image(game->mlx, orig_img);
 	ft_calc_minimap_scale(game);

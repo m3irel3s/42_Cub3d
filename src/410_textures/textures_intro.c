@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures_intro.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 16:17:14 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 16:21:16 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 16:03:47 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_load_and_init_intro_textures(t_game *game)
 	frames[4] = "./textures/intro5.xpm";
 	game->intro->animation.frames = ft_safe_malloc(sizeof(t_img) * 5);
 	if (!game->intro->animation.frames)
-		ft_cleanup(game, "Error\nAllocating intro frames", 1);
+		ft_cleanup(game, MALLOC_FAILED, 2, EXIT_FAILURE);
 	game->intro->animation.frame_count = 5;
 	game->intro->animation.current_frame = 0;
 	game->intro->animation.frame_duration = 100;
@@ -68,14 +68,14 @@ static void	ft_load_intro_textures(t_game *game, char **frames)
 				&game->intro->animation.frames[i].width,
 				&game->intro->animation.frames[i].height);
 		if (!game->intro->animation.frames[i].mlx_img)
-			ft_cleanup(game, "Error\nLoading intro texture", 1);
+			ft_cleanup(game, ERR_TEXTURE, 2, EXIT_FAILURE);
 		game->intro->animation.frames[i].addr
 			= mlx_get_data_addr(game->intro->animation.frames[i].mlx_img,
 				&game->intro->animation.frames[i].bpp,
 				&game->intro->animation.frames[i].line_len,
 				&game->intro->animation.frames[i].endian);
 		if (!game->intro->animation.frames[i].addr)
-			ft_cleanup(game, "Error\nGetting intro texture address", 1);
+			ft_cleanup(game, ERR_TEXTURE_ADDR, 2, EXIT_FAILURE);
 		i++;
 	}
 }

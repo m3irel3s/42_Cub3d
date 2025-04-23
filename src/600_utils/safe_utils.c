@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   safe_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 19:01:37 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 11:04:26 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:52:30 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*ft_safe_malloc(size_t size)
 	p = malloc(size);
 	if (!p)
 	{
-		ft_printf(2, "Error\nmalloc failed\n");
+		ft_printf(2, MALLOC_FAILED);
 		return (NULL);
 	}
 	return (p);
@@ -49,6 +49,6 @@ int	ft_valid_fd(t_game *game, char *path)
 
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
-		ft_cleanup(game, INVALID_FD_OPEN, 2);
+		ft_cleanup(game, INVALID_FD_OPEN, 2, EXIT_FAILURE);
 	return (fd);
 }

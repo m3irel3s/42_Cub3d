@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   headers_colors.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 16:04:54 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 11:38:32 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:59:16 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,11 @@ static void	ft_parse_color(t_game *game, t_rgb *set_color, char *color)
 
 	res = ft_split(color, ',');
 	if (!res)
-		ft_cleanup(game, ERROR_SPLITTING_COLOR, 2);
+		ft_cleanup(game, ERROR_SPLITTING_COLOR, 2, EXIT_FAILURE);
 	if (ft_array_len(res) != 3 || ft_count_occurs(color, ',') != 2)
 	{
 		ft_free_arr(res);
-		ft_cleanup(game, FOUND_INVALID_COLOR, 2);
+		ft_cleanup(game, FOUND_INVALID_COLOR, 2, EXIT_FAILURE);
 	}
 	red = ft_parse_rgb(game, res[0], res);
 	green = ft_parse_rgb(game, res[1], res);
@@ -101,14 +101,14 @@ static int	ft_parse_rgb(t_game *game, char *str, char **res)
 	{
 		ft_free_arr(res);
 		ft_free(temp);
-		ft_cleanup(game, INVALID_COLOR_NUMBER, 2);
+		ft_cleanup(game, INVALID_COLOR_NUMBER, 2, EXIT_FAILURE);
 	}
 	number = ft_atoi(temp);
 	ft_free(temp);
 	if (number < 0 || number > 255)
 	{
 		ft_free_arr(res);
-		ft_cleanup(game, COLOR_OUT_OF_LIMITS, 2);
+		ft_cleanup(game, COLOR_OUT_OF_LIMITS, 2, EXIT_FAILURE);
 	}
 	return (number);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 21:50:05 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 16:10:04 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 // ⬤  PLATFORM KEYS MACROS                                                   //
 //============================================================================//
 
-# ifdef __APPLE__
+#ifdef __APPLE__
 #  define KEY_ESC 53
 #  define KEY_W 13
 #  define KEY_S 1
@@ -40,10 +40,10 @@
 #  define KEY_A 0
 #  define KEY_LEFT 123
 #  define KEY_RIGHT 124
-#  define KEY_M 46
-#  define KEY_G 5
-# define KEY_ENTER 36
-# elif __linux__
+#  define KEY_TAB 48  
+#  define KEY_E 14
+#  define KEY_ENTER 36
+#elif __linux__
 #  define KEY_ESC XK_Escape
 #  define KEY_W XK_w
 #  define KEY_S XK_s
@@ -51,10 +51,11 @@
 #  define KEY_D XK_d
 #  define KEY_LEFT XK_Left
 #  define KEY_RIGHT XK_Right
-#  define KEY_M XK_m
-#  define KEY_G XK_g
+#  define KEY_TAB XK_Tab
+#  define KEY_E XK_e
 #  define KEY_ENTER XK_Return
-# endif
+#endif
+
 
 //============================================================================//
 // ⬤  ERROR MESSAGES                                                         //
@@ -83,11 +84,14 @@ required\n"
 # define PLAYER_NOT_FOUND "Error\nPlayer not found\n"
 # define FOUND_SPACE_INSI_MAP "Error\nFound a space inside map\n"
 # define FOUND_UNCLOSED_MAP "Error\nPlayer is not surrounded by walls\n"
-# define INVALID_FD_OPEN "Error\nError openning the file descriptor\n"
 
 /* Texture Errors */
 # define ERR_TEXTURE "Error\nLoading texture"
 # define ERR_TEXTURE_ADDR "Error\nGetting texture address"
+
+/* Safe Functions */
+# define INVALID_FD_OPEN "Error\nError openning the file descriptor\n"
+# define MALLOC_FAILED "Error\nError allocation memory\n"
 
 /* Quit Game */
 # define QUIT_GAME_MSG "Thank you for playing!\nExiting game...\n"

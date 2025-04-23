@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 13:30:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 11:56:58 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 16:10:36 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ int	ft_handle_key(int key, t_game *game)
 		ft_rotate_left(game, rot_speed);
 	else if (key == KEY_RIGHT)
 		ft_rotate_right(game, rot_speed);
-	else if (key == KEY_M)
+	else if (key == KEY_TAB)
 		game->map->show_map = true;
-	else if (key == KEY_G)
+	else if (key == KEY_E)
 		ft_handle_gate_animation(game);
 	return (0);
 }
@@ -69,7 +69,7 @@ int	ft_handle_key(int key, t_game *game)
  */
 int	ft_handle_key_release(int key, t_game *game)
 {
-	if (key == KEY_M)
+	if (key == KEY_TAB)
 		game->map->show_map = false;
 	return (0);
 }

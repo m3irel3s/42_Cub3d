@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_grid.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 18:37:57 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 11:01:43 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:52:01 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	ft_extract_map(t_game *game);
 static void	ft_find_holes(t_game *game);
+static void	ft_get_map_width(t_game *game);
 
 /**
  * @brief Parses the map grid from the cub file and validates its structure.
@@ -31,6 +32,34 @@ void	ft_parse_map_grid(t_game *game)
 	ft_find_holes(game);
 	ft_validate_map_chars(game);
 	ft_set_player_values(game);
+	ft_get_map_width(game);
+}
+
+/**
+ * @brief Calculates and sets the map width based on the grid.
+ *
+ * This function iterates through each line of the map grid to determine
+ * the maximum row width. It updates the map's width with this maximum value.
+ *
+ * @param game A pointer to the central game structure containing game state
+ *             and data.
+ */
+static void	ft_get_map_width(t_game *game)
+{
+	int	i;
+	int	max_width;
+	int	row_width;
+
+	i = 0;
+	max_width = 0;
+	while (game->map->grid[i])
+	{
+		row_width = ft_strlen(game->map->grid[i]);
+		if (row_width > max_width)
+			max_width = row_width;
+		i++;
+	}
+	game->map->width = max_width;
 }
 
 /**
@@ -63,7 +92,7 @@ static void	ft_find_holes(t_game *game)
 		else if (ft_is_empty_line(game->cub_file[i]) != SUCCESS)
 		{
 			if (found_empty == 1)
-				ft_cleanup(game, FOUND_EMPTY_LINE_INSI_MAP, 2);
+				ft_cleanup(game, FOUND_EMPTY_LINE_INSI_MAP, 2, EXIT_FAILURE);
 			i++;
 		}
 	}

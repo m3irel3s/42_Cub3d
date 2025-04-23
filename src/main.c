@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 13:50:08 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:58:35 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,9 @@ int	main(int argc, char **argv)
 		return (ft_putstr_fd(INVALID_ARGUMENTS, 2), FAILURE);
 	game = ft_init_structs();
 	if (!game)
-		ft_cleanup(game, STRUCT_INIT_FAILED, 2);
+		ft_cleanup(game, STRUCT_INIT_FAILED, 2, EXIT_FAILURE);
 	ft_parse(game, argv);
 	ft_init_game(game);
 	mlx_loop(game->mlx);
-	ft_cleanup(game, "", 1);
 	return (SUCCESS);
 }

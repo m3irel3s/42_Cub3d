@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_file.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:24:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 11:38:07 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:58:50 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,12 @@ static void	ft_set_grid_indexs(t_game *game)
 {
 	game->map->grid_start_index = ft_get_grid_start_index(game);
 	if (game->map->grid_start_index == ERROR)
-		ft_cleanup(game, COULDNT_FIND_MAP_START, 2);
+		ft_cleanup(game, COULDNT_FIND_MAP_START, 2, EXIT_FAILURE);
 	game->map->grid_last_index = ft_get_grid_last_index(game);
 	if ((game->map->grid_start_index + 3) > game->map->grid_last_index)
-		ft_cleanup(game, INVALID_MAP_SIZE, 2);
+		ft_cleanup(game, INVALID_MAP_SIZE, 2, EXIT_FAILURE);
 	if (game->map->grid_start_index < 6)
-		ft_cleanup(game, INVALID_MAP_GRID, 2);
+		ft_cleanup(game, INVALID_MAP_GRID, 2, EXIT_FAILURE);
 }
 
 /**
