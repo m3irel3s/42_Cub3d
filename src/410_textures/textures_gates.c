@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures_gates.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 16:16:29 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/23 16:02:42 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/23 22:26:39 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ void	ft_load_gate_textures(t_game *game)
 	i = 0;
 	while (i < 8)
 	{
-		game->gate_textures[i].mlx_img = mlx_xpm_file_to_image(game->mlx, path[i],
-				&game->gate_textures[i].width, &game->gate_textures[i].height);
+		game->gate_textures[i].mlx_img = mlx_xpm_file_to_image(game->mlx,
+				path[i], &game->gate_textures[i].width,
+				&game->gate_textures[i].height);
 		if (!game->gate_textures[i].mlx_img)
 			ft_cleanup(game, ERR_TEXTURE, 2, EXIT_FAILURE);
 		game->gate_textures[i].addr = mlx_get_data_addr(
