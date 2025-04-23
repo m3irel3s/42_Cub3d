@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:40:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/23 16:17:02 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/23 18:22:47 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	ft_check_map_closure(t_game *game)
 	int		y;
 	char	**dup_grid;
 
-	x = game->map->s_pos.x;
-	y = game->map->s_pos.y;
+	x = game->map->flood_fill_pos.x;
+	y = game->map->flood_fill_pos.y;
 	dup_grid = NULL;
 	dup_grid = ft_dup_grid(game);
 	ft_flood_fill(game, dup_grid, x, y);
@@ -59,21 +59,20 @@ static void	ft_flood_fill(t_game *game, char **dup_grid, int x, int y)
 		ft_free_arr(dup_grid);
 		ft_cleanup(game, FOUND_UNCLOSED_MAP, 2, EXIT_FAILURE);
 	}
-	if ((x == 0 || x == game->map->height - 1 || y == 0)
-		&& dup_grid[x][y] == '0')
-	{
-		ft_free_arr(dup_grid);
-		ft_cleanup(game, FOUND_UNCLOSED_MAP, 2, EXIT_FAILURE);
-	}
+	if (dup_grid[x][y] == '1' || dup_grid[x][y] == '+')
+		return ;
 	if (dup_grid[x][y] == ' ')
 	{
 		ft_free_arr(dup_grid);
 		ft_cleanup(game, FOUND_SPACE_INSI_MAP, 2, EXIT_FAILURE);
 	}
-	if (dup_grid[x][y] == '1' || dup_grid[x][y] == '+')
-		return ;
-	if (dup_grid[x][y] == '0')
+	if (dup_grid[x][y] == '0' || dup_grid[x][y] == 'D')
 		dup_grid[x][y] = '+';
+	if (x <= 0 || x >= game->map->height - 1 || y == 0)
+	{
+		ft_free_arr(dup_grid);
+		ft_cleanup(game, FOUND_UNCLOSED_MAP, 2, EXIT_FAILURE);
+	}
 	ft_flood_fill(game, dup_grid, x - 1, y);
 	ft_flood_fill(game, dup_grid, x + 1, y);
 	ft_flood_fill(game, dup_grid, x, y - 1);

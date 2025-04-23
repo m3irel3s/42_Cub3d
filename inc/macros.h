@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/23 16:10:04 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/23 17:44:08 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@
 
 /* PARSING ERRORS */
 # define INVALID_ARGUMENTS "Error\nInvalid arguments given\n"
-# define INVALID_MAP_NAME "Error\nInvalid map name given\n"
+# define INVALID_FILE_NAME "Error\nInvalid file name given\n"
 # define INVALID_MAP_GRID "Error\nCouldn't find the map grid\n"
 # define INVALID_ELEMENT_FOUND "Error\nFound an element that was not needed\n"
 # define INVALID_TAG_FOUND "Error\nFound an invalid tag\n"

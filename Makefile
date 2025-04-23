@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
+#    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/22 22:10:20 by meferraz         ###   ########.fr        #
+#    Updated: 2025/04/23 18:27:41 by jmeirele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -260,11 +260,14 @@ test: all
 	@./$(NAME)
 
 #------------------------------------------------------------------------------#
-#                                 MAPPING TEST                                 #
+#                                  MAP TESTING                                 #
 #------------------------------------------------------------------------------#
 
 test1: all
 	valgrind ${V_ARGS} ./${NAME} maps/valid_maps/test.cub
+
+test2: all
+	valgrind ${V_ARGS} ./${NAME} maps/invalid_maps/wall_none.cub
 
 #------------------------------------------------------------------------------#
 #                                CLEANING RULES                                #

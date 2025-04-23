@@ -2,7 +2,7 @@
 
               NO               ./textures/no.xpm
          C 50,0,10
-F 0,10,10
+F 0,10,    10
         		EA     ./textures/ea.xpm
 
           SO                 ./textures/so.xpm
@@ -10,10 +10,10 @@ F 0,10,10
             WE      ./textures/we.xpm
 
 
-1111111
-1000001
-11D1101
-10N0011
-101000D0
-1111111
+111111111
+110D1
+11111111111N
+111111111
+
+
 

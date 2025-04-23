@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:31:22 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/23 15:58:56 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/23 17:44:28 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ void	ft_parse_file_path(t_game *game)
 		if (to_compare == NULL || ft_strlen(to_compare) > 5)
 			return ;
 	}
-	ft_cleanup(game, INVALID_MAP_NAME, 2, EXIT_FAILURE);
+	ft_cleanup(game, INVALID_FILE_NAME, 2, EXIT_FAILURE);
 }
