@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 17:58:08 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/23 15:52:11 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/23 18:33:17 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	ft_set_player_values(t_game *game)
 			{
 				game->map->s_pos.x = j;
 				game->map->s_pos.y = i;
+				game->map->flood_fill_pos.x = i;
+				game->map->flood_fill_pos.y = j;
 				game->map->s_dir = game->map->grid[i][j];
 			}
 			j++;
