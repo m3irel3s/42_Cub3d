@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:40:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 16:32:18 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:24:29 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	ft_check_map_closure(t_game *game)
 	y = game->map->s_pos.y;
 	dup_grid = NULL;
 	dup_grid = ft_dup_grid(game);
-	for (int i = 0; dup_grid[i]; i++)
-		printf("%s\n", dup_grid[i]);
 	ft_flood_fill(game, dup_grid, x, y);
 	ft_free_arr(dup_grid);
 }

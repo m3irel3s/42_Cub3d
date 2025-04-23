@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 19:01:37 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/07 15:26:00 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/23 00:43:31 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	*ft_safe_malloc(size_t size)
 	if (!p)
 	{
 		ft_printf(2, "Err malloc failed\n");
+		//fix here LMAO
 		return (NULL);
 	}
 	return (p);
