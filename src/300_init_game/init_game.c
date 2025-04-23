@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 15:12:01 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 11:02:04 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:52:17 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ static void	ft_init_graphics(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		ft_cleanup(game, MLX_INIT_FAIL, 2);
+		ft_cleanup(game, MLX_INIT_FAIL, 2, EXIT_FAILURE);
 	game->img = ft_safe_malloc(sizeof(t_img));
 	if (!game->img)
-		ft_cleanup(game, MLX_INIT_FAIL, 2);
+		ft_cleanup(game, MLX_INIT_FAIL, 2, EXIT_FAILURE);
 	game->win = mlx_new_window(game->mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "Cub3d");
 	game->img->mlx_img = mlx_new_image(game->mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
 	game->img->addr = mlx_get_data_addr(game->img->mlx_img, &game->img->bpp,

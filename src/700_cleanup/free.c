@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 11:05:58 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:48:49 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	ft_free_textures(t_game *game);
  * @param msg A message to be printed before exiting the program.
  * @param fd The file descriptor to which the message will be printed.
  */
-void	ft_cleanup(t_game *game, char *msg, int fd)
+void	ft_cleanup(t_game *game, char *msg, int fd, int status)
 {
 	if (game)
 	{
@@ -40,7 +40,7 @@ void	ft_cleanup(t_game *game, char *msg, int fd)
 		ft_free(game);
 	}
 	ft_printf(fd, "%s\n", msg);
-	exit(EXIT_SUCCESS);
+	exit(status);
 }
 
 /**

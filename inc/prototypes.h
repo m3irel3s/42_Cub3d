@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 10:49:22 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:48:54 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,7 @@ int			ft_valid_fd(t_game *game, char *path);
 //============================================================================//
 
 /* free.c */
-void		ft_cleanup(t_game *game, char *msg, int fd);
+void		ft_cleanup(t_game *game, char *msg, int fd, int status);
 
 /* free_parse.c */
 void		ft_free_parse(t_game *game);

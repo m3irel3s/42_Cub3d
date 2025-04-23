@@ -6,10 +6,9 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 18:37:57 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/23 15:31:00 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:52:01 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../../inc/cub3d.h"
 
@@ -36,6 +35,15 @@ void	ft_parse_map_grid(t_game *game)
 	ft_get_map_width(game);
 }
 
+/**
+ * @brief Calculates and sets the map width based on the grid.
+ *
+ * This function iterates through each line of the map grid to determine
+ * the maximum row width. It updates the map's width with this maximum value.
+ *
+ * @param game A pointer to the central game structure containing game state
+ *             and data.
+ */
 static void	ft_get_map_width(t_game *game)
 {
 	int	i;
@@ -84,7 +92,7 @@ static void	ft_find_holes(t_game *game)
 		else if (ft_is_empty_line(game->cub_file[i]) != SUCCESS)
 		{
 			if (found_empty == 1)
-				ft_cleanup(game, FOUND_EMPTY_LINE_INSI_MAP, 2);
+				ft_cleanup(game, FOUND_EMPTY_LINE_INSI_MAP, 2, EXIT_FAILURE);
 			i++;
 		}
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:44:54 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 11:02:16 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:52:24 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ static void	ft_load_single_texture(t_game *game, char *path, t_wall_side index)
 	game->textures[index].mlx_img = mlx_xpm_file_to_image(game->mlx, path,
 			&game->textures[index].width, &game->textures[index].height);
 	if (!game->textures[index].mlx_img)
-		ft_cleanup(game, ERR_TEXTURE, 1);
+		ft_cleanup(game, ERR_TEXTURE, 1, EXIT_FAILURE);
 	game->textures[index].addr
 		= mlx_get_data_addr(game->textures[index].mlx_img,
 			&game->textures[index].bpp, &game->textures[index].line_len,
 			&game->textures[index].endian);
 	if (!game->textures[index].addr)
-		ft_cleanup(game, ERR_TEXTURE_ADDR, 1);
+		ft_cleanup(game, ERR_TEXTURE_ADDR, 1, EXIT_FAILURE);
 }

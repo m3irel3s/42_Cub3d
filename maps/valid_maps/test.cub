@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 
               NO               ./textures/no.xpm
@@ -17,24 +16,3 @@ F 0,10,10
 1010001
 1111111
 
-
-
-=======
-     			F 0,   10,        10		
-
-NO ./textures/no.xpm
-SO ./textures/so.xpm
-WE       ./textures/we.xpm
-			C 50,0,10
-
-
-     		EA ./textures/ea.xpm		
-
-
-111111
-100011
-10N0001
-101111
-11
-1
->>>>>>> origin/miguel

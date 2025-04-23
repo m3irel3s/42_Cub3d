@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quit_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 11:06:12 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:53:10 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@
 
 int	ft_quit_game(t_game *game)
 {
-	ft_cleanup(game, QUIT_GAME_MSG, 0);
+	ft_cleanup(game, QUIT_GAME_MSG, 0, EXIT_SUCCESS);
 	return (0);
 }
