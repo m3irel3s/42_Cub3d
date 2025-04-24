@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 10:53:37 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/24 11:39:47 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:35:29 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int mouse_move_handler(int x, int y, t_game *game)
 {
 	int	center_x;
 	int	center_y;
-	static int	first_call = 1;
 	int	delta_x;
 	int	delta_y;
-
+	static int	first_call = 1;
+	
 	center_x = SCREEN_WIDTH / 2;
 	center_y = SCREEN_HEIGHT / 2;
 	if (first_call)
