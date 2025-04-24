@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:35:42 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/24 11:55:42 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 12:05:57 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static void	ft_clean_graphics(t_game *game)
 	}
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
-	//mlx_destroy_display(game->mlx);
+	mlx_destroy_display(game->mlx);
 	ft_free(game->mlx);
 }
 

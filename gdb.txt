@@ -1,0 +1,84 @@
+warning: Currently logging to gdb.txt.  Turn the logging off and on to make the new setting effective.
+warning: Currently logging to gdb.txt.  Turn the logging off and on to make the new setting effective.
+Breakpoint 1 at 0x4025d6: file src/main.c, line 40.
+Breakpoint 2 at 0x404486: file src/200_parse/map_closure.c, line 57.
+Focus set to cmd window.
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x00000000004025d6 in main at src/main.c:40
+2       breakpoint     keep y   0x0000000000404486 in ft_flood_fill at src/200_parse/map_closure.c:57
+No watchpoints.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe298) at src/main.c:40
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x00000000004025d6 in main at src/main.c:40
+	breakpoint already hit 1 time
+2       breakpoint     keep y   0x0000000000404486 in ft_flood_fill at src/200_parse/map_closure.c:57
+Breakpoint 3 at 0x408c66: file src/700_cleanup/free.c, line 32.
+Starting program: /home/jmeirele/Code/CommonCore/rank04/42_Cub3d/cub3d maps/valid_maps/test.cub
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe298) at src/main.c:40
+Continuing.
+
+Breakpoint 3, ft_cleanup (game=0x4182a0, msg=0x40e5c6 "Thank you for playing!\nExiting game...\n", fd=0, status=0) at src/700_cleanup/free.c:32
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+[Inferior 1 (process 115573) exited normally]
+----------------------------------------------------
+The program is not being run.
+Starting program: /home/jmeirele/Code/CommonCore/rank04/42_Cub3d/cub3d maps/valid_maps/test.cub
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe298) at src/main.c:40
+Continuing.
+
+Breakpoint 3, ft_cleanup (game=0x4182a0, msg=0x40e5c6 "Thank you for playing!\nExiting game...\n", fd=0, status=0) at src/700_cleanup/free.c:32
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+ft_clean_graphics (game=0x4182a0) at src/700_cleanup/free.c:63
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+Breakpoint 4 at 0x408eef: file src/700_cleanup/free.c, line 76.
+Continuing.
+
+Breakpoint 4, ft_clean_graphics (game=0x4182a0) at src/700_cleanup/free.c:76
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------
