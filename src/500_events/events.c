@@ -110,7 +110,7 @@ static void	ft_handle_movement(int key, t_game *game, double move_speed)
 static void	ft_handle_rotation(int key, t_game *game, double rot_speed)
 {
 	if (key == KEY_LEFT)
-		ft_rotate_left(game, rot_speed);
+		ft_rotate(game, -rot_speed);
 	else if (key == KEY_RIGHT)
-		ft_rotate_right(game, rot_speed);
+		ft_rotate(game, rot_speed);
 }
