@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 21:53:54 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 22:07:00 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:37:48 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 static void	ft_draw_player_circle(t_game *game, t_point center);
 static void	ft_draw_direction(t_game *game, t_point center);
 
+/**
+ * @brief Draws the grid on the minimap.
+ *
+ * Iterates over each cell in the game map grid and draws the corresponding
+ * cell on the minimap. Cells are drawn based on their type, such as walls,
+ * floors, empty spaces, and doors, by calling the ft_draw_cell function
+ * with the appropriate cell type.
+ *
+ * @param game The game structure containing the map and rendering state.
+ */
 void	ft_draw_grid(t_game *game)
 {
 	int	y;
@@ -42,6 +52,15 @@ void	ft_draw_grid(t_game *game)
 	}
 }
 
+/**
+ * @brief Draws the player on the minimap.
+ *
+ * @param game The game structure containing rendering state.
+ *
+ * This function draws the player's position and direction on the minimap.
+ * The player's position is drawn as a circle, and their direction is drawn
+ * as a line extending from the center of the circle.
+ */
 void	ft_draw_player(t_game *game)
 {
 	t_point	center;
@@ -54,6 +73,15 @@ void	ft_draw_player(t_game *game)
 	ft_draw_direction(game, center);
 }
 
+/**
+ * @brief Draws a line to represent the player's direction on the minimap.
+ *
+ * The line is drawn from the player's position to a point in the direction the
+ * player is facing. The length of the line is 1.5 times the minimap scale.
+ *
+ * @param game The game struct containing rendering state.
+ * @param center The point on the screen where the player's position is drawn.
+ */
 static void	ft_draw_direction(t_game *game, t_point center)
 {
 	double	scale;
@@ -70,6 +98,15 @@ static void	ft_draw_direction(t_game *game, t_point center)
 	}
 }
 
+/**
+ * @brief Draws a circle centered at the given point, to represent the player on the minimap.
+ *
+ * The circle is drawn using Bresenham's circle algorithm, with a radius of 6
+ * pixels. The color of the circle is set to COLOR_PLAYER.
+ *
+ * @param game A pointer to the game structure containing the mlx image and window.
+ * @param center A point structure containing the x and y coordinates of the circle's center.
+ */
 static void	ft_draw_player_circle(t_game *game, t_point center)
 {
 	int	x;

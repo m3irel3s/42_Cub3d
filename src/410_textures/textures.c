@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:44:54 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/23 15:59:43 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:33:22 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-static void ft_load_single_texture(t_game *game, char *path, t_wall_side index);
+static void	ft_load_single_texture(t_game *game, char *path, t_wall_side index);
 
 /**
  * @brief Loads all textures from the header tags and stores them
