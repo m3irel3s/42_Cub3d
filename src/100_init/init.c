@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 18:29:06 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/24 15:33:03 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:47:48 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void		ft_init_textures(t_game *game);
 static t_map	*ft_init_map(void);
 static void		ft_init_gate_textures(t_game *game);
+static void		ft_init_intro(t_game *game);
 
 /**
  * @brief Initializes all game's structs and sets them to their default values
@@ -94,7 +95,7 @@ static void	ft_init_intro(t_game *game)
 {
 	game->intro = ft_safe_malloc(sizeof(t_intro));
 	if (!game->intro)
-		return (NULL);
+		return ;
 	game->intro->active = false;
 	game->intro->animation.frames = NULL;
 	game->intro->animation.frame_count = 0;
