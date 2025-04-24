@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/24 15:52:35 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 16:58:13 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,8 +155,7 @@ void		ft_move_left(t_game *game, double move_speed);
 void		ft_move_right(t_game *game, double move_speed);
 
 /* rotations.c */
-void		ft_rotate_left(t_game *game, double rot_speed);
-void		ft_rotate_right(t_game *game, double rot_speed);
+void		ft_rotate(t_game *game, double angle_rad);
 
 /* door_animation.c */
 void		ft_handle_gate_animation(t_game *game);
