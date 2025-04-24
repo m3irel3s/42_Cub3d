@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:53:20 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/24 11:27:22 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 16:12:19 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,12 @@
 # define SCREEN_WIDTH 1920
 # define SCREEN_HEIGHT 1080
 # define FOV 0.90
-# define FOV_ANGLE (M_PI / 6)
 
 //============================================================================//
 // ⬤  PLATFORM KEYS MACROS                                                   //
 //============================================================================//
 
-#ifdef __APPLE__
+# ifdef __APPLE__
 #  define KEY_ESC 53
 #  define KEY_W 13
 #  define KEY_S 1
@@ -43,7 +42,7 @@
 #  define KEY_TAB 48  
 #  define KEY_E 14
 #  define KEY_ENTER 36
-#elif __linux__
+# elif __linux__
 #  define KEY_ESC XK_Escape
 #  define KEY_W XK_w
 #  define KEY_S XK_s
@@ -54,8 +53,7 @@
 #  define KEY_TAB XK_Tab
 #  define KEY_E XK_e
 #  define KEY_ENTER XK_Return
-#endif
-
+# endif
 
 //============================================================================//
 // ⬤  ERROR MESSAGES                                                         //
@@ -112,12 +110,12 @@ required\n"
 // ⬤  MINIMAP                                                                //
 //============================================================================//
 
-#define MINIMAP_RATIO 0.3
-#define CELL_BORDER   0x0d0d0d
-#define COLOR_WALL    0x1e1e24
-#define COLOR_FLOOR   0xdcbfa6
-#define COLOR_PLAYER  0x8b2e38
-#define COLOR_DOOR    0x9e5a44
-#define COLOR_EMPTY   0x9f8672
+# define MINIMAP_RATIO 0.3
+# define CELL_BORDER   0x0d0d0d
+# define COLOR_WALL    0x1e1e24
+# define COLOR_FLOOR   0xdcbfa6
+# define COLOR_PLAYER  0x8b2e38
+# define COLOR_DOOR    0x9e5a44
+# define COLOR_EMPTY   0x9f8672
 
 #endif

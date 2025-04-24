@@ -1,13 +1,13 @@
 
 
-              NO               ./textures/no.xpm
+              NO               ./textures/wall1.xpm
          C 50,0,10
 F 0,10,    10
-        		EA     ./textures/ea.xpm
+        		EA     ./textures/wall2.xpm
 
-          SO                 ./textures/so.xpm
+          SO                 ./textures/wall3.xpm
 
-            WE      ./textures/we.xpm
+            WE      ./textures/wall4.xpm
 
 
 1111111

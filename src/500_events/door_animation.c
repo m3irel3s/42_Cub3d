@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   door_animation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:09:46 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 16:27:45 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/24 16:11:44 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static bool	ft_is_facing_door(t_game *game, t_door_data *door)
 		angle_diff -= 2 * M_PI;
 	while (angle_diff < -M_PI)
 		angle_diff += 2 * M_PI;
-	return (fabs(angle_diff) <= FOV_ANGLE);
+	return (fabs(angle_diff) <= (M_PI / 6));
 }
 
 /**

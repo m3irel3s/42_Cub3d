@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 13:00:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/24 10:53:49 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 16:59:54 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static bool	ft_is_blocked(t_game *game, double x, double y)
 	return (false);
 }
 
-static void	ft_move_player(t_game *game, double dx, double dy)
+void	ft_move_player(t_game *game, double dx, double dy)
 {
 	double	ox;
 	double	oy;
@@ -83,42 +83,4 @@ static void	ft_move_player(t_game *game, double dx, double dy)
 		else
 			game->player->pos_y = ny;
 	}
-}
-
-void	ft_move_forward(t_game *game, double move_speed)
-{
-	ft_move_player(game,
-		game->player->dir_x * move_speed,
-		game->player->dir_y * move_speed);
-}
-
-void	ft_move_backward(t_game *game, double move_speed)
-{
-	ft_move_player(game,
-		-game->player->dir_x * move_speed,
-		-game->player->dir_y * move_speed);
-}
-
-void	ft_move_left(t_game *game, double move_speed)
-{
-	double	perp_x;
-	double	perp_y;
-
-	perp_x = -game->player->dir_y;
-	perp_y = game->player->dir_x;
-	ft_move_player(game,
-		perp_x * move_speed,
-		perp_y * move_speed);
-}
-
-void	ft_move_right(t_game *game, double move_speed)
-{
-	double	perp_x;
-	double	perp_y;
-
-	perp_x = game->player->dir_y;
-	perp_y = -game->player->dir_x;
-	ft_move_player(game,
-		perp_x * move_speed,
-		perp_y * move_speed);
 }

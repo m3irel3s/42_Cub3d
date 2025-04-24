@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/24 15:52:35 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 16:53:18 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,9 @@ int			ft_handle_key(int key, t_game *game);
 int			ft_handle_key_release(int key, t_game *game);
 
 /* movements.c */
+void		ft_move_player(t_game *game, double dx, double dy);
+
+/* player_moves.c */
 void		ft_move_forward(t_game *game, double move_speed);
 void		ft_move_backward(t_game *game, double move_speed);
 void		ft_move_left(t_game *game, double move_speed);

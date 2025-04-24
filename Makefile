@@ -6,7 +6,7 @@
 #    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/24 11:24:18 by jmeirele         ###   ########.fr        #
+#    Updated: 2025/04/24 16:52:05 by jmeirele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,6 +119,7 @@ SRCS        = ${SRC_PATH}/main.c \
 				${EVENTS_PATH}/events.c \
 				${EVENTS_PATH}/rotations.c \
 				${EVENTS_PATH}/movements.c \
+				${EVENTS_PATH}/player_moves.c \
 				${EVENTS_PATH}/door_animation.c \
 				${EVENTS_PATH}/door_colision.c \
 				${EVENTS_PATH}/mouse_move.c \

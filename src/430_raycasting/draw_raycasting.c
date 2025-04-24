@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 22:14:50 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/24 11:18:02 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 16:07:05 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ static void	ft_calc_wall_dist(t_game *game, t_ray *ray)
 	if (ray->draw_end >= SCREEN_HEIGHT)
 		ray->draw_end = SCREEN_HEIGHT - 1;
 }
-
 
 /**
  * @brief Calculates the wall x side from the ray.

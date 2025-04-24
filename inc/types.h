@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:15:10 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/24 11:23:59 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 16:11:02 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,11 +164,11 @@ typedef struct s_minimap
 
 typedef struct s_door_data
 {
-	t_door state;
+	t_door	state;
 	int		frame;
 	int		frame_count;
-	t_point		pos;
-} t_door_data;
+	t_point	pos;
+}	t_door_data;
 
 /**
  * @brief 2D Map structure with grid and player start info.
@@ -246,7 +246,7 @@ typedef struct s_intro
 {
 	t_animation	animation;
 	bool		active;
-} t_intro;
+}	t_intro;
 
 /**
  * @brief Central game structure holding all necessary state and pointers.
