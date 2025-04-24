@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/23 15:58:25 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 11:43:35 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,6 +164,10 @@ void		ft_handle_gate_animation(t_game *game);
 /* door_colision.c */
 bool		ft_handle_door_collision(t_game *game, double new_x, double new_y);
 int			ft_find_gate_index(t_game *game, int x, int y);
+
+/* mouse_move.c */
+int			mouse_move_handler(int x, int y, t_game *game);
+
 //============================================================================//
 // ⬤  410_TEXTURES: Texture Management                                       //
 //============================================================================//
@@ -206,6 +210,5 @@ void		ft_free_arr(char **arr);
 
 /* quit_game.c */
 int			ft_quit_game(t_game *game);
-
 
 #endif

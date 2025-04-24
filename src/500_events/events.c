@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 13:30:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/23 16:10:36 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 11:44:11 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	ft_handle_key(int key, t_game *game)
 		ft_handle_gate_animation(game);
 	return (0);
 }
-
 
 /**
  * Handles key release events for the game. Currently, it only toggles the
