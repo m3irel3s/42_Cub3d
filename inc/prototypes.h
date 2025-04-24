@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/24 11:43:35 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:52:35 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ void		ft_set_floor_n_ceiling(t_game *game);
 void		ft_update_gates(t_game *game);
 
 /* display_minimap_bonus.c */
-void	ft_display_minimap(t_game *game);
+void		ft_display_minimap(t_game *game);
 
 /* color_utils.c */
 int			ft_rgb_to_hex(int r, int g, int b);
@@ -166,7 +166,7 @@ bool		ft_handle_door_collision(t_game *game, double new_x, double new_y);
 int			ft_find_gate_index(t_game *game, int x, int y);
 
 /* mouse_move.c */
-int			mouse_move_handler(int x, int y, t_game *game);
+int			ft_mouse_move_handler(int x, int y, t_game *game);
 
 //============================================================================//
 // ⬤  410_TEXTURES: Texture Management                                       //
