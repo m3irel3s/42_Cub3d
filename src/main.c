@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/23 15:58:35 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/23 22:20:25 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@
  */
 int	main(int argc, char **argv)
 {
-	(void)argv;
-	(void)argc;
-	t_game	*game;
+	(void) argv;
+	(void) argc;
+	t_game		*game;
 
 	game = NULL;
 	if (argc != 2)

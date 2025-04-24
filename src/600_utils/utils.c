@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:13:47 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 16:21:16 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/23 22:26:56 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	ft_array_len(char **arr)
 		i++;
 	return (i);
 }
-
 
 /**
  * @brief Returns the current time in milliseconds.

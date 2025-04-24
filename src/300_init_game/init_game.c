@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 15:12:01 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/24 11:30:31 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 11:45:10 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ static void	ft_init_graphics(t_game *game)
 	mlx_mouse_hide(game->mlx, game->win);
 	mlx_hook(game->win, MotionNotify, PointerMotionMask, mouse_move_handler, game);
 	mlx_hook(game->win, KeyPress, KeyPressMask, ft_handle_key, game);
-	mlx_hook(game->win, KeyRelease, KeyReleaseMask, ft_handle_key_release, game);
+	mlx_hook(game->win, KeyRelease, KeyReleaseMask,
+		ft_handle_key_release, game);
 	mlx_hook(game->win, 17, 1L << 17, &ft_quit_game, game);
 }
