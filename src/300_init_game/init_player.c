@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 15:07:22 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/22 11:02:11 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/24 11:51:57 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	ft_init_player(t_game *game)
 		ft_set_e_or_w_values(game, dir);
 	game->player->pos_x = (double)game->map->s_pos.x + 0.5;
 	game->player->pos_y = (double)game->map->s_pos.y + 0.5;
+	game->player->look_offset = 0;
 	return ;
 }
 
