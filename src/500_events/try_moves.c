@@ -3,15 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   try_moves.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 17:26:50 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/24 17:29:24 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:48:09 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
+/**
+ * @brief Attempts to move the player in the y direction by a given distance.
+ *
+ * If the destination is not blocked, the player is moved to the destination.
+ * If the destination is blocked by a closed door, the player is moved to
+ * the exact position of the door.
+ *
+ * @param game The game data structure.
+ * @param dy The distance to move the player in the y direction.
+ */
 void	ft_try_move_y(t_game *game, double dy)
 {
 	double	ox;
@@ -39,6 +49,16 @@ void	ft_try_move_y(t_game *game, double dy)
 	}
 }
 
+/**
+ * @brief Attempts to move the player in the x direction by a given distance.
+ *
+ * If the destination is not blocked, the player is moved to the destination.
+ * If the destination is blocked by a closed door, the player is moved to
+ * the exact position of the door.
+ *
+ * @param game The game data structure.
+ * @param dx The distance to move the player in the x direction.
+ */
 void	ft_try_move_x(t_game *game, double dx)
 {
 	double	ox;

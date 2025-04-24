@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/24 17:30:47 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:51:42 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,7 +173,6 @@ int			ft_find_gate_index(t_game *game, int x, int y);
 /* try_moves.c */
 void		ft_try_move_y(t_game *game, double dy);
 void		ft_try_move_x(t_game *game, double dx);
-
 
 /* mouse_move.c */
 int			ft_mouse_move_handler(int x, int y, t_game *game);

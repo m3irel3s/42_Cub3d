@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_move.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 10:53:37 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/24 17:14:09 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:48:12 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,21 @@
 
 static int	ft_handle_horizontal_movement(int delta_x, t_game *game);
 
+/**
+ * @brief Handles mouse movement by adjusting the player's direction and
+ * centering the mouse on the screen.
+ *
+ * This function is called whenever the mouse is moved. It first checks if it is
+ * the first call and if so, moves the mouse to the center of the screen. Then,
+ * it calculates the delta x and y coordinates of the mouse movement and calls
+ * ft_handle_horizontal_movement to adjust the player's direction. Finally, it
+ * moves the mouse back to the center of the screen.
+ *
+ * @param x The x-coordinate of the mouse.
+ * @param y The y-coordinate of the mouse.
+ * @param game The game structure containing rendering state.
+ * @return Always returns 0.
+ */
 int	ft_mouse_move_handler(int x, int y, t_game *game)
 {
 	int			center_x;
@@ -37,14 +52,24 @@ int	ft_mouse_move_handler(int x, int y, t_game *game)
 	return (0);
 }
 
+/**
+ * @brief Handles the horizontal movement of the mouse.
+ *
+ * This function adjusts the player's direction based on the horizontal
+ * movement of the mouse. It calculates the rotation angle using the delta
+ * x-coordinate and a predefined sensitivity factor, then applies the rotation
+ * to the player's view.
+ *
+ * @param delta_x The change in x-coordinate of the mouse.
+ * @param game Pointer to the game structure containing game data.
+ * @return Always returns 0.
+ */
 static int	ft_handle_horizontal_movement(int delta_x, t_game *game)
 {
 	float	sensitivity_x;
 
 	sensitivity_x = 0.0004;
 	if (delta_x != 0)
-	{
 		ft_rotate(game, delta_x * sensitivity_x);
-	}
 	return (0);
 }

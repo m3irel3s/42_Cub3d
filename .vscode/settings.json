@@ -2,7 +2,16 @@
 	"files.associations": {
 		"get_next_line.h": "c",
 		"cub3d.h": "c",
-		"array": "c"
+		"array": "c",
+		"__bit_reference": "c",
+		"__hash_table": "c",
+		"__split_buffer": "c",
+		"deque": "c",
+		"iterator": "c",
+		"string": "c",
+		"string_view": "c",
+		"unordered_map": "c",
+		"vector": "c"
 	},
 	"github.copilot.enable": {
 		"*": true,

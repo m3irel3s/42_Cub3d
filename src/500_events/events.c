@@ -96,15 +96,15 @@ static void	ft_handle_movement(int key, t_game *game, double move_speed)
 }
 
 /**
- * @brief Handles rotation based on key input.
+ * @brief Handles the player's rotation based on the given key press event.
  *
- * Adjusts the player's direction based on the key pressed. If the left arrow
- * key is pressed, the player rotates to the left. If the right arrow key is
- * pressed, the player rotates to the right. The speed of rotation is determined
- * by the rot_speed parameter.
+ * If the LEFT key is pressed, the player rotates to the left.
+ * If the RIGHT key is pressed, the player rotates to the right.
+ *
+ * The rotation speed is determined by the rot_speed parameter.
  *
  * @param key The key code of the pressed key.
- * @param game Pointer to the game structure containing the player's data.
+ * @param game Pointer to the game structure containing game data.
  * @param rot_speed The speed at which the player rotates.
  */
 static void	ft_handle_rotation(int key, t_game *game, double rot_speed)
