@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   draw_gate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 21:29:43 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 16:29:18 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:11:30 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
-static void	ft_draw_gate_loop(t_game *game, int x, t_drawdata *data, double perp_wall_dist);
+static void	ft_draw_gate_loop(t_game *game, int x, \
+	t_drawdata *data, double perp_wall_dist);
 static int	ft_get_pixel(t_img *texture, int x, int y);
 
 /**
@@ -22,13 +23,15 @@ static int	ft_get_pixel(t_img *texture, int x, int y);
  * @param ray The ray data structure containing the gate information.
  *
  * This function draws a gate at the specified x-coordinate using the texture
- * associated with the current frame of the gate. It calculates the texture x-coordinate
- * based on the ray's wall x position and adjusts it according to the side and direction
- * of the ray. It also calculates the step and texture position for vertical texture mapping.
+ * associated with the current frame of the gate. It calculates the texture
+ *  x-coordinate based on the ray's wall x position and adjusts it according 
+ * to the side and direction of the ray. It also calculates the step and 
+ * texture position for vertical texture mapping.
+ * 
  * The function then calls ft_draw_gate_loop to render the gate column.
  */
 
-void ft_draw_gate(t_game *game, int x, t_ray *ray)
+void	ft_draw_gate(t_game *game, int x, t_ray *ray)
 {
 	t_drawdata	data;
 	t_door_data	*door;
@@ -44,7 +47,8 @@ void ft_draw_gate(t_game *game, int x, t_ray *ray)
 	if (ray->side == 1 && ray->ray_dir_y < 0)
 		data.tex_x = data.texture->width - data.tex_x - 1;
 	data.step = 1.0 * data.texture->height / ray->line_height;
-	data.tex_pos = (ray->draw_start - SCREEN_HEIGHT / 2 + ray->line_height / 2) * data.step;
+	data.tex_pos = (ray->draw_start - SCREEN_HEIGHT / 2 + \
+		ray->line_height / 2) * data.step;
 	ft_draw_gate_loop(game, x, &data, ray->perp_wall_dist);
 }
 
@@ -60,7 +64,8 @@ void ft_draw_gate(t_game *game, int x, t_ray *ray)
  * the pixel on the screen at the given x and y coordinates. It skips drawing
  * if the pixel is black (0x000000).
  */
-static void	ft_draw_gate_loop(t_game *game, int x, t_drawdata *data, double perp_wall_dist)
+static void	ft_draw_gate_loop(t_game *game, int x, \
+	t_drawdata *data, double perp_wall_dist)
 {
 	int	y;
 	int	color;
@@ -87,7 +92,8 @@ static void	ft_draw_gate_loop(t_game *game, int x, t_drawdata *data, double perp
  * @param texture The texture structure containing the image data.
  * @param x The x-coordinate of the pixel to retrieve.
  * @param y The y-coordinate of the pixel to retrieve.
- * @return The color of the pixel as an integer, or 0 if the coordinates are out of bounds.
+ * @return The color of the pixel as an integer, or 0 if the coordinates 
+ * are out of bounds.
  */
 int	ft_get_pixel(t_img *texture, int x, int y)
 {

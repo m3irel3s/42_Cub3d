@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:16:22 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/23 22:20:25 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:14:47 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@
  */
 int	main(int argc, char **argv)
 {
-	(void) argv;
-	(void) argc;
 	t_game		*game;
 
+	(void)argv;
+	(void)argc;
 	game = NULL;
 	if (argc != 2)
 		return (ft_putstr_fd(INVALID_ARGUMENTS, 2), FAILURE);

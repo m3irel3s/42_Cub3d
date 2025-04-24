@@ -6,13 +6,19 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 13:00:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/24 16:59:54 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:30:39 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-static bool	ft_is_open_door(t_game *game, int x, int y)
+void	ft_move_player(t_game *game, double dx, double dy)
+{
+	ft_try_move_x(game, dx);
+	ft_try_move_y(game, dy);
+}
+
+bool	ft_is_open_door(t_game *game, int x, int y)
 {
 	int	idx;
 
@@ -24,7 +30,7 @@ static bool	ft_is_open_door(t_game *game, int x, int y)
 	return (false);
 }
 
-static bool	ft_is_blocked(t_game *game, double x, double y)
+bool	ft_is_blocked(t_game *game, double x, double y)
 {
 	int		map_x;
 	int		map_y;
@@ -32,8 +38,7 @@ static bool	ft_is_blocked(t_game *game, double x, double y)
 
 	map_x = (int)x;
 	map_y = (int)y;
-	if (map_y < 0 || map_y >= game->map->height
-		|| map_x < 0 || map_x >= (int)ft_strlen(game->map->grid[map_y]))
+	if (!ft_is_valid_cell(game, map_x, map_y))
 		return (true);
 	cell = game->map->grid[map_y][map_x];
 	if (cell == '1')
@@ -43,44 +48,10 @@ static bool	ft_is_blocked(t_game *game, double x, double y)
 	return (false);
 }
 
-void	ft_move_player(t_game *game, double dx, double dy)
+bool	ft_is_valid_cell(t_game *game, int x, int y)
 {
-	double	ox;
-	double	oy;
-	double	nx;
-	double	ny;
-	double	bx;
-	double	by;
-
-	ox = game->player->pos_x;
-	oy = game->player->pos_y;
-	nx = ox + dx;
-	ny = oy + dy;
-	if (!ft_is_blocked(game, nx, oy))
-	{
-		if ((int)nx != (int)ox && ft_is_open_door(game, (int)nx, (int)oy))
-		{
-			bx = nx + dx;
-			if (!ft_is_blocked(game, bx, oy))
-				game->player->pos_x = bx;
-			else
-				game->player->pos_x = nx;
-		}
-		else
-			game->player->pos_x = nx;
-	}
-	if (!ft_is_blocked(game, game->player->pos_x, ny))
-	{
-		if ((int)ny != (int)oy
-			&& ft_is_open_door(game, (int)game->player->pos_x, (int)ny))
-		{
-			by = ny + dy;
-			if (!ft_is_blocked(game, game->player->pos_x, by))
-				game->player->pos_y = by;
-			else
-				game->player->pos_y = ny;
-		}
-		else
-			game->player->pos_y = ny;
-	}
+	if (y < 0 || y >= game->map->height
+		|| x < 0 || x >= (int)ft_strlen(game->map->grid[y]))
+		return (false);
+	return (true);
 }

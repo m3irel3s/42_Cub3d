@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:56:43 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 11:56:48 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:04:18 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_draw_textured_wall_loop(t_game *game, int x,
 				t_drawdata *data);
-int	ft_compute_fog(double perp_wall_dist);
+int			ft_compute_fog(double perp_wall_dist);
 
 /**
  * @brief Draw a textured wall from the given ray.

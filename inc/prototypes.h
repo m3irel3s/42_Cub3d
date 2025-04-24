@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/24 17:01:49 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:30:47 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,9 @@ int			ft_handle_key_release(int key, t_game *game);
 
 /* movements.c */
 void		ft_move_player(t_game *game, double dx, double dy);
+bool		ft_is_blocked(t_game *game, double x, double y);
+bool		ft_is_open_door(t_game *game, int x, int y);
+bool		ft_is_valid_cell(t_game *game, int x, int y);
 
 /* player_moves.c */
 void		ft_move_forward(t_game *game, double move_speed);
@@ -166,6 +169,11 @@ void		ft_handle_gate_animation(t_game *game);
 /* door_colision.c */
 bool		ft_handle_door_collision(t_game *game, double new_x, double new_y);
 int			ft_find_gate_index(t_game *game, int x, int y);
+
+/* try_moves.c */
+void		ft_try_move_y(t_game *game, double dy);
+void		ft_try_move_x(t_game *game, double dx);
+
 
 /* mouse_move.c */
 int			ft_mouse_move_handler(int x, int y, t_game *game);
