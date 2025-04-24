@@ -6,7 +6,7 @@
 #    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/23 18:44:34 by jmeirele         ###   ########.fr        #
+#    Updated: 2025/04/24 11:57:40 by jmeirele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -255,7 +255,7 @@ test: all
 #------------------------------------------------------------------------------#
 
 test1: all
-	valgrind ${V_ARGS} ./${NAME} maps/valid_maps/tst.cub
+	valgrind ${V_ARGS} ./${NAME} maps/valid_maps/test.cub
 
 #------------------------------------------------------------------------------#
 #                                CLEANING RULES                                #
