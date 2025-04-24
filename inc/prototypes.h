@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:54:47 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/24 17:51:42 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/24 19:44:00 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

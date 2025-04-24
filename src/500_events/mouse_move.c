@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_move.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 10:53:37 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/24 17:48:12 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/24 19:45:41 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int	ft_mouse_move_handler(int x, int y, t_game *game)
 	int			center_x;
 	int			center_y;
 	int			delta_x;
-	int			delta_y;
 	static int	first_call;
 
+	(void)y;
 	center_x = SCREEN_WIDTH / 2;
 	center_y = SCREEN_HEIGHT / 2;
 	if (first_call)
@@ -46,7 +46,6 @@ int	ft_mouse_move_handler(int x, int y, t_game *game)
 		return (0);
 	}
 	delta_x = x - center_x;
-	delta_y = y - center_y;
 	ft_handle_horizontal_movement(delta_x, game);
 	mlx_mouse_move(game->mlx, game->win, center_x, center_y);
 	return (0);
