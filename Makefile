@@ -6,7 +6,7 @@
 #    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/25 14:39:49 by jmeirele         ###   ########.fr        #
+#    Updated: 2025/04/25 15:07:14 by jmeirele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,30 @@ $(BRED)╚═══════════════════════�
 $(RESET)
 endef
 export HEADER
+
+define HEADER_BONUS
+$(BOLD)$(BYEL)
+$(BRED) ╔════════════════════════════════════════════════╗
+$(BRED) ║  $(BRED)██████╗ $(BYEL)██╗   ██╗ $(BRED)██████╗  $(BYEL)██████╗  $(BRED)██████╗   $(BRED)║
+$(BRED) ║  $(BYEL)██╔══   $(BRED)██║   ██║ $(BYEL)██╔══██╗ $(BRED)╚════██╗ $(BYEL)██╔══██╗  $(BRED)║
+$(BRED) ║  $(BRED)██║     $(BYEL)██║   ██║ $(BRED)██████╔╝ $(BYEL) █████╔╝ $(BRED)██║  ██║  $(BRED)║
+$(BRED) ║  $(BYEL)██║     $(BRED)██║   ██║ $(BYEL)██╔══██╗ $(BRED) ╚═══██╗ $(BYEL)██║  ██║  $(BRED)║
+$(BRED) ║  $(BRED)██████╗ $(BYEL)╚██████╔╝ $(BRED)██████╔╝ $(BYEL)██████╔╝ $(BRED)██████╔╝  $(BRED)║
+$(BRED) ║  $(BYEL)╚═════╝ $(BRED) ╚═════╝  $(BYEL)╚═════╝  $(BRED)╚═════╝  $(BYEL)╚═════╝   $(BRED)║
+$(BRED) ╚════════════════════════════════════════════════╝
+$(BRED)╔═══════════════════════════════════════════════════╗
+$(BRED)║  $(BRED)██████╗  $(BYEL) ██████╗  $(BRED)███╗   ██╗ $(BYEL)██╗   ██╗ $(BRED)███████╗ $(BRED)║
+$(BRED)║  $(BYEL)██╔══██╗ $(BRED)██╔═══██╗ $(BYEL)████╗  ██║ $(BRED)██║   ██║ $(BYEL)██╔════╝ $(BRED)║
+$(BRED)║  $(BRED)██████╔╝ $(BYEL)██║   ██║ $(BRED)██╔██╗ ██║ $(BYEL)██║   ██║ $(BRED)███████╗ $(BRED)║
+$(BRED)║  $(BYEL)██╔══██╗ $(BRED)██║   ██║ $(BYEL)██║╚██╗██║ $(BRED)██║   ██║ $(BYEL)╚════██║ $(BRED)║
+$(BRED)║  $(BRED)██████╔╝ $(BYEL)╚██████╔╝ $(BRED)██║ ╚████║ $(BYEL)╚██████╔╝ $(BRED)███████║ $(BRED)║
+$(BRED)║  $(BYEL)╚═════╝   $(BRED)╚═════╝  $(BYEL)╚═╝  ╚═══╝  $(BRED)╚═════╝  $(BYEL)╚══════╝ $(BRED)║
+$(BRED)╚═══════════════════════════════════════════════════╝
+
+     Cub3D BONUS - Unleash the 3D Maze Experience!
+$(RESET)
+endef
+export HEADER_BONUS
 
 #------------------------------------------------------------------------------#
 #                                COLORS & STYLES                               #
@@ -88,7 +112,7 @@ INC_PATH         = inc
 
 HEADERS     = $(addprefix $(INC_PATH)/, ansi.h cub3d.h macros.h prototypes.h types.h)
 
-SRCS        = ${SRC_PATH}/main.c \
+SRCS          = ${SRC_PATH}/main.c \
 				${INIT_PATH}/init.c \
 				${PARSE_PATH}/parse.c \
 				${PARSE_PATH}/file_path.c \
@@ -147,7 +171,7 @@ INC_PATH_BONUS         = inc_bonus
 
 HEADERS_BONUS     = $(addprefix $(INC_PATH_BONUS)/, ansi_bonus.h cub3d_bonus.h macros_bonus.h prototypes_bonus.h types_bonus.h)
 
-SRCS_BONUS        = ${SRC_PATH_BONUS}/main_bonus.c \
+SRCS_BONUS    = ${SRC_PATH_BONUS}/main_bonus.c \
 				${INIT_PATH_BONUS}/init_bonus.c \
 				${PARSE_PATH_BONUS}/parse_bonus.c \
 				${PARSE_PATH_BONUS}/file_path_bonus.c \
@@ -161,21 +185,34 @@ SRCS_BONUS        = ${SRC_PATH_BONUS}/main_bonus.c \
 				${PARSE_PATH_BONUS}/map_utils_bonus.c \
 				${PARSE_PATH_BONUS}/map_closure_bonus.c \
 				${INIT_GAME_PATH_BONUS}/init_game_bonus.c \
+				${INIT_GAME_PATH_BONUS}/init_gates_bonus.c \
 				${INIT_GAME_PATH_BONUS}/init_player_bonus.c \
 				${RAYCAST_PATH_BONUS}/raycasting_bonus.c \
 				${RAYCAST_PATH_BONUS}/init_raycasting_bonus.c \
 				${RAYCAST_PATH_BONUS}/dda_raycasting_bonus.c \
 				${RAYCAST_PATH_BONUS}/draw_raycasting_bonus.c \
 				${DRAW_PATH_BONUS}/draw_bonus.c \
+				${DRAW_PATH_BONUS}/draw_gate_bonus.c \
+				${DRAW_PATH_BONUS}/draw_minimap_bonus.c \
+				${DRAW_PATH_BONUS}/draw_minimap_utils_bonus.c \
 				${TEXTURE_PATH_BONUS}/textures_bonus.c \
+				${TEXTURE_PATH_BONUS}/textures_gates_bonus.c \
+				${TEXTURE_PATH_BONUS}/textures_intro_bonus.c \
 				${RENDER_PATH_BONUS}/render_frame_bonus.c \
 				${RENDER_PATH_BONUS}/render_utils_bonus.c \
+				${RENDER_PATH_BONUS}/display_minimap_bonus_bonus.c \
+				${RENDER_PATH_BONUS}/display_gates_bonus.c \
 				${RENDER_PATH_BONUS}/render_gradient_bonus.c \
 				${RENDER_PATH_BONUS}/color_utils_bonus.c \
 				${RENDER_PATH_BONUS}/gradient_utils_bonus.c \
 				${EVENTS_PATH_BONUS}/events_bonus.c \
 				${EVENTS_PATH_BONUS}/rotations_bonus.c \
 				${EVENTS_PATH_BONUS}/movements_bonus.c \
+				${EVENTS_PATH_BONUS}/try_moves_bonus.c \
+				${EVENTS_PATH_BONUS}/player_moves_bonus.c \
+				${EVENTS_PATH_BONUS}/door_animation_bonus.c \
+				${EVENTS_PATH_BONUS}/door_colision_bonus.c \
+				${EVENTS_PATH_BONUS}/mouse_move_bonus.c \
 				${UTILS_PATH_BONUS}/utils_bonus.c \
 				${UTILS_PATH_BONUS}/safe_utils_bonus.c \
 				${CLEANUP_PATH_BONUS}/free_bonus.c \
@@ -184,7 +221,6 @@ SRCS_BONUS        = ${SRC_PATH_BONUS}/main_bonus.c \
 				${CLEANUP_PATH_BONUS}/quit_game_bonus.c \
 
 OBJS_BONUS        = $(SRCS_BONUS:$(SRC_PATH_BONUS)/%.c=$(BUILD_PATH_BONUS)/%.o)
-
 
 #------------------------------------------------------------------------------#
 #                             FLAGS & COMMANDS                                 #
@@ -214,7 +250,6 @@ LIBFT_INC   = -I$(LIBFT_PATH) -I$(MINILIBX_PATH)
 
 MAKE_LIBFT  = $(MAKE) -C $(LIBFT_PATH)
 
-# Valgrind options
 V_ARGS      = --leak-check=full --show-leak-kinds=all --track-fds=yes --track-origins=yes
 
 #------------------------------------------------------------------------------#
@@ -244,8 +279,12 @@ $(BUILD_PATH):
 		touch $(BUILD_PATH)/.banner_done; \
 	fi
 
+#------------------------------------------------------------------------------#
+#                                    BONUS                                     #
+#------------------------------------------------------------------------------#
+
 bonus: deps $(NAME_BONUS)
-	@echo "$$HEADER"
+	@echo "$$HEADER_BONUS"
 	@printf "${GREEN}${BOLD}${CHECK} Cub3D BONUS ready!${RESET}\n"
 
 $(NAME_BONUS): $(OBJS_BONUS) $(LIBFT_ARC) $(MLX_ARC) | $(BUILD_PATH_BONUS)
@@ -263,7 +302,9 @@ $(BUILD_PATH_BONUS):
 	@$(MKDIR) $(BUILD_PATH_BONUS)
 	@printf "${GREEN}${CHECK} Bonus build directory ready${RESET}\n"
 
-
+#------------------------------------------------------------------------------#
+#                                BUILD LIBS                                    #
+#------------------------------------------------------------------------------#
 
 $(LIBFT_ARC):
 	@printf "${CYAN}${BOLD}${BUILD} Building Libft...${RESET}\n"
@@ -346,7 +387,7 @@ test1: all
 
 clean:
 	@printf "${YELLOW}${BOLD}${CLEAN} Cleaning object files...${RESET}\n"
-	@$(RM) $(OBJS) $(BUILD_PATH)
+	@$(RM) $(OBJS) $(BUILD_PATH) $(OBJS_BONUS) $(BUILD_PATH_BONUS)
 	@if [ -d $(LIBFT_PATH) ]; then \
 		$(MAKE) -C $(LIBFT_PATH) clean; \
 	fi
@@ -357,7 +398,7 @@ clean:
 
 fclean: clean
 	@printf "${YELLOW}${BOLD}${CLEAN} Removing all build artifacts...${RESET}\n"
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(NAME_BONUS)
 	@if [ -d $(LIBFT_PATH) ]; then \
 		$(RM) $(LIBFT_PATH) $(MINILIBX_PATH); \
 	fi
