@@ -6,11 +6,11 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 22:13:53 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/25 14:14:37 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:34:57 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/cub3d_bonus.h"
+#include "../../inc_bonus/cub3d_bonus.h"
 
 static void	ft_update_ray_position(t_ray *ray);
 static void	ft_check_hit(t_game *game, t_ray *ray);

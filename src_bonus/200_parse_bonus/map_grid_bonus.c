@@ -6,11 +6,11 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 18:37:57 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/25 14:14:37 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:34:57 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/cub3d_bonus.h"
+#include "../../inc_bonus/cub3d_bonus.h"
 
 static void	ft_extract_map(t_game *game);
 static void	ft_find_holes(t_game *game);

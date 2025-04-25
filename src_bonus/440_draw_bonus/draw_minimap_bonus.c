@@ -6,11 +6,11 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 21:53:54 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/25 14:14:37 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:34:57 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/cub3d_bonus.h"
+#include "../../inc_bonus/cub3d_bonus.h"
 
 static void	ft_draw_player_circle(t_game *game, t_point center);
 static void	ft_draw_direction(t_game *game, t_point center);

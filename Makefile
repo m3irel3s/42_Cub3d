@@ -6,7 +6,7 @@
 #    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/23 18:44:34 by jmeirele         ###   ########.fr        #
+#    Updated: 2025/04/25 14:39:49 by jmeirele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@
 #==============================================================================#
 
 NAME        = cub3d
+NAME_BONUS  = cub3d_bonus
 
 #------------------------------------------------------------------------------#
 #                            CUBE3D PROJECT HEADER                             #
@@ -64,21 +65,26 @@ BYEL        = \033[1;33m
 #                             NAMES AND PATHS                                  #
 #------------------------------------------------------------------------------#
 
+LIBFT_PATH       = 42_Libft
+
+#------------------------------------------------------------------------------#
+#                              MANDATORY PART                                  #
+#------------------------------------------------------------------------------#
+
 BUILD_PATH       = .build
 SRC_PATH         = src
 INIT_PATH        = ${SRC_PATH}/100_init
 PARSE_PATH       = ${SRC_PATH}/200_parse
 INIT_GAME_PATH   = ${SRC_PATH}/300_init_game
-RAYCAST_PATH     = ${SRC_PATH}/430_raycasting
-DRAW_PATH        = ${SRC_PATH}/440_draw
 TEXTURE_PATH     = ${SRC_PATH}/410_textures
 RENDER_PATH      = ${SRC_PATH}/420_rendering
+RAYCAST_PATH     = ${SRC_PATH}/430_raycasting
+DRAW_PATH        = ${SRC_PATH}/440_draw
 EVENTS_PATH      = ${SRC_PATH}/500_events
 UTILS_PATH       = ${SRC_PATH}/600_utils
 CLEANUP_PATH     = ${SRC_PATH}/700_cleanup
 
 INC_PATH         = inc
-LIBFT_PATH       = 42_Libft
 
 HEADERS     = $(addprefix $(INC_PATH)/, ansi.h cub3d.h macros.h prototypes.h types.h)
 
@@ -119,6 +125,66 @@ SRCS        = ${SRC_PATH}/main.c \
 				${CLEANUP_PATH}/quit_game.c \
 
 OBJS        = $(SRCS:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
+
+#------------------------------------------------------------------------------#
+#                                 BONUS PART                                   #
+#------------------------------------------------------------------------------#
+
+BUILD_PATH_BONUS       = .build_bonus
+SRC_PATH_BONUS         = src_bonus
+INIT_PATH_BONUS        = ${SRC_PATH_BONUS}/100_init_bonus
+PARSE_PATH_BONUS       = ${SRC_PATH_BONUS}/200_parse_bonus
+INIT_GAME_PATH_BONUS   = ${SRC_PATH_BONUS}/300_init_game_bonus
+TEXTURE_PATH_BONUS     = ${SRC_PATH_BONUS}/410_textures_bonus
+RENDER_PATH_BONUS      = ${SRC_PATH_BONUS}/420_rendering_bonus
+RAYCAST_PATH_BONUS     = ${SRC_PATH_BONUS}/430_raycasting_bonus
+DRAW_PATH_BONUS        = ${SRC_PATH_BONUS}/440_draw_bonus
+EVENTS_PATH_BONUS      = ${SRC_PATH_BONUS}/500_events_bonus
+UTILS_PATH_BONUS       = ${SRC_PATH_BONUS}/600_utils_bonus
+CLEANUP_PATH_BONUS     = ${SRC_PATH_BONUS}/700_cleanup_bonus
+
+INC_PATH_BONUS         = inc_bonus
+
+HEADERS_BONUS     = $(addprefix $(INC_PATH_BONUS)/, ansi_bonus.h cub3d_bonus.h macros_bonus.h prototypes_bonus.h types_bonus.h)
+
+SRCS_BONUS        = ${SRC_PATH_BONUS}/main_bonus.c \
+				${INIT_PATH_BONUS}/init_bonus.c \
+				${PARSE_PATH_BONUS}/parse_bonus.c \
+				${PARSE_PATH_BONUS}/file_path_bonus.c \
+				${PARSE_PATH_BONUS}/cub_file_bonus.c \
+				${PARSE_PATH_BONUS}/headers_bonus.c \
+				${PARSE_PATH_BONUS}/headers_2_bonus.c \
+				${PARSE_PATH_BONUS}/headers_colors_bonus.c \
+				${PARSE_PATH_BONUS}/headers_paths_bonus.c \
+				${PARSE_PATH_BONUS}/parse_utils_bonus.c \
+				${PARSE_PATH_BONUS}/map_grid_bonus.c \
+				${PARSE_PATH_BONUS}/map_utils_bonus.c \
+				${PARSE_PATH_BONUS}/map_closure_bonus.c \
+				${INIT_GAME_PATH_BONUS}/init_game_bonus.c \
+				${INIT_GAME_PATH_BONUS}/init_player_bonus.c \
+				${RAYCAST_PATH_BONUS}/raycasting_bonus.c \
+				${RAYCAST_PATH_BONUS}/init_raycasting_bonus.c \
+				${RAYCAST_PATH_BONUS}/dda_raycasting_bonus.c \
+				${RAYCAST_PATH_BONUS}/draw_raycasting_bonus.c \
+				${DRAW_PATH_BONUS}/draw_bonus.c \
+				${TEXTURE_PATH_BONUS}/textures_bonus.c \
+				${RENDER_PATH_BONUS}/render_frame_bonus.c \
+				${RENDER_PATH_BONUS}/render_utils_bonus.c \
+				${RENDER_PATH_BONUS}/render_gradient_bonus.c \
+				${RENDER_PATH_BONUS}/color_utils_bonus.c \
+				${RENDER_PATH_BONUS}/gradient_utils_bonus.c \
+				${EVENTS_PATH_BONUS}/events_bonus.c \
+				${EVENTS_PATH_BONUS}/rotations_bonus.c \
+				${EVENTS_PATH_BONUS}/movements_bonus.c \
+				${UTILS_PATH_BONUS}/utils_bonus.c \
+				${UTILS_PATH_BONUS}/safe_utils_bonus.c \
+				${CLEANUP_PATH_BONUS}/free_bonus.c \
+				${CLEANUP_PATH_BONUS}/free_parse_bonus.c \
+				${CLEANUP_PATH_BONUS}/free_utils_bonus.c \
+				${CLEANUP_PATH_BONUS}/quit_game_bonus.c \
+
+OBJS_BONUS        = $(SRCS_BONUS:$(SRC_PATH_BONUS)/%.c=$(BUILD_PATH_BONUS)/%.o)
+
 
 #------------------------------------------------------------------------------#
 #                             FLAGS & COMMANDS                                 #
@@ -178,6 +244,27 @@ $(BUILD_PATH):
 		touch $(BUILD_PATH)/.banner_done; \
 	fi
 
+bonus: deps $(NAME_BONUS)
+	@echo "$$HEADER"
+	@printf "${GREEN}${BOLD}${CHECK} Cub3D BONUS ready!${RESET}\n"
+
+$(NAME_BONUS): $(OBJS_BONUS) $(LIBFT_ARC) $(MLX_ARC) | $(BUILD_PATH_BONUS)
+	@printf "${CYAN}${DIM}Linking cub3d_bonus...${RESET}\n"
+	@$(CC) $(CFLAGS) $(OBJS_BONUS) $(LDFLAGS) $(MLXFLAGS) -o $@
+	@printf "${GREEN}${BOLD}${CHECK} Cube3D BONUS compiled!${RESET}\n"
+
+$(BUILD_PATH_BONUS)/%.o: $(SRC_PATH_BONUS)/%.c $(HEADERS_BONUS) | $(BUILD_PATH_BONUS)
+	@$(MKDIR) $(@D)
+	@printf "${CYAN}${DIM}Compiling BONUS: ${WHITE}%-35s${RESET}\r" "$(notdir $<)"
+	@$(CC) $(CFLAGS) -I$(INC_PATH_BONUS) -c $< -o $@
+
+$(BUILD_PATH_BONUS):
+	@printf "${BLUE}${BOLD}${BUILD} Creating bonus build directory...${RESET}\n"
+	@$(MKDIR) $(BUILD_PATH_BONUS)
+	@printf "${GREEN}${CHECK} Bonus build directory ready${RESET}\n"
+
+
+
 $(LIBFT_ARC):
 	@printf "${CYAN}${BOLD}${BUILD} Building Libft...${RESET}\n"
 	@$(MAKE_LIBFT)
@@ -196,6 +283,10 @@ deps: check_tools
 	@if [ ! -d "$(MINILIBX_PATH)" ]; then \
 		$(MAKE) get_minilibx; \
 	fi
+
+#------------------------------------------------------------------------------#
+#                             GET EXTERNAL LIBS                                #
+#------------------------------------------------------------------------------#
 
 get_libft:
 	@printf "${CYAN}${BOLD}${BOOK} Cloning Libft...${RESET}\n"
@@ -218,19 +309,11 @@ get_minilibx:
 #                                TESTING RULES                                 #
 #------------------------------------------------------------------------------#
 
+ARGS        = maps/valid_maps/test.cub
+
 val: deps $(NAME)
 	@printf "${BLUE}${BOLD}Running Valgrind...${RESET}\n"
-	@valgrind $(V_ARGS) ./$(NAME)
-
-vgdb: deps $(NAME)
-	@printf "${BLUE}${BOLD}Running Valgrind with GDB...${RESET}\n"
-	@valgrind --vgdb-error=0 $(V_ARGS) ./$(NAME)
-
-# gdb: all
-# 	@printf "${BLUE}${BOLD}Launching GDB...${RESET}\n"
-# 	@gdb -tui -q ./$(NAME) -x .gdbinit
-
-ARGS        = maps/valid_maps/test.cub
+	@valgrind $(V_ARGS) ./$(NAME) {ARGS}
 
 gdb: all $(NAME)
 	tmux split-window -h "gdb --tui --args ./$(NAME) $(ARGS)"

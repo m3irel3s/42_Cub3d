@@ -6,11 +6,11 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 17:58:08 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/25 14:14:37 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:34:57 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/cub3d_bonus.h"
+#include "../../inc_bonus/cub3d_bonus.h"
 
 static int	ft_valid_map_line(t_game *game, char *line);
 static int	ft_are_valid_map_chars(char c);

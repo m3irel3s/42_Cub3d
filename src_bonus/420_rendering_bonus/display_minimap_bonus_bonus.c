@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/cub3d_bonus.h"
+#include "../../inc_bonus/cub3d_bonus.h"
 
 static void	ft_calc_minimap_scale(t_game *game);
 static void	ft_scale_minimap(t_game *game, t_img *orig_img);
