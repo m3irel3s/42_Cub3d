@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_path.c                                        :+:      :+:    :+:   */
+/*   file_path_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:31:22 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/23 17:44:28 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:14:37 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/cub3d.h"
+#include "../../inc/cub3d_bonus.h"
 
 /**
  * @brief Verifies if the file path passed as argument to the program has a

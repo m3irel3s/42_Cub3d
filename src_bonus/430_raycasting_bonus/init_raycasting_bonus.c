@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_raycasting.c                                  :+:      :+:    :+:   */
+/*   init_raycasting_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 12:30:00 by meferraz          #+#    #+#             */
-/*   Updated: 2025/04/22 13:49:36 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:14:37 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/cub3d.h"
+#include "../../inc/cub3d_bonus.h"
 
 static void	ft_init_step_x(t_game *game, t_ray *ray);
 static void	ft_init_step_y(t_game *game, t_ray *ray);

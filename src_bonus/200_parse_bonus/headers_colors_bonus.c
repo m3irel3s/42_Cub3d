@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   headers_colors.c                                   :+:      :+:    :+:   */
+/*   headers_colors_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 16:04:54 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/23 15:59:16 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:14:37 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/cub3d.h"
+#include "../../inc/cub3d_bonus.h"
 
 static void	ft_parse_color(t_game *game, t_rgb *set_color, char *color);
 static int	ft_parse_rgb(t_game *game, char *str, char **res);
