@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 15:12:01 by jmeirele          #+#    #+#             */
-/*   Updated: 2025/04/25 14:52:54 by jmeirele         ###   ########.fr       */
+/*   Updated: 2025/04/26 09:51:11 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ static void	ft_init_graphics(t_game *game)
 	ft_load_textures(game);
 	game->intro->active = true;
 	mlx_loop_hook(game->mlx, ft_render_next_frame, game);
-	mlx_mouse_hide(game->mlx, game->win);
 	mlx_hook(game->win, MotionNotify, PointerMotionMask, \
 		ft_mouse_move_handler, game);
 	mlx_hook(game->win, KeyPress, KeyPressMask, ft_handle_key, game);
