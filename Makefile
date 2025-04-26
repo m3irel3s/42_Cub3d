@@ -6,7 +6,7 @@
 #    By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 16:57:53 by meferraz          #+#    #+#              #
-#    Updated: 2025/04/26 09:52:25 by jmeirele         ###   ########.fr        #
+#    Updated: 2025/04/26 14:15:43 by jmeirele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@
 #                              CUBE3D PROJECT                                  #
 #==============================================================================#
 
-NAME        = cub3d
-NAME_BONUS  = cub3d_bonus
+NAME        = cub3D
+NAME_BONUS  = cub3D_bonus
 
 #------------------------------------------------------------------------------#
 #                            CUBE3D PROJECT HEADER                             #
@@ -90,6 +90,7 @@ BYEL        = \033[1;33m
 #------------------------------------------------------------------------------#
 
 LIBFT_PATH       = 42_Libft
+LIB_PATH         = lib
 
 #------------------------------------------------------------------------------#
 #                              MANDATORY PART                                  #
@@ -233,13 +234,14 @@ MKDIR       = mkdir -p
 INCLUDES    = -I$(INC_PATH)
 LDFLAGS     = -L$(LIBFT_PATH) -lft
 
+
 UNAME_S := $(shell uname -s)
 
 ifeq ($(UNAME_S),Darwin)
-	MINILIBX_PATH := lib/minilibx
+	MINILIBX_PATH := $(LIB_PATH)/minilibx
 	MLXFLAGS := -L$(MINILIBX_PATH) -lmlx -framework OpenGL -framework AppKit
 else
-	MINILIBX_PATH := lib/minilibx
+	MINILIBX_PATH := $(LIB_PATH)/minilibx
 	MLXFLAGS := -L$(MINILIBX_PATH) -lmlx_Linux -lXext -lX11 -lm
 endif
 
@@ -341,7 +343,7 @@ get_minilibx:
 		printf "${GREEN}${BOLD}${CHECK} MinilibX downloaded${RESET}\n"; \
 		printf "${GREEN}${BOLD}${CHECK} MinilibX ready${RESET}\n"; \
 	else \
-		git clone https://github.com/melaniereis/minilibx-linux.git $(MINILIBX_PATH) || (printf "${RED}${BOLD}${CROSS} Failed to clone MinilibX${RESET}\n" && exit 1); \
+		git clone https://github.com/42paris/minilibx-linux.git $(MINILIBX_PATH) || (printf "${RED}${BOLD}${CROSS} Failed to clone MinilibX${RESET}\n" && exit 1); \
 		printf "${GREEN}${BOLD}${CHECK} MinilibX downloaded${RESET}\n"; \
 		printf "${GREEN}${BOLD}${CHECK} MinilibX ready${RESET}\n"; \
 	fi
@@ -398,7 +400,7 @@ clean:
 
 fclean: clean
 	@printf "${YELLOW}${BOLD}${CLEAN} Removing all build artifacts...${RESET}\n"
-	@$(RM) $(NAME) $(NAME_BONUS)
+	@$(RM) $(NAME) $(NAME_BONUS) $(LIB_PATH)
 	@if [ -d $(LIBFT_PATH) ]; then \
 		$(RM) $(LIBFT_PATH) $(MINILIBX_PATH); \
 	fi
