@@ -33,17 +33,18 @@ Cub3D’s purpose is to teach basic 3D rendering using the raycasting technique.
 - **Error handling**: proper exit on bad input or file format (e.g. missing textures, invalid map).
 
 ### Bonus  
-- **Doors (`D`)**: opening/closing doors in the map (toggled with a key).  
-- **Bonus maps**: extra maps with challenges (e.g. multiple rooms or levels).  
-- **BMP Screenshot**: ability to save a screenshot (as a .bmp file) using a command-line flag.  
-- **Additional polish**: (optional) features like a miniboss, moving sprites, or a HUD (if implemented).
+- **Doors (D)**: open and close doors in the map with collision detection.
+- **Animated Sprites**: door opening and other visual elements include sprite animations.
+- **Animated Introduction**: an intro animation runs before entering the game.
+- **Mouse Hook Handling**: rotate view using mouse movement for smoother gameplay.
+- **Minimap Display**: toggleable minimap showing walls, player position, and surroundings.
 
 ## 📦 Installation
 
 Clone and compile the project with:
 
 ```bash
-git clone https://github.com/yourusername/cub3d.git
+git clone https://github.com/m3irel3s/42_Cub3d.git
 cd cub3d
 make            # compile mandatory part
 make bonus      # (optional) compile bonus features if implemented
