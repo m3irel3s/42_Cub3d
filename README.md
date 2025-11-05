@@ -151,11 +151,6 @@ C  225, 30,  0   # Ceiling color (R,G,B)
 
 ---
 
-### 🖼️ Showcase
-*Add screenshots or GIFs later on.*
-
----
-
 ### 🤝 Contributors
 This project was completed collaboratively by our 42 team.  
 All members contributed to parsing, the game engine, and testing.  
